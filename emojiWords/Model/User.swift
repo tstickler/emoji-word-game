@@ -1,0 +1,28 @@
+//
+//  User.swift
+//  emojiWords
+//
+//  Created by Tyler Stickler on 4/4/19.
+//  Copyright © 2019 Tyler Stickler. All rights reserved.
+//
+import Foundation
+
+class User: NSObject {
+    static let shared = User()
+    let gemKey = "gem_count_key"
+    let soundKey = "sound_effects_key"
+    let completedLevelsKey = "completed_levels_key"
+    let unlockedLevelPacksKey = "unlocked_packs_key"
+    
+    var gemCount: Int!
+    var prefersSoundEffects: Bool!
+    var completedLevels: [String: [Int]]!
+    var unlockedLevelPacks: [String]!
+
+    private override init() {
+        gemCount = GameData.defaults.object(forKey: gemKey) as? Int ?? 100
+        prefersSoundEffects = GameData.defaults.object(forKey: soundKey) as? Bool ?? true
+        completedLevels = GameData.defaults.dictionary(forKey: completedLevelsKey) as? [String: [Int]] ?? [String: [Int]]()
+        unlockedLevelPacks = GameData.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["watermelon", "avocado", "pineapple"]
+    }
+}

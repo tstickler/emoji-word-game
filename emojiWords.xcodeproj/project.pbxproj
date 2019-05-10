@@ -7,21 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F315ABA62284A2CB00C19D94 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F315ABA52284A2CB00C19D94 /* music.mp3 */; };
+		F315ABA92284A51F00C19D94 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F315ABA82284A51F00C19D94 /* AudioPlayer.swift */; };
+		F315ABAB2284A77D00C19D94 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F315ABAA2284A77C00C19D94 /* correct.mp3 */; };
+		F315ABAD2284A7D400C19D94 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = F315ABAC2284A7D400C19D94 /* click.wav */; };
+		F3257C1A2283633E007AEC6C /* LevelPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3257C192283633E007AEC6C /* LevelPopUpDelegate.swift */; };
+		F3257C1C22836C9D007AEC6C /* InAppPurchaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */; };
+		F32BE04A224EA05600931BF3 /* PopUpInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32BE049224EA05600931BF3 /* PopUpInformationView.swift */; };
+		F32C30602256A3D100B973E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C305F2256A3D100B973E0 /* User.swift */; };
+		F32C30622258030400B973E0 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C30612258030400B973E0 /* LevelsViewController.swift */; };
+		F34B3CDE2273735F004F4360 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34B3CDD2273735F004F4360 /* MenuView.swift */; };
+		F35663A92280B90E00FCAF5F /* InAppPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35663A82280B90E00FCAF5F /* InAppPurchase.swift */; };
+		F35663AB2281FF9700FCAF5F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35663AA2281FF9700FCAF5F /* HomeViewController.swift */; };
+		F36A4004224427F80049DDBD /* SegementedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A4003224427F80049DDBD /* SegementedCircleView.swift */; };
+		F3732EFA22457F0D00E5E309 /* EmojiOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3732EF922457F0D00E5E309 /* EmojiOne.ttf */; };
+		F3732EFC2248A30200E5E309 /* WordGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3732EFB2248A30200E5E309 /* WordGame.swift */; };
+		F3732EFE2248A3A300E5E309 /* WordGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3732EFD2248A3A300E5E309 /* WordGameDelegate.swift */; };
+		F3732F002248A66400E5E309 /* EmojiClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3732EFF2248A66400E5E309 /* EmojiClue.swift */; };
+		F3738B9A228009CC009FFFF5 /* HintPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3738B99228009CC009FFFF5 /* HintPopUpDelegate.swift */; };
+		F38FD3F82278F5A500E43F10 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FD3F72278F5A500E43F10 /* MenuButton.swift */; };
 		F3939C48224408F1009133BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3939C47224408F1009133BD /* AppDelegate.swift */; };
-		F3939C4A224408F1009133BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3939C49224408F1009133BD /* ViewController.swift */; };
+		F3939C4A224408F1009133BD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3939C49224408F1009133BD /* GameViewController.swift */; };
 		F3939C4D224408F1009133BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3939C4B224408F1009133BD /* Main.storyboard */; };
 		F3939C4F224408F4009133BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3939C4E224408F4009133BD /* Assets.xcassets */; };
 		F3939C52224408F4009133BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3939C50224408F4009133BD /* LaunchScreen.storyboard */; };
+		F3BE511B226E3EBD00B95BE8 /* PopUpLevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE511A226E3EBD00B95BE8 /* PopUpLevelsView.swift */; };
+		F3CD230D2277B8DA003E220E /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD230C2277B8DA003E220E /* MenuDelegate.swift */; };
+		F3E602C62244137C003E7F8D /* VTC-GarageSale.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E602C52244137C003E7F8D /* VTC-GarageSale.ttf */; };
+		F3F0D53C226C102F00128092 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0D53B226C102F00128092 /* GameData.swift */; };
+		F3F390242254098F00412B1D /* master.json in Resources */ = {isa = PBXBuildFile; fileRef = F3F390232254098F00412B1D /* master.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F315ABA52284A2CB00C19D94 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		F315ABA82284A51F00C19D94 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		F315ABAA2284A77C00C19D94 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		F315ABAC2284A7D400C19D94 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
+		F3257C192283633E007AEC6C /* LevelPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpDelegate.swift; sourceTree = "<group>"; };
+		F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseDelegate.swift; sourceTree = "<group>"; };
+		F32BE049224EA05600931BF3 /* PopUpInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpInformationView.swift; sourceTree = "<group>"; };
+		F32C305F2256A3D100B973E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F32C30612258030400B973E0 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		F34B3CDD2273735F004F4360 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		F35663A82280B90E00FCAF5F /* InAppPurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchase.swift; sourceTree = "<group>"; };
+		F35663AA2281FF9700FCAF5F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F36A4003224427F80049DDBD /* SegementedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegementedCircleView.swift; sourceTree = "<group>"; };
+		F3732EF922457F0D00E5E309 /* EmojiOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EmojiOne.ttf; sourceTree = "<group>"; };
+		F3732EFB2248A30200E5E309 /* WordGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGame.swift; sourceTree = "<group>"; };
+		F3732EFD2248A3A300E5E309 /* WordGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameDelegate.swift; sourceTree = "<group>"; };
+		F3732EFF2248A66400E5E309 /* EmojiClue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiClue.swift; sourceTree = "<group>"; };
+		F3738B99228009CC009FFFF5 /* HintPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPopUpDelegate.swift; sourceTree = "<group>"; };
+		F38FD3F72278F5A500E43F10 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		F3939C44224408F1009133BD /* emojiWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emojiWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3939C47224408F1009133BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3939C49224408F1009133BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F3939C49224408F1009133BD /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F3939C4C224408F1009133BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3939C4E224408F4009133BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3939C51224408F4009133BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3939C53224408F4009133BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3BE511A226E3EBD00B95BE8 /* PopUpLevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLevelsView.swift; sourceTree = "<group>"; };
+		F3CD230C2277B8DA003E220E /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
+		F3E602C52244137C003E7F8D /* VTC-GarageSale.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VTC-GarageSale.ttf"; sourceTree = "<group>"; };
+		F3F0D53B226C102F00128092 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		F3F390232254098F00412B1D /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = master.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +83,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3257C1E22849C3D007AEC6C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F315ABA52284A2CB00C19D94 /* music.mp3 */,
+				F315ABAA2284A77C00C19D94 /* correct.mp3 */,
+				F315ABAC2284A7D400C19D94 /* click.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		F35663A72280B90200FCAF5F /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				F35663A82280B90E00FCAF5F /* InAppPurchase.swift */,
+				F315ABA82284A51F00C19D94 /* AudioPlayer.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		F36A4000224427B90049DDBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3732EFB2248A30200E5E309 /* WordGame.swift */,
+				F3732EFF2248A66400E5E309 /* EmojiClue.swift */,
+				F32C305F2256A3D100B973E0 /* User.swift */,
+				F3F0D53B226C102F00128092 /* GameData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F36A4001224427C40049DDBD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F36A4003224427F80049DDBD /* SegementedCircleView.swift */,
+				F32BE049224EA05600931BF3 /* PopUpInformationView.swift */,
+				F3BE511A226E3EBD00B95BE8 /* PopUpLevelsView.swift */,
+				F34B3CDD2273735F004F4360 /* MenuView.swift */,
+				F38FD3F72278F5A500E43F10 /* MenuButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F36A4002224427CC0049DDBD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F35663AA2281FF9700FCAF5F /* HomeViewController.swift */,
+				F32C30612258030400B973E0 /* LevelsViewController.swift */,
+				F3939C49224408F1009133BD /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F3939C3B224408F1009133BD = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +154,42 @@
 		F3939C46224408F1009133BD /* emojiWords */ = {
 			isa = PBXGroup;
 			children = (
+				F3257C1E22849C3D007AEC6C /* Sounds */,
+				F35663A72280B90200FCAF5F /* Misc */,
+				F3CD230B2277B87D003E220E /* Delegates */,
+				F3C0AE8922457B4300D26F79 /* Fonts */,
+				F36A4000224427B90049DDBD /* Model */,
+				F36A4001224427C40049DDBD /* View */,
+				F36A4002224427CC0049DDBD /* Controller */,
 				F3939C47224408F1009133BD /* AppDelegate.swift */,
-				F3939C49224408F1009133BD /* ViewController.swift */,
 				F3939C4B224408F1009133BD /* Main.storyboard */,
 				F3939C4E224408F4009133BD /* Assets.xcassets */,
 				F3939C50224408F4009133BD /* LaunchScreen.storyboard */,
+				F3F390232254098F00412B1D /* master.json */,
 				F3939C53224408F4009133BD /* Info.plist */,
 			);
 			path = emojiWords;
+			sourceTree = "<group>";
+		};
+		F3C0AE8922457B4300D26F79 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F3E602C52244137C003E7F8D /* VTC-GarageSale.ttf */,
+				F3732EF922457F0D00E5E309 /* EmojiOne.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F3CD230B2277B87D003E220E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				F3732EFD2248A3A300E5E309 /* WordGameDelegate.swift */,
+				F3CD230C2277B8DA003E220E /* MenuDelegate.swift */,
+				F3738B99228009CC009FFFF5 /* HintPopUpDelegate.swift */,
+				F3257C192283633E007AEC6C /* LevelPopUpDelegate.swift */,
+				F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +250,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F315ABAD2284A7D400C19D94 /* click.wav in Resources */,
+				F3E602C62244137C003E7F8D /* VTC-GarageSale.ttf in Resources */,
+				F3F390242254098F00412B1D /* master.json in Resources */,
 				F3939C52224408F4009133BD /* LaunchScreen.storyboard in Resources */,
+				F315ABAB2284A77D00C19D94 /* correct.mp3 in Resources */,
 				F3939C4F224408F4009133BD /* Assets.xcassets in Resources */,
 				F3939C4D224408F1009133BD /* Main.storyboard in Resources */,
+				F315ABA62284A2CB00C19D94 /* music.mp3 in Resources */,
+				F3732EFA22457F0D00E5E309 /* EmojiOne.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +269,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3939C4A224408F1009133BD /* ViewController.swift in Sources */,
+				F3257C1A2283633E007AEC6C /* LevelPopUpDelegate.swift in Sources */,
+				F32C30622258030400B973E0 /* LevelsViewController.swift in Sources */,
+				F35663A92280B90E00FCAF5F /* InAppPurchase.swift in Sources */,
+				F3CD230D2277B8DA003E220E /* MenuDelegate.swift in Sources */,
+				F35663AB2281FF9700FCAF5F /* HomeViewController.swift in Sources */,
+				F38FD3F82278F5A500E43F10 /* MenuButton.swift in Sources */,
+				F34B3CDE2273735F004F4360 /* MenuView.swift in Sources */,
+				F315ABA92284A51F00C19D94 /* AudioPlayer.swift in Sources */,
+				F3732EFE2248A3A300E5E309 /* WordGameDelegate.swift in Sources */,
+				F3257C1C22836C9D007AEC6C /* InAppPurchaseDelegate.swift in Sources */,
+				F3939C4A224408F1009133BD /* GameViewController.swift in Sources */,
+				F3732EFC2248A30200E5E309 /* WordGame.swift in Sources */,
+				F3F0D53C226C102F00128092 /* GameData.swift in Sources */,
+				F36A4004224427F80049DDBD /* SegementedCircleView.swift in Sources */,
+				F32C30602256A3D100B973E0 /* User.swift in Sources */,
+				F32BE04A224EA05600931BF3 /* PopUpInformationView.swift in Sources */,
+				F3732F002248A66400E5E309 /* EmojiClue.swift in Sources */,
+				F3738B9A228009CC009FFFF5 /* HintPopUpDelegate.swift in Sources */,
+				F3BE511B226E3EBD00B95BE8 /* PopUpLevelsView.swift in Sources */,
 				F3939C48224408F1009133BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
