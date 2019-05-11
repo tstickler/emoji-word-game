@@ -29,16 +29,21 @@ class AudioPlayer {
             musicPlayer.volume = 0
             musicPlayer.prepareToPlay()
             musicPlayer.play()
-            musicPlayer.setVolume(0.3, fadeDuration: 1.0)
+            if User.shared.prefersSoundEffects {
+                musicPlayer.setVolume(0.3, fadeDuration: 1.0)
+            }
             
             audioPlayer = musicPlayer
-            
         } catch {
             print(error)
         }
     }
     
     func playSoundEffect(soundEffect sound: String, ext: String) {
+        if !User.shared.prefersSoundEffects {
+            return
+        }
+        
         if let soundURL = Bundle.main.url(forResource: sound, withExtension: ext) {
             var soundID: SystemSoundID = 1
             

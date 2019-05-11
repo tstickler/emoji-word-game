@@ -21,7 +21,6 @@ enum IAP: String {
     case LemonPack          = "com.tstick.Spinmoji.LemonPack"
     case StrawberryPack     = "com.tstick.Spinmoji.StrawberryPack"
     case GrapesPack         = "com.tstick.Spinmoji.GrapesPack"
-    case RemoveAds          = "com.tstick.Spinmoji.ThreeHints"
 }
 
 class InAppPurchase: NSObject {
@@ -41,7 +40,7 @@ class InAppPurchase: NSObject {
         // Gets products from itunes connect
         let products: Set = [IAP.OneHundredGems.rawValue, IAP.TwoFiftyGems.rawValue,
                              IAP.SevenFiftyGems.rawValue, IAP.TwoThousandGems.rawValue,
-                             IAP.FiveThousandGems.rawValue, IAP.RemoveAds.rawValue]
+                             IAP.FiveThousandGems.rawValue]
         
         let request = SKProductsRequest(productIdentifiers: products)
         request.delegate = self
@@ -124,8 +123,6 @@ class InAppPurchase: NSObject {
         case IAP.TwoThousandGems.rawValue:
             break
         case IAP.FiveThousandGems.rawValue:
-            break
-        case IAP.RemoveAds.rawValue:
             break
         default:
             print("Unknown purchase identifier")

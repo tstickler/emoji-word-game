@@ -189,10 +189,12 @@ class GameViewController: UIViewController {
         menu!.delegate = self
         view.addSubview(menu!)
 
+        AudioPlayer.shared.playSoundEffect(soundEffect: "menuOpen", ext: "mp3")
         animateMenu(isShowing: true)
     }
     
     func closeMenu() {
+        AudioPlayer.shared.playSoundEffect(soundEffect: "menuClose", ext: "mp3")
         animateMenu(isShowing: false)
         menu = nil
     }
@@ -267,7 +269,8 @@ class GameViewController: UIViewController {
         if circleNumber == -1 {
             return
         }
-        
+
+        AudioPlayer.shared.playSoundEffect(soundEffect: "addText", ext: "wav")
         modifyGuessButton(withModification: "guess")
         game.addTextToAnswer(circleNumber: circleNumber, sectorNumber: sector)
         
@@ -689,6 +692,7 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         setGemCount(toCount: User.shared.gemCount + 20)
+        AudioPlayer.shared.playSoundEffect(soundEffect: "gameOver", ext: "aif")
 
         for spot in 0..<emojiLabels.count {
             UIView.transition(with: self.emojiLabels[spot].superview!, duration: 3.0, options: [.transitionFlipFromTop, .curveEaseInOut], animations: {
@@ -819,6 +823,7 @@ extension GameViewController: WordGameDelegate {
             animateWordReveal(atSpot: correctSpot)
             let notifier = UINotificationFeedbackGenerator()
             notifier.notificationOccurred(.success)
+            AudioPlayer.shared.playSoundEffect(soundEffect: "correctAnswer", ext: "mp3")
         }
         
         // Keep array from bloating
@@ -864,6 +869,7 @@ extension GameViewController: WordGameDelegate {
             label.superview!.alpha = 1.0
         }, completion: {
             void in
+            AudioPlayer.shared.playSoundEffect(soundEffect: "clueFlip", ext: "wav")
             self.animateClueAreaStart(withIndex: index + 1)
         })
     }
@@ -919,11 +925,11 @@ extension GameViewController: WordGameDelegate {
     func setClues(clues: [EmojiClue]) {
         for i in 0..<clues.count {
             let emojis = clues[i].emojis!
-            let wordCount = clues[i].numOfWords!
-            let wordLabel = clues[i].numOfWords! < 2 ? "\(wordCount) WORD" : "\(wordCount) WORDS"
+            let letterCount = clues[i].answer.count
+            let letterLabel = "\(letterCount) LETTERS"
             
             emojiLabels[i].text = emojis
-            wordCountLabels[i].text = wordLabel
+            wordCountLabels[i].text = letterLabel
         }
     }
     
@@ -948,6 +954,7 @@ extension GameViewController: WordGameDelegate {
     func incorrectGuess() {
         let notifier = UINotificationFeedbackGenerator()
         notifier.notificationOccurred(.error)
+        AudioPlayer.shared.playSoundEffect(soundEffect: "incorrectAnswer", ext: "mp3")
     }
 }
 
