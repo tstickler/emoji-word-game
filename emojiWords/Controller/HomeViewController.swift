@@ -128,7 +128,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func soundButtonTapped(_ sender: UIButton) {
         User.shared.prefersSoundEffects = !User.shared.prefersSoundEffects
-        GameData.defaults.set(User.shared.prefersSoundEffects, forKey: User.shared.soundKey)
+        GameData.shared.defaults.set(User.shared.prefersSoundEffects, forKey: User.shared.soundKey)
         
         setSoundButtonImage()
     }

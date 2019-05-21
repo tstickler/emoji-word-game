@@ -106,8 +106,8 @@ class GameViewController: UIViewController {
     }
     
     func fillFromDefaults() {
-        correctAnswerSpots = GameData.defaults.array(forKey: correctAnswerKey) as? [Int] ?? [Int]()
-        hintRevealed = GameData.defaults.array(forKey: hintKey) as? [Int] ?? [Int]()
+        correctAnswerSpots = GameData.shared.defaults.array(forKey: correctAnswerKey) as? [Int] ?? [Int]()
+        hintRevealed = GameData.shared.defaults.array(forKey: hintKey) as? [Int] ?? [Int]()
     }
     
     // MARK: - Top Bar Functions
@@ -145,7 +145,7 @@ class GameViewController: UIViewController {
         }
         
         User.shared.gemCount = count
-        GameData.defaults.set(User.shared.gemCount, forKey: User.shared.gemKey)
+        GameData.shared.defaults.set(User.shared.gemCount, forKey: User.shared.gemKey)
     }
     
     private func animateGemCountChange(gemsIncreased: Bool) {
@@ -187,6 +187,7 @@ class GameViewController: UIViewController {
         let menuHeight = view.frame.height + menuOffset
         menu = MenuView(frame: CGRect(x: -menuWidth - menuOffset, y: -5, width: menuWidth + menuOffset, height: menuHeight))
         menu!.delegate = self
+        InAppPurchase.shared.delegate = self
         view.addSubview(menu!)
 
         AudioPlayer.shared.playSoundEffect(soundEffect: "menuOpen", ext: "mp3")
@@ -441,6 +442,28 @@ class GameViewController: UIViewController {
             }
         }
         
+        if touchedCircle.numOfSegments == 5 {
+            if currentAngle >= .pi / 5 && currentAngle < 3 * .pi / 5 {
+                sector = 3
+            }
+            
+            if currentAngle >= 3 * .pi / 5 && currentAngle < .pi {
+                sector = 2
+            }
+            
+            if currentAngle >= .pi && currentAngle < 7 * .pi / 5 {
+                sector = 1
+            }
+            
+            if currentAngle >= 7 * .pi / 5 && currentAngle < 9 * .pi / 5 {
+                sector = 0
+            }
+            
+            if currentAngle >= 9 * .pi / 5 || currentAngle < .pi / 5  {
+                sector = 4
+            }
+        }
+        
         if touchedCircle.numOfSegments == 6 {
             if currentAngle >= 3 * .pi / 2 && currentAngle < 11 * .pi / 6 {
                 sector = 0
@@ -498,6 +521,21 @@ class GameViewController: UIViewController {
             default:
                 break
             }
+        case 5:
+            switch  sector {
+            case 0:
+                angle = 8 * .pi / 5
+            case 1:
+                angle = 6 * .pi / 5
+            case 2:
+                angle = 4 * .pi / 5
+            case 3:
+                angle = 2 * .pi / 5
+            case 4:
+                angle = 0
+            default:
+                break
+            }
         case 6:
             switch sector {
             case 0:
@@ -525,6 +563,8 @@ class GameViewController: UIViewController {
 
     // MARK: - Guess Area Functions
     private func setUpGuessArea() {
+        levelPackImage.image = UIImage(named: "\(levelPackName.lowercased())")
+        
         guessButton.layer.borderWidth = 2
         guessButton.layer.borderColor = UIColor.black.cgColor
         
@@ -573,18 +613,6 @@ class GameViewController: UIViewController {
     
     // MARK: - Clue Area and Pop Up View Functions
     func setUpClueArea() {
-        // The emoji text is offset upward, this requires changing the top constraint
-        // on the emoji text to shift them downward. The constraint needs to be adjusted
-        // along with font size depending on the device. The relation to font size to top
-        // constraint is 3.8:1. EX: Font size of emojis for iPhone XS Max is 38, top costraint
-        // needs to be 10. Font size of emojis for iPhone SE is 22.8, top constraint needs to be
-        // 6. This will keep the emojis centered within the superview and prevent any clipping.
-        // Possibly set the emoji font size based on the size of its superview to avoid needing
-        // to check current device.
-        
-        // Font indicating the letter and number count should be 80% of the emoji size. However it
-        // should not be smaller than size 18.
-        
         levelLabel.layer.borderColor = UIColor.clear.cgColor
         levelLabel.layer.borderWidth = 2
         
@@ -595,14 +623,6 @@ class GameViewController: UIViewController {
     }
     
     func setUpClueLabel(label: UILabel, position: Int) {
-        var fontSize: CGFloat
-        if emojiLabels.contains(label) {
-            fontSize = (singleClueView.frame.height * 0.75 <= 44) ? (singleClueView.frame.height * 0.75) : 44
-        } else {
-            fontSize = (singleClueView.frame.height * 0.45 > 24) ? (singleClueView.frame.height * 0.45) : 24
-        }
-
-        label.font = label.font.withSize(fontSize)
         label.isUserInteractionEnabled = true
         
         // Tag will be used to retrieve hint info
@@ -718,7 +738,7 @@ class GameViewController: UIViewController {
             // No levels were completed for the pack, make this the first one
             User.shared.completedLevels[packName] = [levelNumber]
         }
-        GameData.defaults.set(User.shared.completedLevels, forKey: User.shared.completedLevelsKey)
+        GameData.shared.defaults.set(User.shared.completedLevels, forKey: User.shared.completedLevelsKey)
         
         let nextLevel = determineNextLevel(fromLevel: levelNumber)
         if nextLevel > 0 {
@@ -735,8 +755,12 @@ class GameViewController: UIViewController {
         initializeKeys()
         fillFromDefaults()
 
-        gameString = GameData.levels[packName]?[levelNumber - 1]
-        game = WordGame(gameString: gameString)
+        if let levels = GameData.shared.levels, let levelPack = levels[packName] {
+            gameString = levelPack[levelNumber - 1]
+            game = WordGame(gameString: gameString)
+        } else {
+            return
+        }
         game.delegate = self
         UIView.transition(with: levelLabel, duration: 0.75, options: [.transitionCrossDissolve, .curveEaseInOut], animations: { self.setUpLevelName() }, completion: nil)
         game.startGame()
@@ -771,7 +795,7 @@ class GameViewController: UIViewController {
     func determineNextLevel(fromLevel level: Int) -> Int {
         var nextLevel = 0
         
-        guard let levels = GameData.levels[levelPackName.lowercased()] else { return 0 }
+        guard let levels = GameData.shared.levels, let levelPack = levels[levelPackName.lowercased()] else { return 0 }
         guard let completedLevels = User.shared.completedLevels[levelPackName.lowercased()] else { return 0 }
         
         // Get a lower level
@@ -786,7 +810,7 @@ class GameViewController: UIViewController {
         // Get an upper level
         // Should be lowest level after current level
         // If none exist, we'll be using the lower level as the next level
-        for level in levelNumber...levels.count {
+        for level in levelNumber...levelPack.count {
             if !completedLevels.contains(level) {
                 nextLevel = level
                 break
@@ -830,7 +854,7 @@ extension GameViewController: WordGameDelegate {
         // Ensures only one value of a correct spot is in the array
         correctAnswerSpots.append(correctSpot)
         correctAnswerSpots = Array(Set(correctAnswerSpots))
-        GameData.defaults.set(correctAnswerSpots, forKey: correctAnswerKey)
+        GameData.shared.defaults.set(correctAnswerSpots, forKey: correctAnswerKey)
     }
     
     func animateGameStart() {
@@ -1063,12 +1087,13 @@ extension GameViewController: MenuDelegate {
     }
     
     func levelsButtonInteraction() {
+        
         dismiss(animated: true, completion: nil)
     }
         
     func soundInteraction() {
         User.shared.prefersSoundEffects = !User.shared.prefersSoundEffects
-        GameData.defaults.set(User.shared.prefersSoundEffects, forKey: User.shared.soundKey)
+        GameData.shared.defaults.set(User.shared.prefersSoundEffects, forKey: User.shared.soundKey)
         
         if let menu = menu {
             menu.updateSoundLabel()
@@ -1096,8 +1121,6 @@ extension GameViewController: MenuDelegate {
             return
         }
         
-        print(inAppPurchase.rawValue)
-        
         InAppPurchase.shared.purchaseProduct(product: inAppPurchase, in: self)
     }
 }
@@ -1114,7 +1137,7 @@ extension GameViewController: HintPopUpDelegate {
             popUp.hintIsRevealed = true
             if !hintRevealed.contains(popUp.infoForClue) {
                 hintRevealed.append(popUp.infoForClue)
-                GameData.defaults.set(hintRevealed, forKey: hintKey)
+                GameData.shared.defaults.set(hintRevealed, forKey: hintKey)
             }
             setGemCount(toCount: User.shared.gemCount - 20)
             
@@ -1138,6 +1161,17 @@ extension GameViewController: HintPopUpDelegate {
             }
 
         }
+    }
+}
+
+// MARK: - InAppPurchase delegate
+extension GameViewController: InAppPurchaseDelegate {
+    func levelPackPurchaseCompleted() {
+        // Implementation un-needed here
+    }
+    
+    func redeemGemPurchase(gemCount: Int) {
+        setGemCount(toCount: User.shared.gemCount + gemCount)
     }
 }
 

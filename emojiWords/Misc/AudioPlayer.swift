@@ -11,6 +11,7 @@ import AVFoundation
 class AudioPlayer {
     static var shared = AudioPlayer()
     private var audioPlayer: AVAudioPlayer?
+    private var soundEffectPlayer: AVAudioPlayer?
     
     func startMusic(musicTitle: String, ext: String) {
         // Find our music file
@@ -25,7 +26,7 @@ class AudioPlayer {
             
             // Play the music
             musicPlayer = try AVAudioPlayer(contentsOf: url)
-            musicPlayer.numberOfLoops = 1
+            musicPlayer.numberOfLoops = -1
             musicPlayer.volume = 0
             musicPlayer.prepareToPlay()
             musicPlayer.play()
@@ -43,15 +44,39 @@ class AudioPlayer {
         if !User.shared.prefersSoundEffects {
             return
         }
-        
-        if let soundURL = Bundle.main.url(forResource: sound, withExtension: ext) {
-            var soundID: SystemSoundID = 1
+    
+        // Find our music file
+        let path = Bundle.main.path(forResource: sound, ofType: ext)
+        guard let pathToResource = path else { return }
+        let url = URL(fileURLWithPath: pathToResource)
+
+        var soundPlayer = AVAudioPlayer()
+    
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
+            try AVAudioSession.sharedInstance().setActive(true)
             
-            AudioServicesCreateSystemSoundID(soundURL as CFURL, &soundID)
+            // Play the music
+            soundPlayer = try AVAudioPlayer(contentsOf: url)
+            soundPlayer.numberOfLoops = 0
+            soundPlayer.volume = 1.0
+            soundPlayer.prepareToPlay()
+            soundPlayer.play()
+            soundEffectPlayer = soundPlayer
             
-            AudioServicesPlaySystemSound(soundID)
+        } catch {
+            print(error)
         }
     }
 
+    func muteMusic() {
+        guard let audioPlayer = audioPlayer else { return }
+        audioPlayer.setVolume(0.0, fadeDuration: 1.0)
+    }
+    
+    func unmuteMusic() {
+        guard let audioPlayer = audioPlayer else { return }
+        audioPlayer.setVolume(0.3, fadeDuration: 1.0)
+    }
 }
 

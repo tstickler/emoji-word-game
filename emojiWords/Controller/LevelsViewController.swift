@@ -20,6 +20,10 @@ class LevelsViewController: UIViewController {
     @IBOutlet var levelPacksStacks: [UIStackView]!
     @IBOutlet var levelPacksContainerViews: [UIView]!
     
+    @IBAction func restorePurchases(_ sender: Any) {
+        InAppPurchase.shared.delegate = self    
+        InAppPurchase.shared.restorePurchases(in: self)
+    }
     private var animationIsOccuring = false
     @IBAction func levelPackSelected(_ sender: UIButton) {
         if animationIsOccuring {
@@ -246,10 +250,13 @@ class LevelsViewController: UIViewController {
 }
 
 extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
+    func redeemGemPurchase(gemCount: Int) {
+        // No implementation needed
+    }
+    
     func levelPackPurchaseCompleted() {
-        guard let levelPackName = levelPackKey else { return }
-        User.shared.unlockedLevelPacks.append(levelPackName)
-        GameData.defaults.set(User.shared.unlockedLevelPacks, forKey: User.shared.unlockedLevelPacksKey)
+        User.shared.unlockedLevelPacks.append(levelPackKey)
+        GameData.shared.defaults.set(User.shared.unlockedLevelPacks, forKey: User.shared.unlockedLevelPacksKey)
 
         changePackBackground()
         showLevels()
@@ -258,7 +265,7 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
     func handleLevelButton(level: Int) {
         levelIndex = level - 1
         
-        if let levelPack = GameData.levels[levelPackKey] {
+        if let levels = GameData.shared.levels, let levelPack = levels[levelPackKey] {
             levelString = levelPack[levelIndex]
             performSegue(withIdentifier: "segueToGameView", sender: self)
         }
@@ -275,12 +282,13 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
     }
     
     func handleGemsButton() {
+        guard let _ = levelPackKey else { return }
         if User.shared.gemCount < 1000 {
             return
         }
         
         User.shared.gemCount -= 1000
-        GameData.defaults.set(User.shared.gemCount, forKey: User.shared.gemKey)
+        GameData.shared.defaults.set(User.shared.gemCount, forKey: User.shared.gemKey)
         
         levelPackPurchaseCompleted()
     }

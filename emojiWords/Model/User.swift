@@ -20,9 +20,9 @@ class User: NSObject {
     var unlockedLevelPacks: [String]!
 
     private override init() {
-        gemCount = GameData.defaults.object(forKey: gemKey) as? Int ?? 100
-        prefersSoundEffects = GameData.defaults.object(forKey: soundKey) as? Bool ?? true
-        completedLevels = GameData.defaults.dictionary(forKey: completedLevelsKey) as? [String: [Int]] ?? [String: [Int]]()
-        unlockedLevelPacks = GameData.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["watermelon", "avocado", "pineapple"]
+        gemCount = GameData.shared.defaults.object(forKey: gemKey) as? Int ?? 100
+        prefersSoundEffects = GameData.shared.defaults.object(forKey: soundKey) as? Bool ?? true
+        completedLevels = GameData.shared.defaults.dictionary(forKey: completedLevelsKey) as? [String: [Int]] ?? [String: [Int]]()
+        unlockedLevelPacks = GameData.shared.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["banana", "pineapple", "strawberry"]
     }
 }

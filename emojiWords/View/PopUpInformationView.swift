@@ -97,6 +97,14 @@ class PopUpInformationView: UIView {
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.layer.zPosition = 1.0
         
+        let revealLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        revealLabel.font = UIFont(name: "VTC-GarageSale", size: 30)
+        revealLabel.text = "REVEAL?"
+        revealLabel.numberOfLines = 1
+        revealLabel.textAlignment = .center
+        revealLabel.layer.zPosition = 1.0
+        revealLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         revealButton.frame = CGRect(x: 0, y: 0, width: 90, height: 40)
         if User.shared.gemCount < 20 {
             revealButton.backgroundColor = UIColor.init(red: 255/255,
@@ -106,7 +114,7 @@ class PopUpInformationView: UIView {
         } else {
             revealButton.backgroundColor = .white
         }
-        revealButton.setTitle("Reveal", for: .normal)
+        revealButton.setTitle("20 GEMS", for: .normal)
         revealButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 22)
         revealButton.setTitleColor(.black, for: .normal)
         revealButton.layer.borderColor = UIColor.black.cgColor
@@ -134,6 +142,7 @@ class PopUpInformationView: UIView {
         addSubview(lettersLabel)
         addSubview(blurView)
         blurView.contentView.addSubview(revealButton)
+        blurView.contentView.addSubview(revealLabel)
         addSubview(closeButton)
         
         var constraints = [NSLayoutConstraint]()
@@ -267,6 +276,28 @@ class PopUpInformationView: UIView {
                                               attribute: .bottom,
                                               multiplier: 1.0,
                                               constant: 1))
+        
+        constraints.append(NSLayoutConstraint(item: revealLabel,
+                                              attribute: .centerX,
+                                              relatedBy: .equal,
+                                              toItem: blurView,
+                                              attribute: .centerX,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        constraints.append(NSLayoutConstraint(item: revealLabel,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: revealButton,
+                                              attribute: .top,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        constraints.append(NSLayoutConstraint(item: revealLabel,
+                                              attribute: .width,
+                                              relatedBy: .equal,
+                                              toItem: nil,
+                                              attribute: .width,
+                                              multiplier: 1.0,
+                                              constant: 90))
         
         constraints.append(NSLayoutConstraint(item: revealButton,
                                               attribute: .centerX,

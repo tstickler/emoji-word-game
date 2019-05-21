@@ -28,6 +28,8 @@
 		F3939C4D224408F1009133BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3939C4B224408F1009133BD /* Main.storyboard */; };
 		F3939C4F224408F4009133BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3939C4E224408F4009133BD /* Assets.xcassets */; };
 		F3939C52224408F4009133BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3939C50224408F4009133BD /* LaunchScreen.storyboard */; };
+		F3B74412229111BD00EDFFF1 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = F3B74411229111BD00EDFFF1 /* levels.json */; };
+		F3B74417229494D000EDFFF1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B74416229494D000EDFFF1 /* StoreKit.framework */; };
 		F3BE511B226E3EBD00B95BE8 /* PopUpLevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE511A226E3EBD00B95BE8 /* PopUpLevelsView.swift */; };
 		F3CD230D2277B8DA003E220E /* MenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD230C2277B8DA003E220E /* MenuDelegate.swift */; };
 		F3E602C62244137C003E7F8D /* VTC-GarageSale.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3E602C52244137C003E7F8D /* VTC-GarageSale.ttf */; };
@@ -66,6 +68,8 @@
 		F3939C4E224408F4009133BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3939C51224408F4009133BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3939C53224408F4009133BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3B74411229111BD00EDFFF1 /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = levels.json; path = ../../csv/levels.json; sourceTree = "<group>"; };
+		F3B74416229494D000EDFFF1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F3BE511A226E3EBD00B95BE8 /* PopUpLevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLevelsView.swift; sourceTree = "<group>"; };
 		F3CD230C2277B8DA003E220E /* MenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDelegate.swift; sourceTree = "<group>"; };
 		F3E602C52244137C003E7F8D /* VTC-GarageSale.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VTC-GarageSale.ttf"; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B74417229494D000EDFFF1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +157,7 @@
 			children = (
 				F3939C46224408F1009133BD /* emojiWords */,
 				F3939C45224408F1009133BD /* Products */,
+				F3B74415229494D000EDFFF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,9 +184,18 @@
 				F3939C4E224408F4009133BD /* Assets.xcassets */,
 				F3939C50224408F4009133BD /* LaunchScreen.storyboard */,
 				F3F390232254098F00412B1D /* master.json */,
+				F3B74411229111BD00EDFFF1 /* levels.json */,
 				F3939C53224408F4009133BD /* Info.plist */,
 			);
 			path = emojiWords;
+			sourceTree = "<group>";
+		};
+		F3B74415229494D000EDFFF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3B74416229494D000EDFFF1 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F3C0AE8922457B4300D26F79 /* Fonts */ = {
@@ -236,6 +251,11 @@
 				TargetAttributes = {
 					F3939C43224408F1009133BD = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -268,6 +288,7 @@
 				F3ED9F2822873A55007B421A /* addText.wav in Resources */,
 				F3ED9F342287430F007B421A /* menuOpen.mp3 in Resources */,
 				F3939C4F224408F4009133BD /* Assets.xcassets in Resources */,
+				F3B74412229111BD00EDFFF1 /* levels.json in Resources */,
 				F3ED9F2022873684007B421A /* incorrectAnswer.mp3 in Resources */,
 				F3939C4D224408F1009133BD /* Main.storyboard in Resources */,
 				F3ED9F24228737C4007B421A /* correctAnswer.mp3 in Resources */,
@@ -457,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tstick.emojiWords;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tstick.Spinmoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -475,7 +496,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tstick.emojiWords;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tstick.Spinmoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

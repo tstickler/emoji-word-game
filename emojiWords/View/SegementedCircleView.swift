@@ -54,6 +54,8 @@ class SegmentedCircleView: UIView {
                 startRotate = .pi / 2
             case 4:
                 startRotate = .pi
+            case 5:
+                startRotate = 3 * .pi / 2
             case 6:
                 startRotate =  2 * .pi
             default:
@@ -86,7 +88,7 @@ class SegmentedCircleView: UIView {
     }
     
     private func addLabels() {
-        for _ in 0...7 {
+        for _ in 0...11 {
             let label = UILabel()
             let labelFontSize = self.frame.width / 7
             
@@ -96,6 +98,8 @@ class SegmentedCircleView: UIView {
             label.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
             label.textAlignment = .center
             label.font = UIFont.init(name: "VTC-GarageSale", size: labelFontSize)
+            label.adjustsFontSizeToFitWidth = true
+            label.minimumScaleFactor = 0.5
             label.textColor = .white
             label.layer.zPosition = 1
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -110,13 +114,19 @@ class SegmentedCircleView: UIView {
             }
         case 4:
             for i in 0..<labels.count {
-                if i % 2 == 0 {
+                if i != 2 && i != 5 && i != 8 && i != 11 {
+                    labels[i].isHidden = true
+                }
+            }
+        case 5:
+            for i in 0..<labels.count {
+                if i != 1 && i != 4 && i != 6 && i != 9 && i != 11 {
                     labels[i].isHidden = true
                 }
             }
         case 6:
             for i in 0..<labels.count {
-                if i == 1 || i == 5 {
+                if i != 0 && i != 3 && i != 5 && i != 7 && i != 10 && i != 11 {
                     labels[i].isHidden = true
                 }
             }
@@ -126,17 +136,51 @@ class SegmentedCircleView: UIView {
         
         var constraints = [NSLayoutConstraint]()
         let eightConstant = self.frame.width / 18.75
+        let tenConstant = self.frame.width / 15.625
         let twelveConstant = self.frame.width / 12.5
+        let twentyConstant = self.frame.width / 6
         let fortyConstant = self.frame.width / 3.75
+        let fortyFourConstant = self.frame.width / 3
+        
+        constraints.append(NSLayoutConstraint(item: labels[0],
+                                              attribute: .top,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .top,
+                                              multiplier: 1.0,
+                                              constant: fortyConstant))
+        constraints.append(NSLayoutConstraint(item: labels[0],
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .trailing,
+                                              multiplier: 1.0,
+                                              constant: -twelveConstant))
         
         constraints.append(NSLayoutConstraint(item: labels[1],
+                                              attribute: .top,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .top,
+                                              multiplier: 1.0,
+                                              constant: fortyFourConstant))
+        constraints.append(NSLayoutConstraint(item: labels[1],
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .trailing,
+                                              multiplier: 1.0,
+                                              constant: -tenConstant))
+
+        
+        constraints.append(NSLayoutConstraint(item: labels[2],
                                               attribute: .centerY,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .centerY,
                                               multiplier: 1.0,
                                               constant: 0))
-        constraints.append(NSLayoutConstraint(item: labels[1],
+        constraints.append(NSLayoutConstraint(item: labels[2],
                                               attribute: .trailing,
                                               relatedBy: .equal,
                                               toItem: self,
@@ -144,14 +188,14 @@ class SegmentedCircleView: UIView {
                                               multiplier: 1.0,
                                               constant: -eightConstant))
         
-        constraints.append(NSLayoutConstraint(item: labels[2],
+        constraints.append(NSLayoutConstraint(item: labels[3],
                                               attribute: .bottom,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .bottom,
                                               multiplier: 1.0,
                                               constant: -fortyConstant))
-        constraints.append(NSLayoutConstraint(item: labels[2],
+        constraints.append(NSLayoutConstraint(item: labels[3],
                                               attribute: .trailing,
                                               relatedBy: .equal,
                                               toItem: self,
@@ -159,14 +203,30 @@ class SegmentedCircleView: UIView {
                                               multiplier: 1.0,
                                               constant: -twelveConstant))
         
-        constraints.append(NSLayoutConstraint(item: labels[3],
+        constraints.append(NSLayoutConstraint(item: labels[4],
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .bottom,
+                                              multiplier: 1.0,
+                                              constant: -twentyConstant))
+        constraints.append(NSLayoutConstraint(item: labels[4],
+                                              attribute: .trailing,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .trailing,
+                                              multiplier: 1.0,
+                                              constant: -twentyConstant))
+
+        
+        constraints.append(NSLayoutConstraint(item: labels[5],
                                               attribute: .bottom,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .bottom,
                                               multiplier: 1.0,
                                               constant: -twelveConstant))
-        constraints.append(NSLayoutConstraint(item: labels[3],
+        constraints.append(NSLayoutConstraint(item: labels[5],
                                               attribute: .centerX,
                                               relatedBy: .equal,
                                               toItem: self,
@@ -174,14 +234,29 @@ class SegmentedCircleView: UIView {
                                               multiplier: 1.0,
                                               constant: 0))
         
-        constraints.append(NSLayoutConstraint(item: labels[4],
+        constraints.append(NSLayoutConstraint(item: labels[6],
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .bottom,
+                                              multiplier: 1.0,
+                                              constant: -twentyConstant))
+        constraints.append(NSLayoutConstraint(item: labels[6],
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .leading,
+                                              multiplier: 1.0,
+                                              constant: twentyConstant))
+        
+        constraints.append(NSLayoutConstraint(item: labels[7],
                                               attribute: .bottom,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .bottom,
                                               multiplier: 1.0,
                                               constant: -fortyConstant))
-        constraints.append(NSLayoutConstraint(item: labels[4],
+        constraints.append(NSLayoutConstraint(item: labels[7],
                                               attribute: .leading,
                                               relatedBy: .equal,
                                               toItem: self,
@@ -189,14 +264,14 @@ class SegmentedCircleView: UIView {
                                               multiplier: 1.0,
                                               constant: twelveConstant))
         
-        constraints.append(NSLayoutConstraint(item: labels[5],
+        constraints.append(NSLayoutConstraint(item: labels[8],
                                               attribute: .centerY,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .centerY,
                                               multiplier: 1.0,
                                               constant: 0))
-        constraints.append(NSLayoutConstraint(item: labels[5],
+        constraints.append(NSLayoutConstraint(item: labels[8],
                                               attribute: .leading,
                                               relatedBy: .equal,
                                               toItem: self,
@@ -204,29 +279,46 @@ class SegmentedCircleView: UIView {
                                               multiplier: 1.0,
                                               constant: eightConstant))
         
-        constraints.append(NSLayoutConstraint(item: labels[6],
+        
+        constraints.append(NSLayoutConstraint(item: labels[9],
+                                              attribute: .top,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .top,
+                                              multiplier: 1.0,
+                                              constant: fortyFourConstant))
+        constraints.append(NSLayoutConstraint(item: labels[9],
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .leading,
+                                              multiplier: 1.0,
+                                              constant: tenConstant))
+        
+        constraints.append(NSLayoutConstraint(item: labels[10],
                                               attribute: .top,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .top,
                                               multiplier: 1.0,
                                               constant: fortyConstant))
-        constraints.append(NSLayoutConstraint(item: labels[6],
+        constraints.append(NSLayoutConstraint(item: labels[10],
                                               attribute: .leading,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .leading,
                                               multiplier: 1.0,
                                               constant: twelveConstant))
+
         
-        constraints.append(NSLayoutConstraint(item: labels[7],
+        constraints.append(NSLayoutConstraint(item: labels[11],
                                               attribute: .top,
                                               relatedBy: .equal,
                                               toItem: self,
                                               attribute: .top,
                                               multiplier: 1.0,
                                               constant: twelveConstant))
-        constraints.append(NSLayoutConstraint(item: labels[7],
+        constraints.append(NSLayoutConstraint(item: labels[11],
                                               attribute: .centerX,
                                               relatedBy: .equal,
                                               toItem: self,
@@ -234,20 +326,7 @@ class SegmentedCircleView: UIView {
                                               multiplier: 1.0,
                                               constant: 0))
         
-        constraints.append(NSLayoutConstraint(item: labels[0],
-                                              attribute: .top,
-                                              relatedBy: .equal,
-                                              toItem: self,
-                                              attribute: .top,
-                                              multiplier: 1.0,
-                                              constant: fortyConstant))
-        constraints.append(NSLayoutConstraint(item: labels[0],
-                                              attribute: .trailing,
-                                              relatedBy: .equal,
-                                              toItem: self,
-                                              attribute: .trailing,
-                                              multiplier: 1.0,
-                                              constant: -twelveConstant))
+
         
         for label in labels {
             constraints.append(NSLayoutConstraint(item: label,

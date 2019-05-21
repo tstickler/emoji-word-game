@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "red-apple.png",
+      "filename" : "kiwi-fruit.png",
       "scale" : "1x"
     },
     {
@@ -11,6 +11,7 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "kiwi-fruit-1.png",
       "scale" : "3x"
     }
   ],

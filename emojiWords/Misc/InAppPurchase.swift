@@ -15,16 +15,16 @@ enum IAP: String {
     case SevenFiftyGems     = "com.tstick.Spinmoji.SevenFiftyGems"
     case TwoThousandGems    = "com.tstick.Spinmoji.TwoThousandGems"
     case FiveThousandGems   = "com.tstick.Spinmoji.FiveThousandGems"
-    case BananaPack         = "com.tstick.Spinmoji.BananaPack"
-    case PeachPack          = "com.tstick.Spinmoji.PeachPack"
-    case ApplePack          = "com.tstick.Spinmoji.ApplePack"
+    case WatermelonPack     = "com.tstick.Spinmoji.WatermelonPack"
     case LemonPack          = "com.tstick.Spinmoji.LemonPack"
-    case StrawberryPack     = "com.tstick.Spinmoji.StrawberryPack"
-    case GrapesPack         = "com.tstick.Spinmoji.GrapesPack"
+    case AvocadoPack        = "com.tstick.Spinmoji.AvocadoPack"
 }
 
 class InAppPurchase: NSObject {
-    private override init() {}
+    private override init() {
+        super.init()
+        getProducts()
+    }
     static let shared = InAppPurchase()
     weak var delegate: InAppPurchaseDelegate?
     
@@ -40,7 +40,8 @@ class InAppPurchase: NSObject {
         // Gets products from itunes connect
         let products: Set = [IAP.OneHundredGems.rawValue, IAP.TwoFiftyGems.rawValue,
                              IAP.SevenFiftyGems.rawValue, IAP.TwoThousandGems.rawValue,
-                             IAP.FiveThousandGems.rawValue]
+                             IAP.FiveThousandGems.rawValue, IAP.WatermelonPack.rawValue,
+                             IAP.LemonPack.rawValue, IAP.AvocadoPack.rawValue]
         
         let request = SKProductsRequest(productIdentifiers: products)
         request.delegate = self
@@ -115,15 +116,17 @@ class InAppPurchase: NSObject {
         // Handles the purchase and gives the user what they bought
         switch purchase {
         case IAP.OneHundredGems.rawValue:
-            break
+            delegate?.redeemGemPurchase(gemCount: 100)
         case IAP.TwoFiftyGems.rawValue:
-            break
+            delegate?.redeemGemPurchase(gemCount: 250)
         case IAP.SevenFiftyGems.rawValue:
-            break
+            delegate?.redeemGemPurchase(gemCount: 750)
         case IAP.TwoThousandGems.rawValue:
-            break
+            delegate?.redeemGemPurchase(gemCount: 2000)
         case IAP.FiveThousandGems.rawValue:
-            break
+            delegate?.redeemGemPurchase(gemCount: 5000)
+        case IAP.WatermelonPack.rawValue, IAP.LemonPack.rawValue, IAP.AvocadoPack.rawValue:
+            delegate?.levelPackPurchaseCompleted()
         default:
             print("Unknown purchase identifier")
         }
