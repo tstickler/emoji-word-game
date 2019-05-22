@@ -9,4 +9,5 @@
 protocol InAppPurchaseDelegate: class {
     func levelPackPurchaseCompleted()
     func redeemGemPurchase(gemCount: Int)
+    func alertUser(title: String, message: String)
 }

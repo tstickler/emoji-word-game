@@ -20,10 +20,6 @@ class LevelsViewController: UIViewController {
     @IBOutlet var levelPacksStacks: [UIStackView]!
     @IBOutlet var levelPacksContainerViews: [UIView]!
     
-    @IBAction func restorePurchases(_ sender: Any) {
-        InAppPurchase.shared.delegate = self    
-        InAppPurchase.shared.restorePurchases(in: self)
-    }
     private var animationIsOccuring = false
     @IBAction func levelPackSelected(_ sender: UIButton) {
         if animationIsOccuring {
@@ -43,6 +39,7 @@ class LevelsViewController: UIViewController {
         guard let popUpLevels = popUpLevels else { return }
         popUpLevels.delegate = self
         setUpPopUp(onView: popUpLevels, superview: containerView)
+        InAppPurchase.shared.delegate = self
         popUpLevels.startX = Int(sender.center.x)
 
         // Find containers that need to be collapsed/have views removed
@@ -144,6 +141,10 @@ class LevelsViewController: UIViewController {
         
         // Simulates a pack close after the view has disappeared.
         levelPackButton.sendActions(for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func setUpLevelPackButtons() {
@@ -250,6 +251,19 @@ class LevelsViewController: UIViewController {
 }
 
 extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
+    func alertUser(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+        
+        topMostViewController?.present(alert, animated: true, completion: nil)
+    }
+    
     func redeemGemPurchase(gemCount: Int) {
         // No implementation needed
     }
@@ -277,8 +291,7 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
         let iap = IAP(rawValue: iapString)
         
         guard let packPurchase = iap else { return }
-        InAppPurchase.shared.delegate = self
-        InAppPurchase.shared.purchaseProduct(product: packPurchase, in: self)
+        InAppPurchase.shared.purchaseProduct(product: packPurchase)
     }
     
     func handleGemsButton() {

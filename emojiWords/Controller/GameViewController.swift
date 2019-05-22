@@ -1121,7 +1121,7 @@ extension GameViewController: MenuDelegate {
             return
         }
         
-        InAppPurchase.shared.purchaseProduct(product: inAppPurchase, in: self)
+        InAppPurchase.shared.purchaseProduct(product: inAppPurchase)
     }
 }
 
@@ -1166,11 +1166,25 @@ extension GameViewController: HintPopUpDelegate {
 
 // MARK: - InAppPurchase delegate
 extension GameViewController: InAppPurchaseDelegate {
+    func alertUser(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
+        var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        while let presentedViewController = topMostViewController?.presentedViewController {
+            topMostViewController = presentedViewController
+        }
+        
+        topMostViewController?.present(alert, animated: true, completion: nil)
+    }
+        
     func levelPackPurchaseCompleted() {
         // Implementation un-needed here
     }
     
     func redeemGemPurchase(gemCount: Int) {
+        print("rewarding")
         setGemCount(toCount: User.shared.gemCount + gemCount)
     }
 }

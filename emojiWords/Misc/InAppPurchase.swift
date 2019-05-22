@@ -32,10 +32,6 @@ class InAppPurchase: NSObject {
     private var products = [SKProduct]()
     private let paymentQueue = SKPaymentQueue.default()
     
-    // The presenting view controller is used so we can display a UIAlert
-    // after a purchase failure or purchase restore.
-    private var presentingController: UIViewController!
-    
     private func getProducts() {
         // Gets products from itunes connect
         let products: Set = [IAP.OneHundredGems.rawValue, IAP.TwoFiftyGems.rawValue,
@@ -51,31 +47,17 @@ class InAppPurchase: NSObject {
         paymentQueue.add(self)
     }
     
-    func purchaseProduct(product: IAP, in view: UIViewController) {
-        // Saves the view sent the request
-        presentingController = view
-        
+    func purchaseProduct(product: IAP) {
         if products.count <= 0 {
             // Gives a dialog if there are no available products
-            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            alert.title = "Product retrieval failed"
-            alert.message = "The selected product is not available at this time."
-            
-            presentingController.present(alert, animated: true, completion: nil)
+            delegate?.alertUser(title: "Product Retrieval Failed", message: "The selected product is not available at this time.")
             return
         }
         
         // If the product is the one we're looking for, set it for purchase
         guard let productToPurchase = products.filter({$0.productIdentifier == product.rawValue}).first else {
             // Gives a dialog if the selected product was not found
-            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            alert.title = "Product not found"
-            alert.message = "We could not find a product matching the one you are trying to purchase."
-            
-            presentingController.present(alert, animated: true, completion: nil)
-            
+            delegate?.alertUser(title: "Product Not Found", message: "We could not find a product matching the one you are trying to purchase.")
             return
         }
         
@@ -85,30 +67,17 @@ class InAppPurchase: NSObject {
             paymentQueue.add(payment)
         } else {
             // If the user can't make the purchase, alert them
-            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            
-            alert.title = "Purchase failed"
-            alert.message = "User is not allowed to make this purchase."
-            presentingController.present(alert, animated: true, completion: nil)
+            delegate?.alertUser(title: "Purchase Failed", message: "User is not allowed to make this purchase.")
         }
     }
     
-    func restorePurchases(in view: UIViewController) {
-        // Saves the view sent the request
-        presentingController = view
-        
+    func restorePurchases() {
         // If the user can make the restore, perform it
         if SKPaymentQueue.canMakePayments() {
             paymentQueue.restoreCompletedTransactions()
         } else {
             // If the user can't make the restore, alert them
-            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            
-            alert.title = "Restore failed"
-            alert.message = "User is not allowed to make restore this purchase."
-            presentingController.present(alert, animated: true, completion: nil)
+            delegate?.alertUser(title: "Restore Failed", message: "User is not allowed to restore this purchase.")
         }
     }
     
@@ -143,8 +112,7 @@ extension InAppPurchase: SKPaymentTransactionObserver {
     // Happens when the transaction is finished
     internal func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         // This alert is used to notify of restore completion or purchase failure
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        
         
         for transaction in transactions {
             print(transaction.transactionState.status(), transaction.payment.productIdentifier)
@@ -161,15 +129,11 @@ extension InAppPurchase: SKPaymentTransactionObserver {
                 // of the completon
                 self.handlePurchase(purchase: transaction.payment.productIdentifier)
                 queue.finishTransaction(transaction)
-                alert.title = "Purchases restored"
-                alert.message = "All previous purchases have been restored."
-                presentingController.present(alert, animated: true, completion: nil)
+                delegate?.alertUser(title: "Purchases Restored", message: "All previous purchases have been restored.")
             case .failed:
                 // A failed transaction should inform the user that their purchase failed
-                alert.title = "Transaction Failed"
-                alert.message = "The transaction could not be completed at this time."
                 queue.finishTransaction(transaction)
-                presentingController.present(alert, animated: true, completion: nil)
+                delegate?.alertUser(title: "Transaction Failed", message: "The transaction could not be completed at this time.")
             case .deferred:
                 queue.finishTransaction(transaction)
             }
