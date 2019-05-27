@@ -22,6 +22,7 @@
 		F3732EFE2248A3A300E5E309 /* WordGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3732EFD2248A3A300E5E309 /* WordGameDelegate.swift */; };
 		F3732F002248A66400E5E309 /* EmojiClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3732EFF2248A66400E5E309 /* EmojiClue.swift */; };
 		F3738B9A228009CC009FFFF5 /* HintPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3738B99228009CC009FFFF5 /* HintPopUpDelegate.swift */; };
+		F37C9D9D229B2171004A788C /* master.json in Resources */ = {isa = PBXBuildFile; fileRef = F37C9D9C229B2171004A788C /* master.json */; };
 		F38FD3F82278F5A500E43F10 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38FD3F72278F5A500E43F10 /* MenuButton.swift */; };
 		F3939C48224408F1009133BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3939C47224408F1009133BD /* AppDelegate.swift */; };
 		F3939C4A224408F1009133BD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3939C49224408F1009133BD /* GameViewController.swift */; };
@@ -41,7 +42,6 @@
 		F3ED9F3222874309007B421A /* menuClose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3ED9F3122874309007B421A /* menuClose.mp3 */; };
 		F3ED9F342287430F007B421A /* menuOpen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F3ED9F332287430F007B421A /* menuOpen.mp3 */; };
 		F3F0D53C226C102F00128092 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0D53B226C102F00128092 /* GameData.swift */; };
-		F3F390242254098F00412B1D /* master.json in Resources */ = {isa = PBXBuildFile; fileRef = F3F390232254098F00412B1D /* master.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +60,7 @@
 		F3732EFD2248A3A300E5E309 /* WordGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameDelegate.swift; sourceTree = "<group>"; };
 		F3732EFF2248A66400E5E309 /* EmojiClue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiClue.swift; sourceTree = "<group>"; };
 		F3738B99228009CC009FFFF5 /* HintPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPopUpDelegate.swift; sourceTree = "<group>"; };
+		F37C9D9C229B2171004A788C /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = master.json; path = ../../csv/master.json; sourceTree = "<group>"; };
 		F38FD3F72278F5A500E43F10 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		F3939C44224408F1009133BD /* emojiWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emojiWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3939C47224408F1009133BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		F3ED9F3122874309007B421A /* menuClose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuClose.mp3; sourceTree = "<group>"; };
 		F3ED9F332287430F007B421A /* menuOpen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuOpen.mp3; sourceTree = "<group>"; };
 		F3F0D53B226C102F00128092 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
-		F3F390232254098F00412B1D /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = master.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +183,7 @@
 				F3939C4B224408F1009133BD /* Main.storyboard */,
 				F3939C4E224408F4009133BD /* Assets.xcassets */,
 				F3939C50224408F4009133BD /* LaunchScreen.storyboard */,
-				F3F390232254098F00412B1D /* master.json */,
+				F37C9D9C229B2171004A788C /* master.json */,
 				F3B74411229111BD00EDFFF1 /* levels.json */,
 				F3939C53224408F4009133BD /* Info.plist */,
 			);
@@ -283,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3E602C62244137C003E7F8D /* VTC-GarageSale.ttf in Resources */,
-				F3F390242254098F00412B1D /* master.json in Resources */,
 				F3939C52224408F4009133BD /* LaunchScreen.storyboard in Resources */,
 				F3ED9F2822873A55007B421A /* addText.wav in Resources */,
 				F3ED9F342287430F007B421A /* menuOpen.mp3 in Resources */,
@@ -292,6 +291,7 @@
 				F3ED9F2022873684007B421A /* incorrectAnswer.mp3 in Resources */,
 				F3939C4D224408F1009133BD /* Main.storyboard in Resources */,
 				F3ED9F24228737C4007B421A /* correctAnswer.mp3 in Resources */,
+				F37C9D9D229B2171004A788C /* master.json in Resources */,
 				F3ED9F1C2287353E007B421A /* clueFlip.wav in Resources */,
 				F3732EFA22457F0D00E5E309 /* EmojiOne.ttf in Resources */,
 				F3ED9F3222874309007B421A /* menuClose.mp3 in Resources */,

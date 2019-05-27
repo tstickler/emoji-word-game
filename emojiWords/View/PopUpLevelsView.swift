@@ -193,6 +193,17 @@ class PopUpLevelsView: UIView {
         iapButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 24.0)
         iapButton.addTarget(self, action: #selector(iapButtonTapped), for: .touchUpInside)
         
+        let restorePurchaseButton = UIButton(type: .system)
+        restorePurchaseButton.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        restorePurchaseButton.setTitle("RESTORE PURCHASE", for: .normal)
+        restorePurchaseButton.setTitleColor(.black, for: .normal)
+        restorePurchaseButton.layer.zPosition = 1.0
+        restorePurchaseButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 24.0)
+        restorePurchaseButton.addTarget(self, action: #selector(restorePurchaseTapped), for: .touchUpInside)
+        restorePurchaseButton.translatesAutoresizingMaskIntoConstraints = false
+        purchaseViews.append(restorePurchaseButton)
+        addSubview(restorePurchaseButton)
+        
         let gemsButton = UIButton(type: .system)
         gemsButton.setTitle("1000 GEMS", for: .normal)
         if User.shared.gemCount >= 1000 {
@@ -318,6 +329,20 @@ class PopUpLevelsView: UIView {
                                               attribute: .top,
                                               multiplier: 1.0,
                                               constant: 16))
+        constraints.append(NSLayoutConstraint(item: restorePurchaseButton,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .bottom,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        constraints.append(NSLayoutConstraint(item: restorePurchaseButton,
+                                              attribute: .centerX,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .centerX,
+                                              multiplier: 1.0,
+                                              constant: 0))
         NSLayoutConstraint.activate(constraints)
 
     }
@@ -332,5 +357,9 @@ class PopUpLevelsView: UIView {
     
     @objc func gemsButtonTapped(_ sender: UIButton) {
         delegate?.handleGemsButton()
+    }
+    
+    @objc func restorePurchaseTapped(_ sender: UIButton) {
+        delegate?.handleRestorePurchase()
     }
 }

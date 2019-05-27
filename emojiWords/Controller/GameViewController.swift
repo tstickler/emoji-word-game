@@ -158,14 +158,14 @@ class GameViewController: UIViewController {
         
         gemCountLabel.layer.removeAllAnimations()
         
-        UIView.transition(with: gemCountLabel, duration: 0.5, options: .transitionFlipFromTop, animations: {
+        UIView.transition(with: gemCountLabel, duration: 0.4, options: .transitionFlipFromTop, animations: {
             // User is shown a message
             self.gemCountLabel.textColor = color
         }, completion: {
             (Void) in
             // Fade out the message
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                UIView.transition(with: self.gemCountLabel, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600), execute: {
+                UIView.transition(with: self.gemCountLabel, duration: 0.4, options: .transitionFlipFromBottom, animations: {
                     self.gemCountLabel.textColor = .black
                     
                     if User.shared.gemCount > 9999 {
@@ -194,10 +194,9 @@ class GameViewController: UIViewController {
         animateMenu(isShowing: true)
     }
     
-    func closeMenu() {
+    func closeMenu(completion: (() -> Void)? = nil) {
         AudioPlayer.shared.playSoundEffect(soundEffect: "menuClose", ext: "mp3")
-        animateMenu(isShowing: false)
-        menu = nil
+        animateMenu(isShowing: false, animationCompletion: completion)
     }
     
     func addDimmer() {
@@ -209,22 +208,31 @@ class GameViewController: UIViewController {
         view.addSubview(dimmer)
     }
     
-    func animateMenu(isShowing: Bool) {
+    func animateMenu(isShowing: Bool, animationCompletion: (() -> Void)? = nil) {
         let xPosOfView: CGFloat = isShowing ? -10 : -210
         let dimmerAlpha: CGFloat = isShowing ? 0.65 : 0
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.menu?.frame = CGRect(x: xPosOfView, y: self.menu!.frame.minY, width: self.menu!.frame.width, height: self.menu!.frame.height)
-        }, completion: nil)
+            
+
+        }, completion: {
+            void in
+            if !isShowing {
+                self.menu?.removeFromSuperview()
+                self.menu = nil
+            }
+        })
         
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.dimmer?.alpha = dimmerAlpha
         }, completion: {
             void in
-                        
             if !isShowing {
                 self.dimmer?.removeFromSuperview()
                 self.dimmer = nil
+                
+                animationCompletion?()
             }
         })
     }
@@ -293,6 +301,12 @@ class GameViewController: UIViewController {
             }
         }
         
+        for circle in circles {
+            if isCircleSpinning(circle: circle) {
+                return
+            }
+        }
+        
         let touch = touches.first
         let position = touch!.location(in: self.view)
         var touchedCircle: SegmentedCircleView?
@@ -303,9 +317,6 @@ class GameViewController: UIViewController {
         }
         
         if let touchedCircle = touchedCircle {
-            if isCircleSpinning(circle: touchedCircle) {
-                return
-            }
             
             let target = touchedCircle.center
             let angle = atan2(target.y-position.y, target.x-position.x)
@@ -315,6 +326,12 @@ class GameViewController: UIViewController {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for circle in circles {
+            if isCircleSpinning(circle: circle) {
+                return
+            }
+        }
+        
         let touch = touches.first
         var touchedCircle: SegmentedCircleView?
         for circle in circles {
@@ -324,9 +341,6 @@ class GameViewController: UIViewController {
         }
         
         if let touchedCircle = touchedCircle {
-            if isCircleSpinning(circle: touchedCircle) {
-                return
-            }
             
             let sector = determineCurrentSector(touchedCircle)
             let angle = snapAngle(to: sector, withCircleSize: touchedCircle.numOfSegments)
@@ -348,6 +362,12 @@ class GameViewController: UIViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for circle in circles {
+            if isCircleSpinning(circle: circle) {
+                return
+            }
+        }
+        
         let touch = touches.first
         var touchedCircle: SegmentedCircleView?
         for circle in circles {
@@ -357,9 +377,6 @@ class GameViewController: UIViewController {
         }
         
         if let touchedCircle = touchedCircle {
-            if isCircleSpinning(circle: touchedCircle) {
-                return
-            }
             
             let oldAngle = touchedCircle.oldAngle
             let movedDistance = touchedCircle.movedDistance
@@ -666,7 +683,7 @@ class GameViewController: UIViewController {
                 let yLoc = frame.maxY - 12
                 
                 // Add pop up to the view
-                popUp = PopUpInformationView.init(frame: CGRect(x: xLoc, y: yLoc, width: 250, height: 180))
+                popUp = PopUpInformationView.init(frame: CGRect(x: xLoc, y: yLoc, width: 250, height: 200))
                 game!.getClueInformation(clueIndex: senderView.tag)
                 
                 if let popUp = popUp {
@@ -677,6 +694,9 @@ class GameViewController: UIViewController {
                     popUp.infoForClue = senderView.tag
                     if hintRevealed.contains(senderView.tag) {
                         popUp.hintIsRevealed = true
+                    }
+                    if correctAnswerSpots.contains(senderView.tag) {
+                        popUp.wordIsRevealed = true
                     }
                     view.addSubview(popUp)
                     
@@ -711,8 +731,11 @@ class GameViewController: UIViewController {
     }
     
     func gameOver() {
-        setGemCount(toCount: User.shared.gemCount + 20)
+        setGemCount(toCount: User.shared.gemCount + 10)
         AudioPlayer.shared.playSoundEffect(soundEffect: "gameOver", ext: "aif")
+        if let popUp = popUp {
+            popUp.closeFrame()
+        }
 
         for spot in 0..<emojiLabels.count {
             UIView.transition(with: self.emojiLabels[spot].superview!, duration: 3.0, options: [.transitionFlipFromTop, .curveEaseInOut], animations: {
@@ -821,8 +844,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func returnToLevelsTapped(_ sender: Any) {
-        // Perform same action as tapping the levels button in the menu view
-        levelsButtonInteraction()
+        // Go back to the levels view
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -838,16 +861,20 @@ extension GameViewController: WordGameDelegate {
         }
     }
     
-    func revealWord(at correctSpot: Int, word: String, shouldVibrate: Bool) {
+    func revealWord(at correctSpot: Int, word: String, shouldVibrate: Bool, revealedByHint: Bool) {
         wordCountLabels[correctSpot].text = word.uppercased()
 
         if shouldVibrate {
             // Only perform reveal animation/vibration when a guess occurs
             // Don't do it when loading correct answers as view appears
             animateWordReveal(atSpot: correctSpot)
-            let notifier = UINotificationFeedbackGenerator()
-            notifier.notificationOccurred(.success)
-            AudioPlayer.shared.playSoundEffect(soundEffect: "correctAnswer", ext: "mp3")
+            
+            if !revealedByHint {
+                setGemCount(toCount: User.shared.gemCount + 2)
+                let notifier = UINotificationFeedbackGenerator()
+                notifier.notificationOccurred(.success)
+                AudioPlayer.shared.playSoundEffect(soundEffect: "correctAnswer", ext: "mp3")
+            }
         }
         
         // Keep array from bloating
@@ -915,11 +942,11 @@ extension GameViewController: WordGameDelegate {
         }, completion: {
             void in
             
-            UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
                 self.wordCountLabels[spot].transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             }, completion: {
                 void in
-                UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+                UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
                     self.wordCountLabels[spot].transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 }, completion: {
                     void in
@@ -1006,7 +1033,6 @@ extension GameViewController: CAAnimationDelegate {
             (void) in
             
             for circle in self.circles {
-                
                 circle.transform = (circle.layer.presentation()?.affineTransform())!
                 circle.centerButton.transform = circle.transform.inverted()
                 
@@ -1083,12 +1109,15 @@ extension GameViewController: CAAnimationDelegate {
 // MARK: - Menu Delegate Extension
 extension GameViewController: MenuDelegate {
     func homeButtonInteraction() {
-        performSegue(withIdentifier: "unwindToHome", sender: self)
+        closeMenu(completion: {
+            self.navigationController?.popToRootViewController(animated: true)
+        })
     }
     
     func levelsButtonInteraction() {
-        
-        dismiss(animated: true, completion: nil)
+        closeMenu(completion: {
+            self.navigationController?.popViewController(animated: true)
+        })
     }
         
     func soundInteraction() {
@@ -1129,7 +1158,7 @@ extension GameViewController: MenuDelegate {
 extension GameViewController: HintPopUpDelegate {
     func revealHintTapped() {
         if let popUp = popUp {
-            if User.shared.gemCount < 20 {
+            if User.shared.gemCount < 10 {
                 return
             }
             
@@ -1139,7 +1168,7 @@ extension GameViewController: HintPopUpDelegate {
                 hintRevealed.append(popUp.infoForClue)
                 GameData.shared.defaults.set(hintRevealed, forKey: hintKey)
             }
-            setGemCount(toCount: User.shared.gemCount - 20)
+            setGemCount(toCount: User.shared.gemCount - 10)
             
             UIView.animate(withDuration: 0.6) {
                 popUp.blurView.alpha = 0.0
@@ -1147,8 +1176,22 @@ extension GameViewController: HintPopUpDelegate {
         }
     }
     
-    func revealWordTapped() {
-        
+    func revealWordTapped(atSpot spot: Int) {
+        if let popUp = popUp {
+            if User.shared.gemCount < 40 {
+                return
+            }
+            
+            popUp.wordIsRevealed = true
+            if !correctAnswerSpots.contains(spot) {
+                correctAnswerSpots.append(spot)
+                GameData.shared.defaults.set(correctAnswerSpots, forKey: correctAnswerKey)
+            }
+            
+            game.fillSingleAnswer(correctSpot: spot)
+            setGemCount(toCount: User.shared.gemCount - 40)
+            popUp.closeFrame()
+        }
     }
     
     func closePopUp() {
@@ -1158,8 +1201,8 @@ extension GameViewController: HintPopUpDelegate {
             }) {
                 (void) in
                 popUp.removeFromSuperview()
+                self.popUp = nil
             }
-
         }
     }
 }
@@ -1188,5 +1231,3 @@ extension GameViewController: InAppPurchaseDelegate {
         setGemCount(toCount: User.shared.gemCount + gemCount)
     }
 }
-
-

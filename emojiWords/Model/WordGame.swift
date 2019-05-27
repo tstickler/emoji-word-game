@@ -63,7 +63,7 @@ class WordGame {
             if clues[i].answer == guess {
                 // Only indicate a correct guess if they haven't guessed it before
                 if !correctAnswers.contains(i) {
-                    correctGuess(at: i, guess: guess, shouldVibrate: true)
+                    correctGuess(at: i, guess: guess, shouldVibrate: true, revealedByHint: false)
                 }
                 
                 return
@@ -83,10 +83,14 @@ class WordGame {
         delegate?.setClueInformation(emojis: clue.emojis, hint: clue.hint, words: clue.numOfWords, answer: clue.answer)
     }
     
+    func fillSingleAnswer(correctSpot: Int) {
+        correctGuess(at: correctSpot, guess: clues[correctSpot].answer, shouldVibrate: true, revealedByHint: true)
+    }
+    
     func fillCorrectAnswers(_ correctSpots: [Int]) {
         // Happens when user comes back to a game in progress
         for index in correctSpots {
-            correctGuess(at: index, guess: clues[index].answer, shouldVibrate: false)
+            correctGuess(at: index, guess: clues[index].answer, shouldVibrate: false, revealedByHint: false)
         }
     }
     
@@ -185,11 +189,11 @@ class WordGame {
         delegate?.updateGuessText(withText: currentGuess)
     }
     
-    private func correctGuess(at correctSpot: Int, guess: String, shouldVibrate: Bool) {
+    private func correctGuess(at correctSpot: Int, guess: String, shouldVibrate: Bool, revealedByHint: Bool) {
         correctAnswers.append(correctSpot)
         
         // Communicate to controller a correct guess was made
-        delegate?.revealWord(at: correctSpot, word: guess, shouldVibrate: shouldVibrate)
+        delegate?.revealWord(at: correctSpot, word: guess, shouldVibrate: shouldVibrate, revealedByHint: revealedByHint)
     }
     
     func isGameOver() {

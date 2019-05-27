@@ -10,7 +10,7 @@ protocol WordGameDelegate: class {
     func updateGuessText(withText text: String)
     func setWheelLetter(wheels: [[String]])
     func setClues(clues: [EmojiClue])
-    func revealWord(at correctSpot: Int, word: String, shouldVibrate: Bool)
+    func revealWord(at correctSpot: Int, word: String, shouldVibrate: Bool, revealedByHint: Bool)
     func incorrectGuess()
     func setClueInformation(emojis: String, hint: String, words: Int, answer: String)
     func gameOver()

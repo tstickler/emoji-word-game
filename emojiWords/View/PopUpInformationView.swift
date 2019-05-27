@@ -19,13 +19,16 @@ class PopUpInformationView: UIView {
     var wordsCount: Int = 0
     var letterCount: Int = 0
     var hintIsRevealed = false
+    var wordIsRevealed = false
     var infoForClue = 0
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        frameHeight = 180//self.superview!.frame.height * 0.2
+        frameHeight = 220//self.superview!.frame.height * 0.2
         frameWidth = 250//self.superview!.frame.width * 0.6
+        
+        self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: frameWidth, height: frameHeight)
         
         drawBox()
         addLabels()
@@ -58,7 +61,7 @@ class PopUpInformationView: UIView {
     
     func addLabels() {
         let emojiLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        emojiLabel.font = UIFont(name: "EmojiOne", size: 44)
+        emojiLabel.font = UIFont(name: "EmojiOne", size: 48)
         emojiLabel.text = emojisText
         emojiLabel.textAlignment = .center
         emojiLabel.layer.zPosition = 0.99
@@ -99,14 +102,14 @@ class PopUpInformationView: UIView {
         
         let revealLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         revealLabel.font = UIFont(name: "VTC-GarageSale", size: 30)
-        revealLabel.text = "REVEAL?"
+        revealLabel.text = "REVEAL HINT?"
         revealLabel.numberOfLines = 1
         revealLabel.textAlignment = .center
         revealLabel.layer.zPosition = 1.0
         revealLabel.translatesAutoresizingMaskIntoConstraints = false
         
         revealButton.frame = CGRect(x: 0, y: 0, width: 90, height: 40)
-        if User.shared.gemCount < 20 {
+        if User.shared.gemCount < 10 {
             revealButton.backgroundColor = UIColor.init(red: 255/255,
                                                         green: 39/255,
                                                         blue: 35/255,
@@ -114,7 +117,7 @@ class PopUpInformationView: UIView {
         } else {
             revealButton.backgroundColor = .white
         }
-        revealButton.setTitle("20 GEMS", for: .normal)
+        revealButton.setTitle("10 GEMS", for: .normal)
         revealButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 22)
         revealButton.setTitleColor(.black, for: .normal)
         revealButton.layer.borderColor = UIColor.black.cgColor
@@ -124,7 +127,7 @@ class PopUpInformationView: UIView {
         
         let closeButton = UIButton(type: .system)
         closeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        closeButton.backgroundColor = .white
+        closeButton.backgroundColor = .clear
         closeButton.setTitle("X", for: .normal)
         closeButton.layer.zPosition = 1.0
         closeButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 20)
@@ -135,6 +138,28 @@ class PopUpInformationView: UIView {
         closeButton.addTarget(self, action: #selector(closeFrame), for: .touchUpInside)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
 
+        let revealWordButton = UIButton(type: .system)
+        revealWordButton.setTitle("REVEAL WORD - 40 GEMS", for: .normal)
+        revealWordButton.layer.zPosition = 0.99
+        revealWordButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 22)
+        revealWordButton.setTitleColor(.black, for: .normal)
+        if (User.shared.gemCount < 50 && !hintIsRevealed) || (User.shared.gemCount < 40 && hintIsRevealed) {
+            revealWordButton.backgroundColor = UIColor.init(red: 255/255,
+                                                        green: 39/255,
+                                                        blue: 35/255,
+                                                        alpha: 1.0)
+        } else {
+            revealWordButton.backgroundColor = .white
+        }
+        revealWordButton.layer.borderColor = UIColor.black.cgColor
+        revealWordButton.layer.borderWidth = 2.0
+        revealWordButton.translatesAutoresizingMaskIntoConstraints = false
+        revealWordButton.addTarget(self, action: #selector(revealWordTapped), for: .touchUpInside)
+        var revealWordButtonHeightConstant: CGFloat = 30.0
+        if wordIsRevealed {
+            revealWordButtonHeightConstant = 0.0
+            revealWordButton.isHidden = true
+        }
         
         addSubview(emojiLabel)
         addSubview(hintLabel)
@@ -144,6 +169,7 @@ class PopUpInformationView: UIView {
         blurView.contentView.addSubview(revealButton)
         blurView.contentView.addSubview(revealLabel)
         addSubview(closeButton)
+        addSubview(revealWordButton)
         
         var constraints = [NSLayoutConstraint]()
         constraints.append(NSLayoutConstraint(item: emojiLabel,
@@ -173,7 +199,7 @@ class PopUpInformationView: UIView {
                                               toItem: nil,
                                               attribute: .height,
                                               multiplier: 1.0,
-                                              constant: 55))
+                                              constant: 70))
         
         constraints.append(NSLayoutConstraint(item: hintLabel,
                                               attribute: .centerX,
@@ -207,8 +233,8 @@ class PopUpInformationView: UIView {
         constraints.append(NSLayoutConstraint(item: wordsLabel,
                                               attribute: .bottom,
                                               relatedBy: .equal,
-                                              toItem: self,
-                                              attribute: .bottom,
+                                              toItem: revealWordButton,
+                                              attribute: .top,
                                               multiplier: 1.0,
                                               constant: -6))
         constraints.append(NSLayoutConstraint(item: wordsLabel,
@@ -229,8 +255,8 @@ class PopUpInformationView: UIView {
         constraints.append(NSLayoutConstraint(item: lettersLabel,
                                               attribute: .bottom,
                                               relatedBy: .equal,
-                                              toItem: self,
-                                              attribute: .bottom,
+                                              toItem: revealWordButton,
+                                              attribute: .top,
                                               multiplier: 1.0,
                                               constant: -6))
         constraints.append(NSLayoutConstraint(item: lettersLabel,
@@ -297,7 +323,7 @@ class PopUpInformationView: UIView {
                                               toItem: nil,
                                               attribute: .width,
                                               multiplier: 1.0,
-                                              constant: 90))
+                                              constant: 150))
         
         constraints.append(NSLayoutConstraint(item: revealButton,
                                               attribute: .centerX,
@@ -342,7 +368,35 @@ class PopUpInformationView: UIView {
                                               attribute: .trailing,
                                               multiplier: 1.0,
                                               constant: -1))
-
+        
+        constraints.append(NSLayoutConstraint(item: revealWordButton,
+                                              attribute: .bottom,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .bottom,
+                                              multiplier: 1.0,
+                                              constant: -6))
+        constraints.append(NSLayoutConstraint(item: revealWordButton,
+                                              attribute: .leading,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .leading,
+                                              multiplier: 1.0,
+                                              constant: 6))
+        constraints.append(NSLayoutConstraint(item: revealWordButton,
+                                              attribute: .centerX,
+                                              relatedBy: .equal,
+                                              toItem: self,
+                                              attribute: .centerX,
+                                              multiplier: 1.0,
+                                              constant: 0))
+        constraints.append(NSLayoutConstraint(item: revealWordButton,
+                                              attribute: .height,
+                                              relatedBy: .equal,
+                                              toItem: nil,
+                                              attribute: .height,
+                                              multiplier: 1.0,
+                                              constant: revealWordButtonHeightConstant))
         
         NSLayoutConstraint.activate(constraints)
         
@@ -358,5 +412,11 @@ class PopUpInformationView: UIView {
     
     @objc func revealButtonTapped() {
         delegate?.revealHintTapped()
+    }
+    
+    @objc func revealWordTapped(atSpace: Int) {
+        if hintIsRevealed {
+            delegate?.revealWordTapped(atSpot: infoForClue)
+        }
     }
 }

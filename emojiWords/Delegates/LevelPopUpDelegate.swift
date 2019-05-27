@@ -10,5 +10,6 @@ protocol LevelPopUpDelegate: class {
     func handleLevelButton(level: Int)
     func handleIapButton()
     func handleGemsButton()
+    func handleRestorePurchase()
 }
 

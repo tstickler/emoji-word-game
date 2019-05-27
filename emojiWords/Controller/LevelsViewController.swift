@@ -145,6 +145,7 @@ class LevelsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setUpLevelPackButtons()
     }
     
     func setUpLevelPackButtons() {
@@ -251,6 +252,10 @@ class LevelsViewController: UIViewController {
 }
 
 extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
+    func handleRestorePurchase() {
+        InAppPurchase.shared.restorePurchases()
+    }
+    
     func alertUser(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

@@ -8,7 +8,7 @@
 
 protocol HintPopUpDelegate: class {
     func revealHintTapped()
-    func revealWordTapped()
+    func revealWordTapped(atSpot spot: Int)
     func closePopUp()
 }
 

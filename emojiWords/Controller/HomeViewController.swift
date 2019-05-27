@@ -24,10 +24,6 @@ class HomeViewController: UIViewController {
     var topConstraint: CGFloat!
     var leadingConstraint: CGFloat!
     
-    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
-        
-    }
-    
     @IBAction func playButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "segueToLevels", sender: self)
     }
