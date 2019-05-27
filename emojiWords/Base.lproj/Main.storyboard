@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="odP-xi-BGa">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,14 +23,14 @@
             <objects>
                 <viewController id="cHt-wF-A4j" customClass="HomeViewController" customModule="emojiWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0y-y5-VEd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Iqx-yv-Qko">
-                                <rect key="frame" x="0.0" y="-25" width="320" height="628"/>
+                                <rect key="frame" x="0.0" y="-1" width="414" height="898"/>
                             </imageView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUi-5M-lYn">
-                                <rect key="frame" x="85" y="358" width="150" height="70"/>
+                                <rect key="frame" x="132" y="652" width="150" height="70"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="1Jp-fg-yep"/>
@@ -46,25 +46,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPiN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mht-tE-ofB">
-                                <rect key="frame" x="52.5" y="20" width="215" height="140.5"/>
+                                <rect key="frame" x="99.666666666666686" y="44" width="215" height="140.66666666666666"/>
                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="140"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kl5-kQ-cwB">
-                                <rect key="frame" x="44.5" y="120" width="65.5" height="120"/>
+                                <rect key="frame" x="91.666666666666686" y="144" width="65.333333333333314" height="120"/>
                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="120"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ex-I7-R93">
-                                <rect key="frame" x="200" y="120" width="73" height="120"/>
+                                <rect key="frame" x="247" y="144" width="73" height="120"/>
                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="120"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNM-f1-RmA">
-                                <rect key="frame" x="128" y="442" width="64" height="64"/>
+                                <rect key="frame" x="175" y="736" width="64" height="64"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="2xV-PC-TNt"/>
@@ -77,11 +77,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UG5-jc-6TN">
-                                <rect key="frame" x="0.0" y="-25" width="320" height="628"/>
+                                <rect key="frame" x="0.0" y="-1" width="414" height="898"/>
                                 <color key="backgroundColor" red="0.58823529409999997" green="0.43529411759999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="ljg-9e-xWw">
-                                <rect key="frame" x="20" y="284" width="280" height="280"/>
+                                <rect key="frame" x="67" y="308" width="280" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="dz7-fT-tux"/>
                                     <constraint firstAttribute="height" constant="280" id="nYs-UP-pgf"/>
@@ -140,33 +140,33 @@
             <objects>
                 <viewController id="zdw-dE-icn" customClass="LevelsViewController" customModule="emojiWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S3z-cT-fBb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-hx-9oi" userLabel="background">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RQ-bZ-0C7">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-LR-xtT" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOJi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoD-Xp-fg2">
-                                                <rect key="frame" x="196" y="8" width="91" height="60"/>
+                                                <rect key="frame" x="242.99999999999997" y="8" width="90.666666666666657" height="60"/>
                                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="60"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="pXN-Oe-qIv">
-                                                <rect key="frame" x="130" y="8" width="60" height="60"/>
+                                                <rect key="frame" x="177" y="8" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="5hm-Ns-ouS"/>
                                                     <constraint firstAttribute="width" constant="60" id="lHf-c2-nqN"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPiN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hch-Ub-fFg" userLabel="SPiN">
-                                                <rect key="frame" x="31.5" y="8" width="92.5" height="60"/>
+                                                <rect key="frame" x="78.666666666666686" y="8" width="92.333333333333314" height="60"/>
                                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="60"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -189,10 +189,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Mi5-zs-CDJ">
-                                        <rect key="frame" x="16" y="150" width="288" height="44"/>
+                                        <rect key="frame" x="16" y="150" width="382" height="59.666666666666657"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN2-gr-3Fh">
-                                                <rect key="frame" x="0.0" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="WN2-gr-3Fh" secondAttribute="height" multiplier="6:5" id="AGM-At-6vT"/>
@@ -204,7 +204,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywf-4M-d1P">
-                                                <rect key="frame" x="59" y="0.0" width="52.5" height="44"/>
+                                                <rect key="frame" x="77.666666666666657" y="0.0" width="71.666666666666657" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="watermelon" image="watermelon">
@@ -215,7 +215,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1P-jY-yyP">
-                                                <rect key="frame" x="117.5" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="155.33333333333334" y="0.0" width="71.333333333333343" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="peach" image="peach">
@@ -226,7 +226,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZT1-Vu-YHz">
-                                                <rect key="frame" x="176.5" y="0.0" width="52.5" height="44"/>
+                                                <rect key="frame" x="232.66666666666666" y="0.0" width="71.666666666666657" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="orange" image="orange">
@@ -237,7 +237,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-pu-aRx">
-                                                <rect key="frame" x="235" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="310.33333333333331" y="0.0" width="71.666666666666686" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="pear" image="pear">
@@ -250,22 +250,22 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiw-EI-9ve" userLabel="containerView">
-                                        <rect key="frame" x="16" y="194" width="288" height="0.0"/>
+                                        <rect key="frame" x="16" y="209.66666666666666" width="382" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="Z2m-pY-pRV"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEDIUM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEd-Xg-c9q">
-                                        <rect key="frame" x="30" y="224" width="132" height="50"/>
+                                        <rect key="frame" x="30" y="239.66666666666669" width="132" height="50"/>
                                         <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" tag="10" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="f4P-mv-Mgf">
-                                        <rect key="frame" x="16" y="284" width="288" height="44"/>
+                                        <rect key="frame" x="16" y="299.66666666666669" width="382" height="59.666666666666686"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCM-F1-cqo">
-                                                <rect key="frame" x="0.0" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="DCM-F1-cqo" secondAttribute="height" multiplier="6:5" id="7ex-6b-Lkh"/>
@@ -277,7 +277,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rD-dU-LlL">
-                                                <rect key="frame" x="59" y="0.0" width="52.5" height="44"/>
+                                                <rect key="frame" x="77.666666666666657" y="0.0" width="71.666666666666657" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="lemon" image="lemon">
@@ -288,7 +288,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wly-Zo-yjp">
-                                                <rect key="frame" x="117.5" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="155.33333333333334" y="0.0" width="71.333333333333343" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="apple" image="apple">
@@ -299,7 +299,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrV-cw-Blb">
-                                                <rect key="frame" x="176.5" y="0.0" width="52.5" height="44"/>
+                                                <rect key="frame" x="232.66666666666666" y="0.0" width="71.666666666666657" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="kiwi" image="kiwi">
@@ -310,7 +310,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGg-M6-FIN">
-                                                <rect key="frame" x="235" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="310.33333333333331" y="0.0" width="71.666666666666686" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="mango" image="mango">
@@ -323,22 +323,22 @@
                                         </subviews>
                                     </stackView>
                                     <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjw-oI-cDm" userLabel="containerView">
-                                        <rect key="frame" x="16" y="328" width="288" height="0.0"/>
+                                        <rect key="frame" x="16" y="359.33333333333331" width="382" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="bNl-x1-Rni"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvq-Aj-CdI" userLabel="HARD">
-                                        <rect key="frame" x="30" y="358" width="89" height="50"/>
+                                        <rect key="frame" x="30" y="389.33333333333331" width="89" height="50"/>
                                         <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" tag="20" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-Fo-7gu">
-                                        <rect key="frame" x="16" y="418" width="288" height="44"/>
+                                        <rect key="frame" x="16" y="449.33333333333331" width="382" height="59.666666666666686"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIz-ed-Tpe">
-                                                <rect key="frame" x="0.0" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wIz-ed-Tpe" secondAttribute="height" multiplier="6:5" id="Mnf-9Y-iyW"/>
@@ -352,7 +352,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fa1-1z-Xcj">
-                                                <rect key="frame" x="59" y="0.0" width="52.5" height="44"/>
+                                                <rect key="frame" x="77.666666666666657" y="0.0" width="71.666666666666657" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="avocado" image="avocado">
@@ -363,7 +363,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cti-dU-gdX">
-                                                <rect key="frame" x="117.5" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="155.33333333333334" y="0.0" width="71.333333333333343" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="grapes" image="grapes">
@@ -374,7 +374,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VH-YS-XfK">
-                                                <rect key="frame" x="176.5" y="0.0" width="52.5" height="44"/>
+                                                <rect key="frame" x="232.66666666666666" y="0.0" width="71.666666666666657" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="cherries" image="cherries">
@@ -385,7 +385,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqx-x3-oZ5">
-                                                <rect key="frame" x="235" y="0.0" width="53" height="44"/>
+                                                <rect key="frame" x="310.33333333333331" y="0.0" width="71.666666666666686" height="59.666666666666664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" title="eggplant" image="eggplant">
@@ -398,7 +398,7 @@
                                         </subviews>
                                     </stackView>
                                     <view tag="20" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlq-gV-Rcf" userLabel="containerView">
-                                        <rect key="frame" x="16" y="462" width="288" height="0.0"/>
+                                        <rect key="frame" x="16" y="509" width="382" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="height" id="jrr-Zx-jL8"/>
                                         </constraints>
@@ -472,17 +472,17 @@
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="BYZ-38-t0r" customClass="GameViewController" customModule="emojiWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ilP-I2-5gw" userLabel="background">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kn-hY-ZeR">
-                                <rect key="frame" x="8" y="28" width="304" height="28"/>
+                                <rect key="frame" x="8" y="52" width="398" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkh-0b-1qM">
-                                        <rect key="frame" x="6" y="0.0" width="25" height="28"/>
+                                        <rect key="frame" x="5.9999999999999982" y="0.0" width="25.333333333333329" height="28"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Pkh-0b-1qM" secondAttribute="height" multiplier="0.9:1" id="Wm3-P8-kVi"/>
@@ -494,7 +494,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="watermelon - 25   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsf-Z6-Zgn">
-                                        <rect key="frame" x="54.5" y="2" width="195" height="24"/>
+                                        <rect key="frame" x="101.66666666666669" y="2" width="195" height="24"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168.5" id="hjR-mU-qwm"/>
@@ -504,7 +504,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="wJl-2e-2fp">
-                                        <rect key="frame" x="240" y="3" width="60" height="22"/>
+                                        <rect key="frame" x="334" y="3" width="60" height="22"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="247" verticalHuggingPriority="251" horizontalCompressionResistancePriority="746" image="gem" translatesAutoresizingMaskIntoConstraints="NO" id="IHe-Kb-dEH">
                                                 <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
@@ -538,16 +538,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPl-x8-YSX">
-                                <rect key="frame" x="8" y="225" width="218" height="35"/>
+                                <rect key="frame" x="8" y="425" width="312" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="yVG-Bx-Pgq">
-                                        <rect key="frame" x="6" y="2" width="179" height="31"/>
+                                        <rect key="frame" x="6" y="2" width="273" height="31"/>
                                         <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXU-JP-CCq">
-                                        <rect key="frame" x="187" y="4" width="27" height="27"/>
+                                        <rect key="frame" x="281" y="4" width="27" height="27"/>
                                         <color key="backgroundColor" red="1" green="0.21239907359999999" blue="0.27901580679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="UXU-JP-CCq" secondAttribute="height" multiplier="1:1" id="J98-gm-0Fd"/>
@@ -574,22 +574,22 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tja-bT-W5g">
-                                <rect key="frame" x="8" y="64" width="304" height="153"/>
+                                <rect key="frame" x="8" y="88" width="398" height="329"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qrb-gL-uEN" userLabel="Clues Stack">
-                                <rect key="frame" x="8" y="64" width="304" height="153"/>
+                                <rect key="frame" x="8" y="88" width="398" height="329"/>
                                 <subviews>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Th0-AC-8OR">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="65.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="mrV-os-rTF">
-                                                <rect key="frame" x="8" y="2" width="144" height="36.5"/>
+                                                <rect key="frame" x="8" y="2" width="191" height="71.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="EmojiOne" family="EmojiOne" pointSize="44"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wc8-Vq-ykn">
-                                                <rect key="frame" x="152" y="2" width="144" height="26.5"/>
+                                                <rect key="frame" x="199" y="1.9999999999999964" width="191" height="61.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -608,16 +608,16 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-lf-FY3">
-                                        <rect key="frame" x="0.0" y="30.5" width="304" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="65.666666666666657" width="398" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GOP-2c-0q5">
-                                                <rect key="frame" x="8" y="0.0" width="144" height="38.5"/>
+                                                <rect key="frame" x="8" y="0.0" width="191" height="74"/>
                                                 <fontDescription key="fontDescription" name="EmojiOne" family="EmojiOne" pointSize="44"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T3V-TO-YeQ">
-                                                <rect key="frame" x="152" y="2" width="144" height="26.5"/>
+                                                <rect key="frame" x="199" y="2" width="191" height="62"/>
                                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -636,16 +636,16 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDJ-Jz-r1g">
-                                        <rect key="frame" x="0.0" y="61" width="304" height="31"/>
+                                        <rect key="frame" x="0.0" y="131.66666666666666" width="398" height="65.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PTx-qO-Rhv">
-                                                <rect key="frame" x="8" y="0.0" width="144" height="39"/>
+                                                <rect key="frame" x="8" y="0.0" width="191" height="73.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="EmojiOne" family="EmojiOne" pointSize="44"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RWw-a0-DPn">
-                                                <rect key="frame" x="152" y="2" width="144" height="27"/>
+                                                <rect key="frame" x="199" y="1.9999999999999964" width="191" height="61.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -664,16 +664,16 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AU-HG-Xep">
-                                        <rect key="frame" x="0.0" y="92" width="304" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="197.33333333333331" width="398" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Ud-pK-o4H">
-                                                <rect key="frame" x="8" y="0.0" width="144" height="38.5"/>
+                                                <rect key="frame" x="8" y="0.0" width="191" height="74"/>
                                                 <fontDescription key="fontDescription" name="EmojiOne" family="EmojiOne" pointSize="44"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ewE-HC-jc8">
-                                                <rect key="frame" x="152" y="2" width="144" height="26.5"/>
+                                                <rect key="frame" x="199" y="2" width="191" height="62"/>
                                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -692,16 +692,16 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pxt-JH-wbu">
-                                        <rect key="frame" x="0.0" y="122.5" width="304" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="263.33333333333331" width="398" height="65.666666666666686"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pz3-Av-Q4Z">
-                                                <rect key="frame" x="8" y="0.0" width="144" height="38.5"/>
+                                                <rect key="frame" x="8" y="0.0" width="191" height="73.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="EmojiOne" family="EmojiOne" pointSize="44"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FaC-kj-oz5">
-                                                <rect key="frame" x="152" y="2" width="144" height="26.5"/>
+                                                <rect key="frame" x="199" y="1.9999999999999964" width="191" height="61.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -722,7 +722,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz2-Rl-hxH">
-                                <rect key="frame" x="232" y="225" width="80" height="35"/>
+                                <rect key="frame" x="326" y="425" width="80" height="35"/>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.75294117647058822" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="vYE-2j-D7k"/>
@@ -736,68 +736,68 @@
                                 </connections>
                             </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-pE-3dy" customClass="SegmentedCircleView" customModule="emojiWords" customModuleProvider="target">
-                                <rect key="frame" x="16" y="272" width="136" height="136"/>
+                                <rect key="frame" x="16" y="472" width="183" height="183"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="f2v-pE-3dy" secondAttribute="height" multiplier="1:1" id="J7b-GB-JsY"/>
                                 </constraints>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSL-eT-uUw" customClass="SegmentedCircleView" customModule="emojiWords" customModuleProvider="target">
-                                <rect key="frame" x="168" y="272" width="136" height="136"/>
+                                <rect key="frame" x="215" y="472" width="183" height="183"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KSL-eT-uUw" secondAttribute="height" multiplier="1:1" id="2BF-8c-ixb"/>
                                 </constraints>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Twm-KL-vzg" customClass="SegmentedCircleView" customModule="emojiWords" customModuleProvider="target">
-                                <rect key="frame" x="16" y="424" width="136" height="136"/>
+                                <rect key="frame" x="16" y="671" width="183" height="183"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Twm-KL-vzg" secondAttribute="height" multiplier="1:1" id="mWE-VQ-4eg"/>
                                 </constraints>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOQ-6s-iuA" customClass="SegmentedCircleView" customModule="emojiWords" customModuleProvider="target">
-                                <rect key="frame" x="168" y="424" width="136" height="136"/>
+                                <rect key="frame" x="215" y="671" width="183" height="183"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="UOQ-6s-iuA" secondAttribute="height" multiplier="1:1" id="uOK-bH-fuu"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKG-nP-iP3" userLabel="Clues Bottom Outline">
-                                <rect key="frame" x="8" y="217" width="304" height="2"/>
+                                <rect key="frame" x="8" y="417" width="398" height="2"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="dMa-UH-v74"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsq-u0-igX" userLabel="Clues Top Outline">
-                                <rect key="frame" x="8" y="62" width="304" height="2"/>
+                                <rect key="frame" x="8" y="86" width="398" height="2"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Zlc-Cd-obb"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxL-1k-eTf" userLabel="Clues Left Outline">
-                                <rect key="frame" x="8" y="64" width="2" height="153"/>
+                                <rect key="frame" x="8" y="88" width="2" height="329"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="2" id="Njl-JC-mJf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW6-Ig-3i1" userLabel="Clues Right Outline">
-                                <rect key="frame" x="310" y="64" width="2" height="153"/>
+                                <rect key="frame" x="404" y="88" width="2" height="329"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="2" id="9pl-f5-l4l"/>
                                 </constraints>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abO-P4-TLH">
-                                <rect key="frame" x="20" y="204" width="280" height="160"/>
+                                <rect key="frame" x="67" y="368" width="280" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwm-1O-Rzi">
-                                        <rect key="frame" x="39" y="57.5" width="202.5" height="37.5"/>
+                                        <rect key="frame" x="39.000000000000014" y="57.333333333333314" width="202.33333333333337" height="37.333333333333343"/>
                                         <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WATERMELON PACK" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3k-oI-PeR">
-                                        <rect key="frame" x="-16" y="20" width="312" height="37.5"/>
+                                        <rect key="frame" x="-15.666666666666657" y="20.000000000000004" width="311.66666666666663" height="37.333333333333343"/>
                                         <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -911,69 +911,287 @@
                         <outletCollection property="wordCountLabels" destination="RWw-a0-DPn" collectionClass="NSMutableArray" id="6U1-e1-5M2"/>
                         <outletCollection property="wordCountLabels" destination="ewE-HC-jc8" collectionClass="NSMutableArray" id="Idd-qS-eiC"/>
                         <outletCollection property="wordCountLabels" destination="FaC-kj-oz5" collectionClass="NSMutableArray" id="nJb-Po-BYU"/>
+                        <segue destination="Ge4-EC-YqX" kind="show" identifier="segueToHelp" id="Eus-xE-Frx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1040.5797101449275" y="127.23214285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Help View Controller-->
         <scene sceneID="ReF-Jp-i7v">
             <objects>
-                <viewController id="Ge4-EC-YqX" sceneMemberID="viewController">
+                <viewController id="Ge4-EC-YqX" customClass="HelpViewController" customModule="emojiWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HYl-Jm-Ysz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="X9c-bb-2ER" userLabel="background">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2250"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fn7-iY-aa9">
-                                <rect key="frame" x="8" y="50" width="304" height="65"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qv-f3-tc3">
+                                <rect key="frame" x="0.0" y="44" width="320" height="2206"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👨‍👩‍👧‍👦🌳" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="jDf-B5-Msa">
-                                        <rect key="frame" x="8" y="2" width="144" height="71"/>
-                                        <fontDescription key="fontDescription" name="EmojiOne" family="EmojiOne" pointSize="44"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 LETTERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h7Q-8b-vxg">
-                                        <rect key="frame" x="152" y="2" width="144" height="61"/>
-                                        <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaN-Wt-pfs">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2206"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fn7-iY-aa9">
+                                                <rect key="frame" x="8" y="110.33333333333334" width="304" height="65"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👨‍👩‍👧‍👦🌳" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="jDf-B5-Msa">
+                                                        <rect key="frame" x="8" y="2" width="144" height="71"/>
+                                                        <fontDescription key="fontDescription" name="EmojiOne" family="EmojiOne" pointSize="44"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 LETTERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h7Q-8b-vxg">
+                                                        <rect key="frame" x="152" y="2" width="144" height="61"/>
+                                                        <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="h7Q-8b-vxg" firstAttribute="top" secondItem="Fn7-iY-aa9" secondAttribute="top" constant="2" id="9Ti-7a-9UW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jDf-B5-Msa" secondAttribute="bottom" constant="-8" id="C1v-QW-3op"/>
+                                                    <constraint firstItem="h7Q-8b-vxg" firstAttribute="leading" secondItem="Fn7-iY-aa9" secondAttribute="centerX" id="CNd-2A-xCu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="h7Q-8b-vxg" secondAttribute="trailing" constant="8" id="Cn0-3U-ta7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="h7Q-8b-vxg" secondAttribute="bottom" constant="2" id="QHK-IP-crr"/>
+                                                    <constraint firstItem="jDf-B5-Msa" firstAttribute="top" secondItem="Fn7-iY-aa9" secondAttribute="top" constant="2" id="Yv2-lk-Upt"/>
+                                                    <constraint firstItem="jDf-B5-Msa" firstAttribute="trailing" secondItem="Fn7-iY-aa9" secondAttribute="centerX" id="icD-mO-KIs"/>
+                                                    <constraint firstItem="jDf-B5-Msa" firstAttribute="leading" secondItem="Fn7-iY-aa9" secondAttribute="leading" constant="8" id="oOI-ui-EHZ"/>
+                                                    <constraint firstAttribute="height" constant="65" id="oV8-15-AAH"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THIS IS AN EMOJI CLUE. IT IS YOUR JOB TO FIGURE OUT WHAT IT MEANS!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJs-n4-1xE">
+                                                <rect key="frame" x="20" y="14" width="280" height="84.333333333333329"/>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO ENLARGE THE EMOJIS AND FIND MORE INFORMATION, TAP AND HOLD THE CLUE." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKL-eJ-fiW">
+                                                <rect key="frame" x="20" y="199.33333333333334" width="280" height="84.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxT-yW-Jqi" customClass="PopUpInformationView" customModule="emojiWords" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="295.66666666666669" width="250" height="220.00000000000006"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="54D-Ia-8WI"/>
+                                                    <constraint firstAttribute="height" constant="220" id="x9a-oi-O0z"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-8s-Azt" customClass="PopUpInformationView" customModule="emojiWords" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="713.66666666666663" width="250" height="220"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="Amb-C8-01n"/>
+                                                    <constraint firstAttribute="height" constant="220" id="x98-dn-wyY"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REDEEM GEMS TO GET MORE INFORMATION ABOUT THE CLUE." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTR-Bi-NNb">
+                                                <rect key="frame" x="145" y="539.66666666666663" width="140" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="bwL-91-3Fi"/>
+                                                    <constraint firstAttribute="width" constant="140" id="lft-BL-ENh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="fBb-hc-ax0">
+                                                <rect key="frame" x="30" y="563.66666666666663" width="100" height="77"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="5bJ-T4-kMu"/>
+                                                    <constraint firstAttribute="width" secondItem="fBb-hc-ax0" secondAttribute="height" multiplier="13:10" id="Sdu-sx-4cK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdR-jN-AGa" customClass="SegmentedCircleView" customModule="emojiWords" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="1131.6666666666667" width="240" height="240"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="G9O-KE-hjH"/>
+                                                    <constraint firstAttribute="height" constant="240" id="YIc-H1-6Wc"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rm-76-cyf">
+                                                <rect key="frame" x="20" y="957.66666666666652" width="280" height="162"/>
+                                                <string key="text">ONCE YOU THINK YOU HAVE IT, SPIN THE WHEELS TO HIGHLIGHT LETTERS. USE THE '+' BUTTON IN THE CENTER TO ADD THE HIGHLIGHTED LETTERS TO YOUR GUESS.</string>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rL-zt-Pvo">
+                                                <rect key="frame" x="20" y="1383.6666666666667" width="280" height="162"/>
+                                                <string key="text">REMEMBER, LETTERS WILL BE SCATTERED ACROSS 4 DIFFERENT CIRCLES! ONCE YOU'VE BUILT YOUR GUESS AND YOU'RE READY TO TEST IT, TAP THE TEST BUTTON TO SUBMIT!</string>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8K-KX-2d5">
+                                                <rect key="frame" x="20" y="1569.6666666666667" width="204" height="35"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAMILYTREE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="CcN-vA-48Q">
+                                                        <rect key="frame" x="6" y="2" width="165" height="31"/>
+                                                        <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="26"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sJ-3x-V0x">
+                                                        <rect key="frame" x="173" y="4" width="27" height="27"/>
+                                                        <color key="backgroundColor" red="1" green="0.21239907359999999" blue="0.27901580679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="3sJ-3x-V0x" secondAttribute="height" multiplier="1:1" id="LPK-uI-Mei"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="26"/>
+                                                        <state key="normal" title="X">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="guessClearTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZeY-gm-4fm"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="8aV-TU-sOp"/>
+                                                    <constraint firstItem="CcN-vA-48Q" firstAttribute="top" secondItem="S8K-KX-2d5" secondAttribute="top" constant="2" id="9PQ-NG-fgg"/>
+                                                    <constraint firstItem="CcN-vA-48Q" firstAttribute="leading" secondItem="S8K-KX-2d5" secondAttribute="leading" constant="6" id="Dl5-eJ-ga8"/>
+                                                    <constraint firstItem="3sJ-3x-V0x" firstAttribute="leading" secondItem="CcN-vA-48Q" secondAttribute="trailing" constant="2" id="Qii-Fl-t25"/>
+                                                    <constraint firstItem="3sJ-3x-V0x" firstAttribute="top" secondItem="S8K-KX-2d5" secondAttribute="top" constant="4" id="XCZ-LN-RTx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3sJ-3x-V0x" secondAttribute="bottom" constant="4" id="noh-ZS-qkH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="CcN-vA-48Q" secondAttribute="bottom" constant="2" id="t20-VO-yDc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3sJ-3x-V0x" secondAttribute="trailing" constant="4" id="vio-1K-4FO"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bI-a6-ka3">
+                                                <rect key="frame" x="228" y="1569.6666666666667" width="80" height="35"/>
+                                                <color key="backgroundColor" red="0.01176470588" green="0.75294117650000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="DTW-4G-KLa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="28"/>
+                                                <state key="normal" title="GUESS">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="guessTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R4C-xD-5pz"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gem" translatesAutoresizingMaskIntoConstraints="NO" id="Avz-cN-o7v">
+                                                <rect key="frame" x="40" y="1809" width="240" height="170.66666666666674"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pi-2C-iet">
+                                                <rect key="frame" x="20" y="1628.6666666666667" width="280" height="168.33333333333326"/>
+                                                <string key="text">SUBMITTING CORRECT ANSWERS AND COMPLETING LEVELS WILL EARN YOU GEMS! USE THE GEMS TO BUY HINTS, REVEAL WORDS, AND BUY ADDITIONAL LEVEL PACKS!</string>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IF YOU'RE RUNNING LOW ON GEMS AND NEED EXTRA HELP YOU CAN PURCHASE GEMS USING THE MENU." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRf-8W-USR">
+                                                <rect key="frame" x="20" y="1991.6666666666667" width="280" height="112.33333333333326"/>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvp-bj-iVa">
+                                                <rect key="frame" x="12" y="2122" width="296" height="42"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="VTC-GarageSale" family="VTCGarageSale" pointSize="30"/>
+                                                <state key="normal" title="OK GOT IT!">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="returnButtonTapped:" destination="Ge4-EC-YqX" eventType="touchUpInside" id="G4w-IH-tGh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Avz-cN-o7v" firstAttribute="top" secondItem="4Pi-2C-iet" secondAttribute="bottom" constant="12" id="05J-Ud-zqi"/>
+                                            <constraint firstItem="1bI-a6-ka3" firstAttribute="leading" secondItem="S8K-KX-2d5" secondAttribute="trailing" constant="4" id="0DS-QX-kmJ"/>
+                                            <constraint firstItem="8rL-zt-Pvo" firstAttribute="trailing" secondItem="vJs-n4-1xE" secondAttribute="trailing" id="3R2-GH-pxS"/>
+                                            <constraint firstItem="bdR-jN-AGa" firstAttribute="top" secondItem="8rm-76-cyf" secondAttribute="bottom" constant="12" id="4Nq-cC-ETT"/>
+                                            <constraint firstItem="WTR-Bi-NNb" firstAttribute="top" secondItem="mxT-yW-Jqi" secondAttribute="bottom" constant="24" id="4rL-Or-9xg"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fn7-iY-aa9" secondAttribute="trailing" constant="8" id="7DS-mQ-zkj"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tvp-bj-iVa" secondAttribute="trailing" constant="12" id="8IJ-p5-Fjk"/>
+                                            <constraint firstItem="8rL-zt-Pvo" firstAttribute="top" secondItem="bdR-jN-AGa" secondAttribute="bottom" constant="12" id="8K9-Gg-Eoi"/>
+                                            <constraint firstItem="8rm-76-cyf" firstAttribute="leading" secondItem="vJs-n4-1xE" secondAttribute="leading" id="AGx-wo-9TW"/>
+                                            <constraint firstItem="PKL-eJ-fiW" firstAttribute="top" secondItem="Fn7-iY-aa9" secondAttribute="bottom" constant="24" id="BVm-DG-VHs"/>
+                                            <constraint firstAttribute="trailing" secondItem="1bI-a6-ka3" secondAttribute="trailing" constant="12" id="Cqs-aJ-Pvy"/>
+                                            <constraint firstItem="Inf-8s-Azt" firstAttribute="centerX" secondItem="QaN-Wt-pfs" secondAttribute="centerX" id="Cvw-FT-fvV"/>
+                                            <constraint firstItem="4Pi-2C-iet" firstAttribute="trailing" secondItem="vJs-n4-1xE" secondAttribute="trailing" id="DBg-XO-fAa"/>
+                                            <constraint firstAttribute="trailing" secondItem="Avz-cN-o7v" secondAttribute="trailing" constant="40" id="Dcy-SZ-nPF"/>
+                                            <constraint firstItem="S8K-KX-2d5" firstAttribute="top" secondItem="8rL-zt-Pvo" secondAttribute="bottom" constant="24" id="ExH-u1-Pvr"/>
+                                            <constraint firstItem="aRf-8W-USR" firstAttribute="trailing" secondItem="4Pi-2C-iet" secondAttribute="trailing" id="H3u-7R-a8Z"/>
+                                            <constraint firstItem="4Pi-2C-iet" firstAttribute="leading" secondItem="vJs-n4-1xE" secondAttribute="leading" id="HFr-cK-rsY"/>
+                                            <constraint firstItem="S8K-KX-2d5" firstAttribute="leading" secondItem="vJs-n4-1xE" secondAttribute="leading" id="HZh-xZ-c8r"/>
+                                            <constraint firstItem="Tvp-bj-iVa" firstAttribute="leading" secondItem="QaN-Wt-pfs" secondAttribute="leading" constant="12" id="Hav-6w-DRn"/>
+                                            <constraint firstItem="aRf-8W-USR" firstAttribute="leading" secondItem="4Pi-2C-iet" secondAttribute="leading" id="IZc-8g-bVJ"/>
+                                            <constraint firstItem="Avz-cN-o7v" firstAttribute="leading" secondItem="QaN-Wt-pfs" secondAttribute="leading" constant="40" id="MqN-Z6-9ub"/>
+                                            <constraint firstItem="1bI-a6-ka3" firstAttribute="top" secondItem="8rL-zt-Pvo" secondAttribute="bottom" constant="24" id="OQD-nK-H2o"/>
+                                            <constraint firstItem="Tvp-bj-iVa" firstAttribute="top" secondItem="aRf-8W-USR" secondAttribute="bottom" constant="18" id="OcB-xh-FJk"/>
+                                            <constraint firstItem="fBb-hc-ax0" firstAttribute="top" secondItem="mxT-yW-Jqi" secondAttribute="bottom" constant="48" id="SN2-rt-jid"/>
+                                            <constraint firstItem="PKL-eJ-fiW" firstAttribute="trailing" secondItem="vJs-n4-1xE" secondAttribute="trailing" id="UMt-nZ-oHC"/>
+                                            <constraint firstItem="aRf-8W-USR" firstAttribute="top" secondItem="Avz-cN-o7v" secondAttribute="bottom" constant="12" id="WLg-2u-AE9"/>
+                                            <constraint firstItem="vJs-n4-1xE" firstAttribute="top" secondItem="QaN-Wt-pfs" secondAttribute="top" constant="14" id="ZgA-sL-RkB"/>
+                                            <constraint firstItem="Inf-8s-Azt" firstAttribute="top" secondItem="WTR-Bi-NNb" secondAttribute="bottom" constant="24" id="clS-cT-Kzk"/>
+                                            <constraint firstItem="vJs-n4-1xE" firstAttribute="trailing" secondItem="Fn7-iY-aa9" secondAttribute="trailing" constant="-12" id="clx-RH-TEl"/>
+                                            <constraint firstItem="Fn7-iY-aa9" firstAttribute="leading" secondItem="QaN-Wt-pfs" secondAttribute="leading" constant="8" id="cp7-Et-4au"/>
+                                            <constraint firstItem="WTR-Bi-NNb" firstAttribute="trailing" secondItem="mxT-yW-Jqi" secondAttribute="trailing" id="eeQ-ZB-uoP"/>
+                                            <constraint firstItem="PKL-eJ-fiW" firstAttribute="leading" secondItem="vJs-n4-1xE" secondAttribute="leading" id="efC-ch-zPg"/>
+                                            <constraint firstItem="vJs-n4-1xE" firstAttribute="leading" secondItem="Fn7-iY-aa9" secondAttribute="leading" constant="12" id="elg-dH-arJ"/>
+                                            <constraint firstItem="8rL-zt-Pvo" firstAttribute="leading" secondItem="vJs-n4-1xE" secondAttribute="leading" id="gUK-ax-acW"/>
+                                            <constraint firstItem="Fn7-iY-aa9" firstAttribute="top" secondItem="vJs-n4-1xE" secondAttribute="bottom" constant="12" id="hNV-VV-vED"/>
+                                            <constraint firstItem="8rm-76-cyf" firstAttribute="trailing" secondItem="vJs-n4-1xE" secondAttribute="trailing" id="iX4-Rf-RmE"/>
+                                            <constraint firstItem="8rm-76-cyf" firstAttribute="top" secondItem="Inf-8s-Azt" secondAttribute="bottom" constant="24" id="ja8-I0-S5I"/>
+                                            <constraint firstItem="mxT-yW-Jqi" firstAttribute="top" secondItem="PKL-eJ-fiW" secondAttribute="bottom" constant="12" id="kKB-w1-NNG"/>
+                                            <constraint firstAttribute="bottom" secondItem="Tvp-bj-iVa" secondAttribute="bottom" constant="42" id="oR5-Zc-AVL"/>
+                                            <constraint firstItem="WTR-Bi-NNb" firstAttribute="leading" secondItem="fBb-hc-ax0" secondAttribute="trailing" constant="15" id="qvr-hv-wzi"/>
+                                            <constraint firstItem="bdR-jN-AGa" firstAttribute="centerX" secondItem="QaN-Wt-pfs" secondAttribute="centerX" id="ugx-4t-dPP"/>
+                                            <constraint firstItem="S8K-KX-2d5" firstAttribute="bottom" secondItem="1bI-a6-ka3" secondAttribute="bottom" id="x5O-zU-vDj"/>
+                                            <constraint firstItem="4Pi-2C-iet" firstAttribute="top" secondItem="S8K-KX-2d5" secondAttribute="bottom" constant="24" id="zRH-Lh-KjS"/>
+                                            <constraint firstItem="mxT-yW-Jqi" firstAttribute="centerX" secondItem="QaN-Wt-pfs" secondAttribute="centerX" id="zS0-iY-nvp"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="h7Q-8b-vxg" firstAttribute="top" secondItem="Fn7-iY-aa9" secondAttribute="top" constant="2" id="9Ti-7a-9UW"/>
-                                    <constraint firstAttribute="bottom" secondItem="jDf-B5-Msa" secondAttribute="bottom" constant="-8" id="C1v-QW-3op"/>
-                                    <constraint firstItem="h7Q-8b-vxg" firstAttribute="leading" secondItem="Fn7-iY-aa9" secondAttribute="centerX" id="CNd-2A-xCu"/>
-                                    <constraint firstAttribute="trailing" secondItem="h7Q-8b-vxg" secondAttribute="trailing" constant="8" id="Cn0-3U-ta7"/>
-                                    <constraint firstAttribute="bottom" secondItem="h7Q-8b-vxg" secondAttribute="bottom" constant="2" id="QHK-IP-crr"/>
-                                    <constraint firstItem="jDf-B5-Msa" firstAttribute="top" secondItem="Fn7-iY-aa9" secondAttribute="top" constant="2" id="Yv2-lk-Upt"/>
-                                    <constraint firstItem="jDf-B5-Msa" firstAttribute="trailing" secondItem="Fn7-iY-aa9" secondAttribute="centerX" id="icD-mO-KIs"/>
-                                    <constraint firstItem="jDf-B5-Msa" firstAttribute="leading" secondItem="Fn7-iY-aa9" secondAttribute="leading" constant="8" id="oOI-ui-EHZ"/>
-                                    <constraint firstAttribute="height" constant="65" id="oV8-15-AAH"/>
+                                    <constraint firstItem="QaN-Wt-pfs" firstAttribute="top" secondItem="0qv-f3-tc3" secondAttribute="top" id="AFh-5e-TU6"/>
+                                    <constraint firstAttribute="bottom" secondItem="QaN-Wt-pfs" secondAttribute="bottom" id="NMn-bX-Nc6"/>
+                                    <constraint firstAttribute="trailing" secondItem="QaN-Wt-pfs" secondAttribute="trailing" id="UpT-FW-PQC"/>
+                                    <constraint firstItem="QaN-Wt-pfs" firstAttribute="width" secondItem="0qv-f3-tc3" secondAttribute="width" id="gaq-vC-CLb"/>
+                                    <constraint firstItem="QaN-Wt-pfs" firstAttribute="leading" secondItem="0qv-f3-tc3" secondAttribute="leading" id="kjy-wL-7Qi"/>
+                                    <constraint firstItem="QaN-Wt-pfs" firstAttribute="height" secondItem="0qv-f3-tc3" secondAttribute="height" priority="250" id="sK2-yb-SeX"/>
                                 </constraints>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="X9c-bb-2ER" firstAttribute="trailing" secondItem="cwe-rD-Tib" secondAttribute="trailing" id="0t0-zq-iyT"/>
-                            <constraint firstItem="Fn7-iY-aa9" firstAttribute="leading" secondItem="cwe-rD-Tib" secondAttribute="leading" constant="8" id="Hye-Jx-56N"/>
                             <constraint firstAttribute="bottom" secondItem="X9c-bb-2ER" secondAttribute="bottom" id="L98-ao-eYS"/>
                             <constraint firstItem="X9c-bb-2ER" firstAttribute="top" secondItem="HYl-Jm-Ysz" secondAttribute="top" id="Smb-nd-6Ot"/>
-                            <constraint firstItem="Fn7-iY-aa9" firstAttribute="top" secondItem="cwe-rD-Tib" secondAttribute="top" constant="30" id="rwx-57-7ht"/>
+                            <constraint firstItem="cwe-rD-Tib" firstAttribute="trailing" secondItem="0qv-f3-tc3" secondAttribute="trailing" id="ZDC-Oh-TiV"/>
+                            <constraint firstItem="0qv-f3-tc3" firstAttribute="top" secondItem="cwe-rD-Tib" secondAttribute="top" id="bbK-vi-HTj"/>
+                            <constraint firstAttribute="bottom" secondItem="0qv-f3-tc3" secondAttribute="bottom" id="eCy-fG-d7z"/>
                             <constraint firstItem="X9c-bb-2ER" firstAttribute="leading" secondItem="cwe-rD-Tib" secondAttribute="leading" id="sDR-dc-rft"/>
-                            <constraint firstItem="cwe-rD-Tib" firstAttribute="trailing" secondItem="Fn7-iY-aa9" secondAttribute="trailing" constant="8" id="ufp-jM-0xp"/>
+                            <constraint firstItem="0qv-f3-tc3" firstAttribute="leading" secondItem="cwe-rD-Tib" secondAttribute="leading" id="sVb-gJ-2vU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cwe-rD-Tib"/>
                     </view>
+                    <size key="freeformSize" width="320" height="2250"/>
+                    <connections>
+                        <outlet property="arrow" destination="fBb-hc-ax0" id="YsA-Td-tVU"/>
+                        <outlet property="emojiClue" destination="Fn7-iY-aa9" id="0g7-Xj-3Vm"/>
+                        <outlet property="guessButton" destination="1bI-a6-ka3" id="UtA-sH-Wtc"/>
+                        <outlet property="guessView" destination="S8K-KX-2d5" id="Fb1-RZ-2BJ"/>
+                        <outlet property="helpCircle" destination="bdR-jN-AGa" id="YuZ-x4-tMr"/>
+                        <outlet property="returnButton" destination="Tvp-bj-iVa" id="cbp-RD-kgi"/>
+                        <outlet property="revealedPopUp" destination="Inf-8s-Azt" id="36q-eo-gKi"/>
+                        <outlet property="unrevealedPopUp" destination="mxT-yW-Jqi" id="TG5-nk-hhL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgZ-v8-4sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1853" y="127"/>
+            <point key="canvasLocation" x="1852.1739130434785" y="126.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BSG-Xd-Cx5">
@@ -994,25 +1212,26 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apple" width="128" height="128"/>
-        <image name="avocado" width="128" height="128"/>
+        <image name="apple" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="arrow" width="299" height="228"/>
+        <image name="avocado" width="170.66667175292969" height="170.66667175292969"/>
         <image name="background" width="1242" height="2208"/>
-        <image name="banana" width="128" height="128"/>
-        <image name="cherries" width="128" height="128"/>
+        <image name="banana" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="cherries" width="170.66667175292969" height="170.66667175292969"/>
         <image name="circle" width="759" height="759"/>
-        <image name="eggplant" width="128" height="128"/>
-        <image name="gem" width="128" height="128"/>
-        <image name="grapes" width="128" height="128"/>
-        <image name="kiwi" width="128" height="128"/>
-        <image name="lemon" width="128" height="128"/>
-        <image name="mango" width="128" height="128"/>
+        <image name="eggplant" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="gem" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="grapes" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="kiwi" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="lemon" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="mango" width="170.66667175292969" height="170.66667175292969"/>
         <image name="menu" width="512" height="512"/>
-        <image name="orange" width="128" height="128"/>
-        <image name="peach" width="128" height="128"/>
-        <image name="pear" width="128" height="128"/>
-        <image name="pineapple" width="128" height="128"/>
-        <image name="speaker" width="128" height="128"/>
-        <image name="strawberry" width="128" height="128"/>
-        <image name="watermelon" width="128" height="128"/>
+        <image name="orange" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="peach" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="pear" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="pineapple" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="speaker" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="strawberry" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="watermelon" width="170.66667175292969" height="170.66667175292969"/>
     </resources>
 </document>

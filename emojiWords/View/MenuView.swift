@@ -68,7 +68,7 @@ class MenuView: UIView {
         bottomStack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(bottomStack)
 
-        //let helpStack = createMenuButton(buttonTitle: "HELP", image: "question")
+        let helpStack = createMenuButton(buttonTitle: "HELP", image: "question")
         let soundStack = createMenuButton(buttonTitle: "SOUND: OFF", image: "speaker")
         for subview in soundStack.arrangedSubviews {
             if let subview = subview as? UILabel {
@@ -77,7 +77,7 @@ class MenuView: UIView {
             }
         }
         bottomStack.addArrangedSubview(soundStack)
-        //bottomStack.addArrangedSubview(helpStack)
+        bottomStack.addArrangedSubview(helpStack)
         
         let bottomStackLine = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 2))
         bottomStackLine.backgroundColor = .groupTableViewBackground

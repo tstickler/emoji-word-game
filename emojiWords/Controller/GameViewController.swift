@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
     var isRecognizingPopUpGesture = false
     var dimmer: UIView?
     var menu: MenuView?
+    var returningFromHelp = false
 
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var gemCountLabel: UILabel!
@@ -77,7 +78,7 @@ class GameViewController: UIViewController {
     
     // MARK: - init functions
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         game = WordGame(gameString: gameString)
         game.delegate = self
         
@@ -90,6 +91,10 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if returningFromHelp {
+            returningFromHelp = false
+            return
+        }
         
         game.startGame()
         game.fillCorrectAnswers(correctAnswerSpots)
@@ -1130,6 +1135,8 @@ extension GameViewController: MenuDelegate {
     }
     
     func helpInteraction() {
+        returningFromHelp = true
+        performSegue(withIdentifier: "segueToHelp", sender: self)
     }
     
     func iapPurchaseTapped(ofCount count: Int) {
@@ -1227,7 +1234,6 @@ extension GameViewController: InAppPurchaseDelegate {
     }
     
     func redeemGemPurchase(gemCount: Int) {
-        print("rewarding")
         setGemCount(toCount: User.shared.gemCount + gemCount)
     }
 }
