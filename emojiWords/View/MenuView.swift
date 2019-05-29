@@ -13,9 +13,14 @@ class MenuView: UIView {
     private var soundLabel: UILabel?
     private var iapButtonStacks = [UIStackView]()
     private var iapButtons = [HighlightedButton]()
+    private var shapeIsDrawn = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        if shapeIsDrawn {
+            return
+        }
         
         self.backgroundColor = .white
         self.layer.borderColor = UIColor.black.cgColor
@@ -23,6 +28,7 @@ class MenuView: UIView {
         self.layer.zPosition = 1.0
         
         addMenuButtons()
+        shapeIsDrawn = true
     }
 
     

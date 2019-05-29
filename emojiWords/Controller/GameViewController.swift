@@ -36,6 +36,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameOverView: UIView!
     @IBOutlet weak var gameOverPackText: UILabel!
     @IBOutlet weak var gameOverButton: UIButton!
+    @IBOutlet weak var helpYes: UIButton!
+    @IBOutlet weak var helpNo: UIButton!
+    @IBOutlet weak var helpView: UIView!
     
     @IBOutlet weak var guessButton: UIButton!
     @IBOutlet weak var guessFrame: UIView!
@@ -113,6 +116,60 @@ class GameViewController: UIViewController {
     func fillFromDefaults() {
         correctAnswerSpots = GameData.shared.defaults.array(forKey: correctAnswerKey) as? [Int] ?? [Int]()
         hintRevealed = GameData.shared.defaults.array(forKey: hintKey) as? [Int] ?? [Int]()
+    }
+    
+    
+    // MARK: - Help View Functions
+    func setUpHelpView() {
+        helpNo.layer.borderColor = UIColor.black.cgColor
+        helpNo.layer.borderWidth = 2.0
+        
+        helpYes.layer.borderColor = UIColor.black.cgColor
+        helpYes.layer.borderWidth = 2.0
+
+        helpView.layer.borderColor = UIColor.black.cgColor
+        helpView.layer.zPosition = 1.0
+        helpView.layer.borderWidth = 4.0
+        
+        addDimmer()
+        
+        view.bringSubviewToFront(helpView)
+    }
+    
+    func showHelpPrompt() {
+        returningFromHelp = true
+        User.shared.helpSeen = true
+        GameData.shared.defaults.set(User.shared.helpSeen, forKey: User.shared.helpKey)
+
+        UIView.animate(withDuration: 0.75, animations: {
+            self.setUpHelpView()
+            
+            if let dimmer = self.dimmer {
+                dimmer.alpha = 0.8
+                self.helpView.alpha = 1.0
+            }
+        })
+    }
+    
+    @IBAction func helpYesTapped(_ sender: Any) {
+        performSegue(withIdentifier: "segueToHelp", sender: self)
+        UIView.animate(withDuration: 0.15, animations: {
+            self.helpView.alpha = 0.0
+            
+            if let dimmer = self.dimmer {
+                dimmer.alpha = 0.0
+            }
+        })
+    }
+    
+    @IBAction func helpNoTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.75, animations: {
+            self.helpView.alpha = 0.0
+            
+            if let dimmer = self.dimmer {
+                dimmer.alpha = 0.0
+            }
+        })
     }
     
     // MARK: - Top Bar Functions
@@ -737,6 +794,7 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         setGemCount(toCount: User.shared.gemCount + 10)
+        modifyGuessButton(withModification: "disabled")
         AudioPlayer.shared.playSoundEffect(soundEffect: "gameOver", ext: "aif")
         if let popUp = popUp {
             popUp.closeFrame()
@@ -890,6 +948,7 @@ extension GameViewController: WordGameDelegate {
     }
     
     func animateGameStart() {
+        modifyGuessButton(withModification: "disabled")
         animateClueAreaStart(withIndex: 0)
         animateCircleStart()
     }
@@ -1030,6 +1089,11 @@ extension GameViewController: CAAnimationDelegate {
                 modifyGuessButton(withModification: "guess")
             }
         }
+        
+        if !User.shared.helpSeen {
+            showHelpPrompt()
+        }
+        
         timer.invalidate()
     }
     
@@ -1185,7 +1249,7 @@ extension GameViewController: HintPopUpDelegate {
     
     func revealWordTapped(atSpot spot: Int) {
         if let popUp = popUp {
-            if User.shared.gemCount < 40 {
+            if User.shared.gemCount < 20 {
                 return
             }
             
@@ -1196,7 +1260,7 @@ extension GameViewController: HintPopUpDelegate {
             }
             
             game.fillSingleAnswer(correctSpot: spot)
-            setGemCount(toCount: User.shared.gemCount - 40)
+            setGemCount(toCount: User.shared.gemCount - 20)
             popUp.closeFrame()
         }
     }

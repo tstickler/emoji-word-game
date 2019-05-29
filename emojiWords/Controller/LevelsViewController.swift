@@ -145,6 +145,9 @@ class LevelsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setUpLevelPackButtons()
     }
     

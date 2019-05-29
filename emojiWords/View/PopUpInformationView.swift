@@ -21,9 +21,14 @@ class PopUpInformationView: UIView {
     var hintIsRevealed = false
     var wordIsRevealed = false
     var infoForClue = 0
+    private var shapeIsDrawn = false
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        
+        if shapeIsDrawn {
+            return
+        }
         
         frameHeight = 220//self.superview!.frame.height * 0.2
         frameWidth = 250//self.superview!.frame.width * 0.6
@@ -32,6 +37,7 @@ class PopUpInformationView: UIView {
         
         drawBox()
         addLabels()
+        shapeIsDrawn = true
     }
     
     private func drawBox() {
@@ -139,11 +145,11 @@ class PopUpInformationView: UIView {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
 
         let revealWordButton = UIButton(type: .system)
-        revealWordButton.setTitle("REVEAL WORD - 40 GEMS", for: .normal)
+        revealWordButton.setTitle("REVEAL WORD - 20 GEMS", for: .normal)
         revealWordButton.layer.zPosition = 0.99
         revealWordButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 22)
         revealWordButton.setTitleColor(.black, for: .normal)
-        if (User.shared.gemCount < 50 && !hintIsRevealed) || (User.shared.gemCount < 40 && hintIsRevealed) {
+        if (User.shared.gemCount < 30 && !hintIsRevealed) || (User.shared.gemCount < 20 && hintIsRevealed) {
             revealWordButton.backgroundColor = UIColor.init(red: 255/255,
                                                         green: 39/255,
                                                         blue: 35/255,

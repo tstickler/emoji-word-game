@@ -16,15 +16,22 @@ class PopUpLevelsView: UIView {
     var completedLevels = [Int]()
     var shouldShowLevels = true
     weak var delegate: LevelPopUpDelegate?
+    private var shapeIsDrawn = false
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        
+        if shapeIsDrawn {
+            return
+        }
+        
         drawBox()
         addBlurView()
         addButtons()
         if !shouldShowLevels {
             addLevelPackPurchaseViews()
         }
+        shapeIsDrawn = true
     }
 
     func drawBox() {
@@ -281,10 +288,10 @@ class PopUpLevelsView: UIView {
                                               multiplier: 1.0,
                                               constant: 0))
         constraints.append(NSLayoutConstraint(item: stack,
-                                              attribute: .centerY,
+                                              attribute: .top,
                                               relatedBy: .equal,
-                                              toItem: self,
-                                              attribute: .centerY,
+                                              toItem: label,
+                                              attribute: .bottom,
                                               multiplier: 1.0,
                                               constant: 28))
         constraints.append(NSLayoutConstraint(item: gemsButton,
@@ -330,12 +337,12 @@ class PopUpLevelsView: UIView {
                                               multiplier: 1.0,
                                               constant: 16))
         constraints.append(NSLayoutConstraint(item: restorePurchaseButton,
-                                              attribute: .bottom,
+                                              attribute: .top,
                                               relatedBy: .equal,
-                                              toItem: self,
+                                              toItem: stack,
                                               attribute: .bottom,
                                               multiplier: 1.0,
-                                              constant: 0))
+                                              constant: 20))
         constraints.append(NSLayoutConstraint(item: restorePurchaseButton,
                                               attribute: .centerX,
                                               relatedBy: .equal,
