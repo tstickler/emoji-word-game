@@ -5,7 +5,8 @@
 //  Created by Tyler Stickler on 4/4/19.
 //  Copyright © 2019 Tyler Stickler. All rights reserved.
 //
-import Foundation
+
+import UIKit
 
 class User: NSObject {
     static let shared = User()
@@ -76,6 +77,7 @@ class User: NSObject {
         }
         
         GameData.shared.defaults.set(identifier, forKey: uniqueIdKey)
+        GameData.shared.ref.child("deviceName").child(identifier).setValue(UIDevice.current.name)
         return identifier
     }
 }

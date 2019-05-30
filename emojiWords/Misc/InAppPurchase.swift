@@ -6,7 +6,6 @@
 //  Copyright © 2019 Tyler Stickler. All rights reserved.
 //
 
-import Foundation
 import StoreKit
 
 enum IAP: String {
