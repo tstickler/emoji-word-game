@@ -207,7 +207,6 @@ class GameViewController: UIViewController {
         }
         
         User.shared.gemCount = count
-        GameData.shared.defaults.set(User.shared.gemCount, forKey: User.shared.gemKey)
     }
     
     private func animateGemCountChange(gemsIncreased: Bool) {
@@ -1293,11 +1292,15 @@ extension GameViewController: InAppPurchaseDelegate {
         topMostViewController?.present(alert, animated: true, completion: nil)
     }
         
-    func levelPackPurchaseCompleted() {
+    func levelPackPurchaseCompleted(restored: Bool) {
         // Implementation un-needed here
     }
     
-    func redeemGemPurchase(gemCount: Int) {
+    func redeemGemPurchase(gemCount: Int, restored: Bool) {
         setGemCount(toCount: User.shared.gemCount + gemCount)
+        
+        if !restored {
+            User.shared.inAppPurchases?.append("\(gemCount)")
+        }
     }
 }

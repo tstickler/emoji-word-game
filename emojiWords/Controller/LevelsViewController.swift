@@ -272,16 +272,20 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
         topMostViewController?.present(alert, animated: true, completion: nil)
     }
     
-    func redeemGemPurchase(gemCount: Int) {
+    func redeemGemPurchase(gemCount: Int, restored: Bool) {
         // No implementation needed
     }
     
-    func levelPackPurchaseCompleted() {
+    func levelPackPurchaseCompleted(restored: Bool) {
         User.shared.unlockedLevelPacks.append(levelPackKey)
         GameData.shared.defaults.set(User.shared.unlockedLevelPacks, forKey: User.shared.unlockedLevelPacksKey)
 
         changePackBackground()
         showLevels()
+        
+        if !restored {
+            User.shared.inAppPurchases?.append(levelPackKey)
+        }
     }
     
     func handleLevelButton(level: Int) {
@@ -309,9 +313,8 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
         }
         
         User.shared.gemCount -= 1000
-        GameData.shared.defaults.set(User.shared.gemCount, forKey: User.shared.gemKey)
         
-        levelPackPurchaseCompleted()
+        levelPackPurchaseCompleted(restored: false)
     }
     
     func showLevels() {

@@ -81,21 +81,21 @@ class InAppPurchase: NSObject {
         }
     }
     
-    private func handlePurchase(purchase: String) {
+    private func handlePurchase(purchase: String, restored: Bool) {
         // Handles the purchase and gives the user what they bought
         switch purchase {
         case IAP.OneHundredGems.rawValue:
-            delegate?.redeemGemPurchase(gemCount: 100)
+            delegate?.redeemGemPurchase(gemCount: 100, restored: restored)
         case IAP.TwoFiftyGems.rawValue:
-            delegate?.redeemGemPurchase(gemCount: 250)
+            delegate?.redeemGemPurchase(gemCount: 250, restored: restored)
         case IAP.SevenFiftyGems.rawValue:
-            delegate?.redeemGemPurchase(gemCount: 750)
+            delegate?.redeemGemPurchase(gemCount: 750, restored: restored)
         case IAP.TwoThousandGems.rawValue:
-            delegate?.redeemGemPurchase(gemCount: 2000)
+            delegate?.redeemGemPurchase(gemCount: 2000, restored: restored)
         case IAP.FiveThousandGems.rawValue:
-            delegate?.redeemGemPurchase(gemCount: 5000)
+            delegate?.redeemGemPurchase(gemCount: 5000, restored: restored)
         case IAP.WatermelonPack.rawValue, IAP.LemonPack.rawValue, IAP.AvocadoPack.rawValue:
-            delegate?.levelPackPurchaseCompleted()
+            delegate?.levelPackPurchaseCompleted(restored: restored)
         default:
             print("Unknown purchase identifier")
         }
@@ -122,12 +122,12 @@ extension InAppPurchase: SKPaymentTransactionObserver {
                 break
             case .purchased:
                 // A purchased transaction should give the user their product
-                self.handlePurchase(purchase: transaction.payment.productIdentifier)
+                self.handlePurchase(purchase: transaction.payment.productIdentifier, restored: false)
                 queue.finishTransaction(transaction)
             case .restored:
                 // A restored transaction should restore the user purchase and inform
                 // of the completon
-                self.handlePurchase(purchase: transaction.payment.productIdentifier)
+                self.handlePurchase(purchase: transaction.payment.productIdentifier, restored: true)
                 queue.finishTransaction(transaction)
                 delegate?.alertUser(title: "Purchase Restored", message: "Your purchase has been restored.")
             case .failed:

@@ -15,10 +15,14 @@ class User: NSObject {
     let unlockedLevelPacksKey = "unlocked_packs_key"
     let helpKey = "help_key"
     let uniqueIdKey = "unique_id_key"
+    let iapKey = "iap_key"
     
     var gemCount: Int! {
         didSet {
-            GameData.shared.ref.child("userGems").child(User.shared.userId!).setValue(User.shared.gemCount)
+            if let userId = userId {
+                GameData.shared.ref.child("userGems").child(userId).setValue(gemCount)
+                GameData.shared.defaults.set(gemCount, forKey: gemKey)
+            }
         }
     }
     var prefersSoundEffects: Bool!
@@ -26,6 +30,14 @@ class User: NSObject {
     var unlockedLevelPacks: [String]!
     var helpSeen: Bool!
     var userId: String?
+    var inAppPurchases: [String]? {
+        didSet {
+            if let userId = userId {
+                GameData.shared.ref.child("iaps").child(userId).setValue(inAppPurchases)
+                GameData.shared.defaults.set(inAppPurchases, forKey: iapKey)
+            }
+        }
+    }
 
     private override init() {
         super.init()
@@ -36,6 +48,7 @@ class User: NSObject {
         unlockedLevelPacks = GameData.shared.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["banana", "pineapple", "strawberry"]
         helpSeen = GameData.shared.defaults.object(forKey: helpKey) as? Bool ?? false
         userId = GameData.shared.defaults.object(forKey: uniqueIdKey) as? String ?? createUniqueId()
+        inAppPurchases = GameData.shared.defaults.object(forKey: iapKey) as? [String] ?? [String]()
     }
     
     private func createUniqueId() -> String {
@@ -62,7 +75,7 @@ class User: NSObject {
             }
         }
         
-        GameData.shared.defaults.set(identifier, forKey: User.shared.uniqueIdKey)
+        GameData.shared.defaults.set(identifier, forKey: uniqueIdKey)
         return identifier
     }
 }
