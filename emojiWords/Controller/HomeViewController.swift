@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import FirebaseDatabase
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
@@ -33,7 +32,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSoundButton()
-        writeGemCountToFirebase()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,53 +127,5 @@ class HomeViewController: UIViewController {
         GameData.shared.defaults.set(User.shared.prefersSoundEffects, forKey: User.shared.soundKey)
         
         setSoundButtonImage()
-    }
-    
-    // MARK: - Firebase Functions
-    func initUniqueId() {
-        var identifier = User.shared.userId
-        
-        if identifier == nil {
-            identifier = createUniqueId()
-        }
-        
-        User.shared.userId = identifier!
-        GameData.shared.defaults.set(identifier!, forKey: User.shared.uniqueIdKey)
-    }
-    
-    func createUniqueId() -> String {
-        var identifier = "i-"
-        
-        for _ in 0..<12 {
-            // Determine if letter or number should be added to the identifier
-            let number = arc4random_uniform(2)
-            
-            // Case 0: append a number 0-9 to identifier
-            // Case 1: append a letter A-Z to identifier
-            if number == 0 {
-                let num = arc4random_uniform(9) + 1
-                identifier.append("\(num)")
-            } else {
-                let startingValue = Int(("A" as UnicodeScalar).value) // 65
-                let c = Character(UnicodeScalar(Int(arc4random_uniform(26)) + startingValue)!)
-                identifier.append(c)
-            }
-            
-            // Add a - after every 4 characters in the identifier
-            if identifier.count == 6 || identifier.count == 11  {
-                identifier.append("-")
-            }
-        }
-        
-        return identifier
-    }
-    
-    func writeGemCountToFirebase() {
-        initUniqueId()
-        
-        var ref: DatabaseReference!
-        
-        ref = Database.database().reference()
-        ref.child("userGems").child(User.shared.userId!).setValue(User.shared.gemCount)
     }
 }
