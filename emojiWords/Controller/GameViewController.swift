@@ -792,7 +792,7 @@ class GameViewController: UIViewController {
     }
     
     func gameOver() {
-        setGemCount(toCount: User.shared.gemCount + 10)
+        setGemCount(toCount: User.shared.gemCount + 5)
         modifyGuessButton(withModification: "disabled")
         AudioPlayer.shared.playSoundEffect(soundEffect: "gameOver", ext: "aif")
         if let popUp = popUp {
@@ -932,7 +932,7 @@ extension GameViewController: WordGameDelegate {
             animateWordReveal(atSpot: correctSpot)
             
             if !revealedByHint {
-                setGemCount(toCount: User.shared.gemCount + 2)
+                setGemCount(toCount: User.shared.gemCount + 1)
                 let notifier = UINotificationFeedbackGenerator()
                 notifier.notificationOccurred(.success)
                 AudioPlayer.shared.playSoundEffect(soundEffect: "correctAnswer", ext: "mp3")
@@ -1292,7 +1292,7 @@ extension GameViewController: InAppPurchaseDelegate {
         topMostViewController?.present(alert, animated: true, completion: nil)
     }
         
-    func levelPackPurchaseCompleted(restored: Bool) {
+    func levelPackPurchaseCompleted(restored: Bool, isGemPurchase: Bool) {
         // Implementation un-needed here
     }
     

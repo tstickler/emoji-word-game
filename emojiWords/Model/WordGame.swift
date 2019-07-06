@@ -6,6 +6,8 @@
 //  Copyright © 2019 Tyler Stickler. All rights reserved.
 //
 
+import Foundation
+
 class WordGame {
     weak var delegate: WordGameDelegate?
     

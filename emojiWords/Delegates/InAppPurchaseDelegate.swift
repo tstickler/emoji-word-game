@@ -7,7 +7,7 @@
 //
 
 protocol InAppPurchaseDelegate: class {
-    func levelPackPurchaseCompleted(restored: Bool)
+    func levelPackPurchaseCompleted(restored: Bool, isGemPurchase: Bool)
     func redeemGemPurchase(gemCount: Int, restored: Bool)
     func alertUser(title: String, message: String)
 }

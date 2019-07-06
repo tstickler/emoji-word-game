@@ -94,7 +94,7 @@ class InAppPurchase: NSObject {
         case IAP.FiveThousandGems.rawValue:
             delegate?.redeemGemPurchase(gemCount: 5000, restored: restored)
         case IAP.WatermelonPack.rawValue, IAP.LemonPack.rawValue, IAP.AvocadoPack.rawValue:
-            delegate?.levelPackPurchaseCompleted(restored: restored)
+            delegate?.levelPackPurchaseCompleted(restored: restored, isGemPurchase: false)
         default:
             print("Unknown purchase identifier")
         }

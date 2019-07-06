@@ -276,7 +276,7 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
         // No implementation needed
     }
     
-    func levelPackPurchaseCompleted(restored: Bool) {
+    func levelPackPurchaseCompleted(restored: Bool, isGemPurchase: Bool) {
         User.shared.unlockedLevelPacks.append(levelPackKey)
         GameData.shared.defaults.set(User.shared.unlockedLevelPacks, forKey: User.shared.unlockedLevelPacksKey)
 
@@ -284,7 +284,9 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
         showLevels()
         
         if !restored {
-            User.shared.inAppPurchases?.append(levelPackKey)
+            let packToAppend: String = isGemPurchase ? "GP - " + levelPackKey : levelPackKey
+            
+            User.shared.inAppPurchases?.append(packToAppend)
         }
     }
     
@@ -314,7 +316,7 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
         
         User.shared.gemCount -= 1000
         
-        levelPackPurchaseCompleted(restored: false)
+        levelPackPurchaseCompleted(restored: false, isGemPurchase: true)
     }
     
     func showLevels() {
