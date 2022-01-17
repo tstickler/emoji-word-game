@@ -11,6 +11,7 @@ target 'emojiWords' do
     pod 'Firebase/Database'
     pod 'Firebase/Analytics'
     pod 'Firebase/Crashlytics'
+    pod 'Firebase/Auth'
     pod 'Google-Mobile-Ads-SDK'
 
 end

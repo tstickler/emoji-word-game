@@ -882,8 +882,13 @@ class GameViewController: UIViewController {
 
                 // Completion block only needs to trigger once
                 if spot == 0 {
-                    self.startNextGame = true
-                    self.shouldShowAd()
+                    if self.interstitial != nil {
+                        self.startNextGame = true
+                        self.shouldShowAd()
+                    } else {
+                        self.startNextGame = false
+                        self.performNextLevelSetUp()
+                    }
                 }
             })
         }

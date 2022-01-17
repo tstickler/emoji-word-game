@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class User: NSObject {
     static let shared = User()
@@ -23,20 +24,45 @@ class User: NSObject {
     var gemCount: Int! {
         didSet {
             if let userId = userId {
-                GameData.shared.ref.child(database).child("user").child(userId).child("userGems").setValue(gemCount)
+                GameData.shared.ref
+                    .child(database)
+                    .child("users")
+                    .child(userId)
+                    .child("gems")
+                    .setValue(gemCount)
                 GameData.shared.defaults.set(gemCount, forKey: gemKey)
             }
         }
     }
     var prefersSoundEffects: Bool!
-    var completedLevels: [String: [Int]]!
+    var completedLevels: [String: [Int]]! {
+        didSet {
+            for key in completedLevels.keys {
+                completedLevels[key]?.sort()
+            }
+
+            if let userId = userId {
+                GameData.shared.ref
+                    .child(database)
+                    .child("users")
+                    .child(userId)
+                    .child("completed_levels")
+                    .setValue(completedLevels)
+            }
+        }
+    }
     var unlockedLevelPacks: [String]!
     var helpSeen: Bool!
     var userId: String?
     var inAppPurchases: [String]? {
         didSet {
             if let userId = userId {
-                GameData.shared.ref.child(database).child("user").child(userId).child("iaps").setValue(inAppPurchases)
+                GameData.shared.ref
+                    .child(database)
+                    .child("users")
+                    .child(userId)
+                    .child("in_app_purchases")
+                    .setValue(inAppPurchases)
                 GameData.shared.defaults.set(inAppPurchases, forKey: iapKey)
             }
         }
@@ -50,8 +76,24 @@ class User: NSObject {
         completedLevels = GameData.shared.defaults.dictionary(forKey: completedLevelsKey) as? [String: [Int]] ?? [String: [Int]]()
         unlockedLevelPacks = GameData.shared.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["banana", "pineapple", "strawberry"]
         helpSeen = GameData.shared.defaults.object(forKey: helpKey) as? Bool ?? false
-        userId = GameData.shared.defaults.object(forKey: uniqueIdKey) as? String ?? createUniqueId()
+        userId = GameData.shared.defaults.object(forKey: uniqueIdKey) as? String
         inAppPurchases = GameData.shared.defaults.object(forKey: iapKey) as? [String] ?? [String]()
+        signInAnon()
+    }
+
+    private func signInAnon() {
+        Auth.auth().signInAnonymously { authResult, error in
+            guard let authResult = authResult else { return }
+
+            self.userId = authResult.user.uid
+            GameData.shared.defaults.set(authResult.user.uid, forKey: self.uniqueIdKey)
+            GameData.shared.ref
+                .child(self.database)
+                .child("users")
+                .child(authResult.user.uid)
+                .child("device_name")
+                .setValue(UIDevice.current.name)
+        }
     }
     
     private func createUniqueId() -> String {
@@ -79,7 +121,12 @@ class User: NSObject {
         }
         
         GameData.shared.defaults.set(identifier, forKey: uniqueIdKey)
-        GameData.shared.ref.child(database).child("user").child(identifier).child("deviceName").setValue(UIDevice.current.name)
+        GameData.shared.ref
+            .child(database)
+            .child("users")
+            .child(identifier)
+            .child("device_name")
+            .setValue(UIDevice.current.name)
         return identifier
     }
 }
