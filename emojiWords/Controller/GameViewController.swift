@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class GameViewController: UIViewController {
+    enum AdType {
+        case interstitial
+        case rewarded
+    }
+
     // MARK: - Properties
     var circles = [SegmentedCircleView]()
     var popUp: PopUpInformationView?
@@ -25,6 +31,12 @@ class GameViewController: UIViewController {
     var dimmer: UIView?
     var menu: MenuView?
     var returningFromHelp = false
+    var returningFromAd = false
+    var startNextGame = false
+
+    private var interstitial: GADInterstitialAd?
+    private var rewardedAd: GADRewardedAd?
+    private var adType: AdType?
 
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var gemCountLabel: UILabel!
@@ -90,12 +102,14 @@ class GameViewController: UIViewController {
         setUpCircles()
         setUpGuessArea()
         setUpTopBar()
+        initAds()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if returningFromHelp {
+        if returningFromHelp || returningFromAd {
             returningFromHelp = false
+            returningFromAd = false
             return
         }
         
@@ -117,7 +131,68 @@ class GameViewController: UIViewController {
         correctAnswerSpots = GameData.shared.defaults.array(forKey: correctAnswerKey) as? [Int] ?? [Int]()
         hintRevealed = GameData.shared.defaults.array(forKey: hintKey) as? [Int] ?? [Int]()
     }
-    
+
+    // MARK: - Ad Setup
+    func initAds() {
+        loadInterstitialAd()
+        loadRewardedAd()
+    }
+
+    func loadInterstitialAd() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: DevKeys.shared.devInterstitialAd,
+                               request: request) { [self] ad, error in
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        }
+    }
+
+    func loadRewardedAd() {
+        let request = GADRequest()
+        GADRewardedAd.load(withAdUnitID: DevKeys.shared.devRewardedAd,
+                           request: request) { [self] ad, error in
+            if let error = error {
+                print("Failed to load rewarded ad with error: \(error.localizedDescription)")
+                return
+            }
+
+            rewardedAd = ad
+            rewardedAd?.fullScreenContentDelegate = self
+        }
+    }
+
+    func showInterstitialAd() {
+        if interstitial != nil {
+            adType = .interstitial
+            interstitial!.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
+    }
+
+    func showRewardedAd() {
+        if rewardedAd != nil {
+            adType = .rewarded
+            rewardedAd?.present(fromRootViewController: self) {
+                if let popUp = self.popUp {
+                    popUp.hintIsRevealed = true
+                    if !self.hintRevealed.contains(popUp.infoForClue) {
+                        self.hintRevealed.append(popUp.infoForClue)
+                        GameData.shared.defaults.set(self.hintRevealed, forKey: self.hintKey)
+                    }
+
+                    UIView.animate(withDuration: 0.6) {
+                        popUp.blurView.alpha = 0.0
+                    }
+                }
+            }
+        }
+    }
     
     // MARK: - Help View Functions
     func setUpHelpView() {
@@ -669,7 +744,7 @@ class GameViewController: UIViewController {
         } else {
             game.submitGuess()
         }
-        
+
         popUp?.closeFrame()
     }
     
@@ -790,7 +865,7 @@ class GameViewController: UIViewController {
         gameOverButton.layer.borderColor = UIColor.black.cgColor
         gameOverButton.layer.borderWidth = 2.0
     }
-    
+
     func gameOver() {
         setGemCount(toCount: User.shared.gemCount + 5)
         modifyGuessButton(withModification: "disabled")
@@ -804,10 +879,11 @@ class GameViewController: UIViewController {
                 self.emojiLabels[spot].superview!.alpha = 0
             }, completion: {
                 void in
-                
+
                 // Completion block only needs to trigger once
                 if spot == 0 {
-                    self.performNextLevelSetUp()
+                    self.startNextGame = true
+                    self.shouldShowAd()
                 }
             })
         }
@@ -913,7 +989,6 @@ class GameViewController: UIViewController {
 
 // MARK: - Game Delegate extension
 extension GameViewController: WordGameDelegate {
-    
     func setClueInformation(emojis: String, hint: String, words: Int, answer: String) {
         if let popUp = popUp {
             popUp.emojisText = emojis
@@ -1069,6 +1144,10 @@ extension GameViewController: WordGameDelegate {
         let notifier = UINotificationFeedbackGenerator()
         notifier.notificationOccurred(.error)
         AudioPlayer.shared.playSoundEffect(soundEffect: "incorrectAnswer", ext: "mp3")
+    }
+
+    func shouldShowAd() {
+        showInterstitialAd()
     }
 }
 
@@ -1245,6 +1324,10 @@ extension GameViewController: HintPopUpDelegate {
             }
         }
     }
+
+    func playAdTapped() {
+        showRewardedAd()
+    }
     
     func revealWordTapped(atSpot spot: Int) {
         if let popUp = popUp {
@@ -1301,6 +1384,38 @@ extension GameViewController: InAppPurchaseDelegate {
         
         if !restored {
             User.shared.inAppPurchases?.append("\(gemCount)")
+        }
+    }
+}
+
+// MARK: - Interstitial Delegate
+extension GameViewController: GADFullScreenContentDelegate {
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content.")
+    }
+
+    /// Tells the delegate that the ad presented full screen content.
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did present full screen content.")
+        returningFromAd = true
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+        switch adType {
+        case .interstitial:
+            loadInterstitialAd()
+        case .rewarded:
+            loadRewardedAd()
+        case .none:
+            break
+        }
+
+        if startNextGame {
+            startNextGame = false
+            performNextLevelSetUp()
         }
     }
 }

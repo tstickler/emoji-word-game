@@ -10,5 +10,6 @@ protocol HintPopUpDelegate: class {
     func revealHintTapped()
     func revealWordTapped(atSpot spot: Int)
     func closePopUp()
+    func playAdTapped()
 }
 

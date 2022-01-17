@@ -14,6 +14,7 @@ class PopUpInformationView: UIView {
     weak var delegate: HintPopUpDelegate?
     var blurView: UIVisualEffectView!
     private var revealButton = UIButton(type: .system)
+    private var adButton = UIButton(type: .system)
     var emojisText: String = ""
     var hintText: String = ""
     var wordsCount: Int = 0
@@ -113,7 +114,11 @@ class PopUpInformationView: UIView {
         revealLabel.textAlignment = .center
         revealLabel.layer.zPosition = 1.0
         revealLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+
+        let buttonStack = UIStackView()
+        buttonStack.translatesAutoresizingMaskIntoConstraints = false
+        buttonStack.spacing = 6
+
         revealButton.frame = CGRect(x: 0, y: 0, width: 90, height: 40)
         if User.shared.gemCount < 10 {
             revealButton.backgroundColor = UIColor.init(red: 255/255,
@@ -130,6 +135,19 @@ class PopUpInformationView: UIView {
         revealButton.layer.borderWidth = 2.0
         revealButton.translatesAutoresizingMaskIntoConstraints = false
         revealButton.addTarget(self, action: #selector(revealButtonTapped), for: .touchUpInside)
+
+        adButton.frame = CGRect(x: 0, y: 0, width: 90, height: 40)
+        adButton.setTitle("Watch Ad", for: .normal)
+        adButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 22)
+        adButton.setTitleColor(.black, for: .normal)
+        adButton.backgroundColor = .white
+        adButton.layer.borderColor = UIColor.black.cgColor
+        adButton.layer.borderWidth = 2.0
+        adButton.translatesAutoresizingMaskIntoConstraints = false
+        adButton.addTarget(self, action: #selector(watchAdTapped), for: .touchUpInside)
+
+        buttonStack.addArrangedSubview(revealButton)
+        buttonStack.addArrangedSubview(adButton)
         
         let closeButton = UIButton(type: .system)
         closeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
@@ -172,10 +190,11 @@ class PopUpInformationView: UIView {
         addSubview(wordsLabel)
         addSubview(lettersLabel)
         addSubview(blurView)
-        blurView.contentView.addSubview(revealButton)
+        //blurView.contentView.addSubview(revealButton)
         blurView.contentView.addSubview(revealLabel)
         addSubview(closeButton)
         addSubview(revealWordButton)
+        blurView.contentView.addSubview(buttonStack)
         
         var constraints = [NSLayoutConstraint]()
         constraints.append(NSLayoutConstraint(item: emojiLabel,
@@ -331,27 +350,28 @@ class PopUpInformationView: UIView {
                                               multiplier: 1.0,
                                               constant: 150))
         
-        constraints.append(NSLayoutConstraint(item: revealButton,
+        constraints.append(NSLayoutConstraint(item: buttonStack,
                                               attribute: .centerX,
                                               relatedBy: .equal,
                                               toItem: blurView,
                                               attribute: .centerX,
                                               multiplier: 1.0,
                                               constant: 0))
-        constraints.append(NSLayoutConstraint(item: revealButton,
+        constraints.append(NSLayoutConstraint(item: buttonStack,
                                               attribute: .centerY,
                                               relatedBy: .equal,
                                               toItem: blurView,
                                               attribute: .centerY,
                                               multiplier: 1.0,
                                               constant: 0))
+
         constraints.append(NSLayoutConstraint(item: revealButton,
                                               attribute: .width,
                                               relatedBy: .equal,
                                               toItem: nil,
                                               attribute: .width,
                                               multiplier: 1.0,
-                                              constant: 90))
+                                              constant: 100))
         constraints.append(NSLayoutConstraint(item: revealButton,
                                               attribute: .height,
                                               relatedBy: .equal,
@@ -359,7 +379,22 @@ class PopUpInformationView: UIView {
                                               attribute: .height,
                                               multiplier: 1.0,
                                               constant: 40))
-        
+
+        constraints.append(NSLayoutConstraint(item: adButton,
+                                              attribute: .width,
+                                              relatedBy: .equal,
+                                              toItem: nil,
+                                              attribute: .width,
+                                              multiplier: 1.0,
+                                              constant: 100))
+        constraints.append(NSLayoutConstraint(item: adButton,
+                                              attribute: .height,
+                                              relatedBy: .equal,
+                                              toItem: nil,
+                                              attribute: .height,
+                                              multiplier: 1.0,
+                                              constant: 40))
+
         constraints.append(NSLayoutConstraint(item: closeButton,
                                               attribute: .top,
                                               relatedBy: .equal,
@@ -418,6 +453,10 @@ class PopUpInformationView: UIView {
     
     @objc func revealButtonTapped() {
         delegate?.revealHintTapped()
+    }
+
+    @objc func watchAdTapped() {
+        delegate?.playAdTapped()
     }
     
     @objc func revealWordTapped(atSpace: Int) {

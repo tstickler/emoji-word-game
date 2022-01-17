@@ -199,6 +199,8 @@ class WordGame {
     func isGameOver() {
         if correctAnswers.count == 5 {
             gameOver()
+        } else if correctAnswers.count == 3 {
+            delegate?.shouldShowAd()
         }
     }
     

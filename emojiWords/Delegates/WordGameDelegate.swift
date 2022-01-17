@@ -14,4 +14,5 @@ protocol WordGameDelegate: class {
     func incorrectGuess()
     func setClueInformation(emojis: String, hint: String, words: Int, answer: String)
     func gameOver()
+    func shouldShowAd()
 }

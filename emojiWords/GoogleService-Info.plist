@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1004600813544-3engaignopb20op3ohkm52bl133pqte9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1004600813544-3engaignopb20op3ohkm52bl133pqte9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDFICnum7ymFB1B1NaSK2R6Vk1Zvxxlvjc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1004600813544</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tstick.Spinmoji</string>
+	<key>PROJECT_ID</key>
+	<string>spinmoji-20e1d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spinmoji-20e1d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1004600813544:ios:740d0ff2bd9ded2b69265d</string>
+</dict>
+</plist>

@@ -17,11 +17,13 @@ class User: NSObject {
     let helpKey = "help_key"
     let uniqueIdKey = "unique_id_key"
     let iapKey = "iap_key"
+
+    let database = "dev"
     
     var gemCount: Int! {
         didSet {
             if let userId = userId {
-                GameData.shared.ref.child("userGems").child(userId).setValue(gemCount)
+                GameData.shared.ref.child(database).child("user").child(userId).child("userGems").setValue(gemCount)
                 GameData.shared.defaults.set(gemCount, forKey: gemKey)
             }
         }
@@ -34,7 +36,7 @@ class User: NSObject {
     var inAppPurchases: [String]? {
         didSet {
             if let userId = userId {
-                GameData.shared.ref.child("iaps").child(userId).setValue(inAppPurchases)
+                GameData.shared.ref.child(database).child("user").child(userId).child("iaps").setValue(inAppPurchases)
                 GameData.shared.defaults.set(inAppPurchases, forKey: iapKey)
             }
         }
@@ -77,7 +79,7 @@ class User: NSObject {
         }
         
         GameData.shared.defaults.set(identifier, forKey: uniqueIdKey)
-        GameData.shared.ref.child("deviceName").child(identifier).setValue(UIDevice.current.name)
+        GameData.shared.ref.child(database).child("user").child(identifier).child("deviceName").setValue(UIDevice.current.name)
         return identifier
     }
 }
