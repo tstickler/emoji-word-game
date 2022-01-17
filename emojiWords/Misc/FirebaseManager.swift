@@ -10,14 +10,9 @@ import Firebase
 import FirebaseAuth
 
 class FirebaseManager {
-    enum DatabasePath: String {
-        case dev
-        case prod
-    }
-
     static let shared = FirebaseManager()
     private var ref: DatabaseReference!
-    private var database: DatabasePath = .dev
+    private var environment = EnvironmentManager.shared.environment
 
     init() {
         ref = Database.database().reference()
@@ -34,7 +29,7 @@ class FirebaseManager {
     }
 
     func writeDeviceName(userId: String, deviceName: String) {
-        ref.child(database.rawValue)
+        ref.child(environment.rawValue)
             .child("users")
             .child(userId)
             .child("device_name")
@@ -42,7 +37,7 @@ class FirebaseManager {
     }
 
     func writeCompletedLevels(userId: String, levels: [String: [Int]]) {
-        ref.child(database.rawValue)
+        ref.child(environment.rawValue)
             .child("users")
             .child(userId)
             .child("completed_levels")
@@ -50,7 +45,7 @@ class FirebaseManager {
     }
 
     func writeGemCount(userId: String, gemCount: Int) {
-        ref.child(database.rawValue)
+        ref.child(environment.rawValue)
             .child("users")
             .child(userId)
             .child("gems")
@@ -58,11 +53,10 @@ class FirebaseManager {
     }
 
     func writeInAppPurchases(userId: String, iaps: [String]?) {
-        ref.child(database.rawValue)
+        ref.child(environment.rawValue)
             .child("users")
             .child(userId)
             .child("in_app_purchases")
             .setValue(iaps)
-
     }
 }

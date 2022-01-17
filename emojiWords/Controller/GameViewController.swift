@@ -140,7 +140,7 @@ class GameViewController: UIViewController {
 
     func loadInterstitialAd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: DevKeys.shared.devInterstitialAd,
+        GADInterstitialAd.load(withAdUnitID: EnvironmentManager.shared.interstitialAdUnitId,
                                request: request) { [self] ad, error in
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
@@ -154,7 +154,7 @@ class GameViewController: UIViewController {
 
     func loadRewardedAd() {
         let request = GADRequest()
-        GADRewardedAd.load(withAdUnitID: DevKeys.shared.devRewardedAd,
+        GADRewardedAd.load(withAdUnitID: EnvironmentManager.shared.rewardAdUnitId,
                            request: request) { [self] ad, error in
             if let error = error {
                 print("Failed to load rewarded ad with error: \(error.localizedDescription)")

@@ -12,7 +12,7 @@
 		F3257C1A2283633E007AEC6C /* LevelPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3257C192283633E007AEC6C /* LevelPopUpDelegate.swift */; };
 		F3257C1C22836C9D007AEC6C /* InAppPurchaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */; };
 		F32782462795EE5000EB0671 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F32782452795EE5000EB0671 /* GoogleService-Info.plist */; };
-		F32782482795FF8600EB0671 /* DevKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32782472795FF8600EB0671 /* DevKeys.swift */; };
+		F32782482795FF8600EB0671 /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32782472795FF8600EB0671 /* EnvironmentManager.swift */; };
 		F327824A27961B3000EB0671 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327824927961B3000EB0671 /* FirebaseManager.swift */; };
 		F32BE04A224EA05600931BF3 /* PopUpInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32BE049224EA05600931BF3 /* PopUpInformationView.swift */; };
 		F32C30602256A3D100B973E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C305F2256A3D100B973E0 /* User.swift */; };
@@ -58,7 +58,7 @@
 		F3257C192283633E007AEC6C /* LevelPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpDelegate.swift; sourceTree = "<group>"; };
 		F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseDelegate.swift; sourceTree = "<group>"; };
 		F32782452795EE5000EB0671 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F32782472795FF8600EB0671 /* DevKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevKeys.swift; sourceTree = "<group>"; };
+		F32782472795FF8600EB0671 /* EnvironmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentManager.swift; sourceTree = "<group>"; };
 		F327824927961B3000EB0671 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F32BE049224EA05600931BF3 /* PopUpInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpInformationView.swift; sourceTree = "<group>"; };
 		F32C305F2256A3D100B973E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			children = (
 				F35663A82280B90E00FCAF5F /* InAppPurchase.swift */,
 				F315ABA82284A51F00C19D94 /* AudioPlayer.swift */,
-				F32782472795FF8600EB0671 /* DevKeys.swift */,
+				F32782472795FF8600EB0671 /* EnvironmentManager.swift */,
 				F327824927961B3000EB0671 /* FirebaseManager.swift */,
 			);
 			path = Misc;
@@ -404,7 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3257C1A2283633E007AEC6C /* LevelPopUpDelegate.swift in Sources */,
-				F32782482795FF8600EB0671 /* DevKeys.swift in Sources */,
+				F32782482795FF8600EB0671 /* EnvironmentManager.swift in Sources */,
 				F32C30622258030400B973E0 /* LevelsViewController.swift in Sources */,
 				F35663A92280B90E00FCAF5F /* InAppPurchase.swift in Sources */,
 				F3CD230D2277B8DA003E220E /* MenuDelegate.swift in Sources */,

@@ -3,3 +3,4 @@ Pods
 *.xcuserstate
 xcschememanagement.plist
 IDEFindNavigatorScopes.plist
+/emojiWords/GoogleService-Info.plist

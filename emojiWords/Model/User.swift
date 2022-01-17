@@ -58,7 +58,7 @@ class User: NSObject {
     private override init() {
         super.init()
         
-        gemCount = 1000//GameData.shared.defaults.object(forKey: gemKey) as? Int ?? 100
+        gemCount = GameData.shared.defaults.object(forKey: gemKey) as? Int ?? EnvironmentManager.shared.defaultGemCount
         prefersSoundEffects = GameData.shared.defaults.object(forKey: soundKey) as? Bool ?? true
         completedLevels = GameData.shared.defaults.dictionary(forKey: completedLevelsKey) as? [String: [Int]] ?? [String: [Int]]()
         unlockedLevelPacks = GameData.shared.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["banana", "pineapple", "strawberry"]
