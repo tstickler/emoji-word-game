@@ -13,6 +13,7 @@
 		F3257C1C22836C9D007AEC6C /* InAppPurchaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */; };
 		F32782462795EE5000EB0671 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F32782452795EE5000EB0671 /* GoogleService-Info.plist */; };
 		F32782482795FF8600EB0671 /* DevKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32782472795FF8600EB0671 /* DevKeys.swift */; };
+		F327824A27961B3000EB0671 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327824927961B3000EB0671 /* FirebaseManager.swift */; };
 		F32BE04A224EA05600931BF3 /* PopUpInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32BE049224EA05600931BF3 /* PopUpInformationView.swift */; };
 		F32C30602256A3D100B973E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C305F2256A3D100B973E0 /* User.swift */; };
 		F32C30622258030400B973E0 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C30612258030400B973E0 /* LevelsViewController.swift */; };
@@ -58,6 +59,7 @@
 		F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseDelegate.swift; sourceTree = "<group>"; };
 		F32782452795EE5000EB0671 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F32782472795FF8600EB0671 /* DevKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevKeys.swift; sourceTree = "<group>"; };
+		F327824927961B3000EB0671 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F32BE049224EA05600931BF3 /* PopUpInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpInformationView.swift; sourceTree = "<group>"; };
 		F32C305F2256A3D100B973E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F32C30612258030400B973E0 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				F35663A82280B90E00FCAF5F /* InAppPurchase.swift */,
 				F315ABA82284A51F00C19D94 /* AudioPlayer.swift */,
 				F32782472795FF8600EB0671 /* DevKeys.swift */,
+				F327824927961B3000EB0671 /* FirebaseManager.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				F32BE04A224EA05600931BF3 /* PopUpInformationView.swift in Sources */,
 				F3732F002248A66400E5E309 /* EmojiClue.swift in Sources */,
 				F3738B9A228009CC009FFFF5 /* HintPopUpDelegate.swift in Sources */,
+				F327824A27961B3000EB0671 /* FirebaseManager.swift in Sources */,
 				F3BE511B226E3EBD00B95BE8 /* PopUpLevelsView.swift in Sources */,
 				F3939C48224408F1009133BD /* AppDelegate.swift in Sources */,
 			);

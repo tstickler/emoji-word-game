@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class User: NSObject {
     static let shared = User()
@@ -24,12 +23,8 @@ class User: NSObject {
     var gemCount: Int! {
         didSet {
             if let userId = userId {
-                GameData.shared.ref
-                    .child(database)
-                    .child("users")
-                    .child(userId)
-                    .child("gems")
-                    .setValue(gemCount)
+                FirebaseManager.shared.writeGemCount(userId: userId,
+                                                     gemCount: gemCount)
                 GameData.shared.defaults.set(gemCount, forKey: gemKey)
             }
         }
@@ -42,12 +37,8 @@ class User: NSObject {
             }
 
             if let userId = userId {
-                GameData.shared.ref
-                    .child(database)
-                    .child("users")
-                    .child(userId)
-                    .child("completed_levels")
-                    .setValue(completedLevels)
+                FirebaseManager.shared.writeCompletedLevels(userId: userId,
+                                                            levels: completedLevels)
             }
         }
     }
@@ -57,12 +48,8 @@ class User: NSObject {
     var inAppPurchases: [String]? {
         didSet {
             if let userId = userId {
-                GameData.shared.ref
-                    .child(database)
-                    .child("users")
-                    .child(userId)
-                    .child("in_app_purchases")
-                    .setValue(inAppPurchases)
+                FirebaseManager.shared.writeInAppPurchases(userId: userId,
+                                                           iaps: inAppPurchases)
                 GameData.shared.defaults.set(inAppPurchases, forKey: iapKey)
             }
         }
@@ -82,17 +69,13 @@ class User: NSObject {
     }
 
     private func signInAnon() {
-        Auth.auth().signInAnonymously { authResult, error in
-            guard let authResult = authResult else { return }
-
-            self.userId = authResult.user.uid
-            GameData.shared.defaults.set(authResult.user.uid, forKey: self.uniqueIdKey)
-            GameData.shared.ref
-                .child(self.database)
-                .child("users")
-                .child(authResult.user.uid)
-                .child("device_name")
-                .setValue(UIDevice.current.name)
+        FirebaseManager.shared.signInAnonymously { success, id in
+            if let id = id, success {
+                self.userId = id
+                GameData.shared.defaults.set(id, forKey: self.uniqueIdKey)
+                FirebaseManager.shared.writeDeviceName(userId: id,
+                                                       deviceName: UIDevice.current.name)
+            }
         }
     }
     
@@ -121,12 +104,8 @@ class User: NSObject {
         }
         
         GameData.shared.defaults.set(identifier, forKey: uniqueIdKey)
-        GameData.shared.ref
-            .child(database)
-            .child("users")
-            .child(identifier)
-            .child("device_name")
-            .setValue(UIDevice.current.name)
+        FirebaseManager.shared.writeDeviceName(userId: identifier,
+                                               deviceName: UIDevice.current.name)
         return identifier
     }
 }

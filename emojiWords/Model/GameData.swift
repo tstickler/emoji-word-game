@@ -6,7 +6,7 @@
 //  Copyright © 2019 Tyler Stickler. All rights reserved.
 //
 
-import FirebaseDatabase
+import Foundation
 
 class GameData {
     static let shared = GameData()
@@ -15,11 +15,9 @@ class GameData {
     // and the array of strings is an array containing each level string for that pack.
     var levels: Dictionary<String, [String]>?
     var defaults = UserDefaults.standard
-    var ref: DatabaseReference!
     
     private init() {
         levels = readInLevels()
-        ref = Database.database().reference()
     }
     
     private func readInLevels() -> [String: [String]] {
