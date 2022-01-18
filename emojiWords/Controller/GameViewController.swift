@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
     var menu: MenuView?
     var returningFromHelp = false
     var returningFromAd = false
-    var startNextGame = false
+    var adWillstartNextGame = false
 
     private var interstitial: GADInterstitialAd?
     private var rewardedAd: GADRewardedAd?
@@ -319,7 +319,7 @@ class GameViewController: UIViewController {
         
         addDimmer()
         let menuOffset: CGFloat = 10
-        let menuWidth: CGFloat = 200
+        let menuWidth: CGFloat = 230
         let menuHeight = view.frame.height + menuOffset
         menu = MenuView(frame: CGRect(x: -menuWidth - menuOffset, y: -5, width: menuWidth + menuOffset, height: menuHeight))
         menu!.delegate = self
@@ -882,11 +882,18 @@ class GameViewController: UIViewController {
 
                 // Completion block only needs to trigger once
                 if spot == 0 {
+                    if let iaps = User.shared.inAppPurchases,
+                       iaps.contains("Remove Ads") {
+                        self.adWillstartNextGame = false
+                        self.performNextLevelSetUp()
+                        return
+                    }
+
                     if self.interstitial != nil {
-                        self.startNextGame = true
-                        self.shouldShowAd()
+                        self.adWillstartNextGame = true
+                        self.showInterstitialAd()
                     } else {
-                        self.startNextGame = false
+                        self.adWillstartNextGame = false
                         self.performNextLevelSetUp()
                     }
                 }
@@ -1152,7 +1159,14 @@ extension GameViewController: WordGameDelegate {
     }
 
     func shouldShowAd() {
-        showInterstitialAd()
+        guard let iaps = User.shared.inAppPurchases else {
+            showInterstitialAd()
+            return
+        }
+
+        if !iaps.contains("Remove Ads") {
+            showInterstitialAd()
+        }
     }
 }
 
@@ -1306,6 +1320,10 @@ extension GameViewController: MenuDelegate {
         
         InAppPurchase.shared.purchaseProduct(product: inAppPurchase)
     }
+
+    func removeAdsTapped() {
+        InAppPurchase.shared.purchaseProduct(product: .RemoveAds)
+    }
 }
 
 // MARK: - Hint PopUp Delegate Extension
@@ -1388,8 +1406,12 @@ extension GameViewController: InAppPurchaseDelegate {
         setGemCount(toCount: User.shared.gemCount + gemCount)
         
         if !restored {
-            User.shared.inAppPurchases?.append("\(gemCount)")
+            User.shared.inAppPurchases?.append("\(gemCount) gems")
         }
+    }
+
+    func removeAds() {
+        User.shared.inAppPurchases?.append("Remove Ads")
     }
 }
 
@@ -1418,8 +1440,8 @@ extension GameViewController: GADFullScreenContentDelegate {
             break
         }
 
-        if startNextGame {
-            startNextGame = false
+        if adWillstartNextGame {
+            adWillstartNextGame = false
             performNextLevelSetUp()
         }
     }

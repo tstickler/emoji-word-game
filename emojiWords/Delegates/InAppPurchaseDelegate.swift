@@ -9,5 +9,6 @@
 protocol InAppPurchaseDelegate: class {
     func levelPackPurchaseCompleted(restored: Bool, isGemPurchase: Bool)
     func redeemGemPurchase(gemCount: Int, restored: Bool)
+    func removeAds()
     func alertUser(title: String, message: String)
 }

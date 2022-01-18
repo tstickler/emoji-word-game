@@ -46,27 +46,29 @@ class MenuView: UIView {
         let homeStack = createMenuButton(buttonTitle: "HOME", image: "house")
         let levelsStack = createMenuButton(buttonTitle: "LEVELS", image: "invader")
         let gemsStack = createMenuButton(buttonTitle: "BUY GEMS", image: "gem")
+        let removeAds = createMenuButton(buttonTitle: "REMOVE ADS", image: "cross-mark")
         topStack.addArrangedSubview(homeStack)
         topStack.addArrangedSubview(levelsStack)
+        topStack.addArrangedSubview(removeAds)
         topStack.addArrangedSubview(gemsStack)
-        
-        let ten = createIAPButton(ofCount: 100, forPrice: 1)
-        let twentyfive = createIAPButton(ofCount: 250, forPrice: 2)
-        let seventyFive = createIAPButton(ofCount: 750, forPrice: 5)
-        let twohundred = createIAPButton(ofCount: 2000, forPrice: 10)
-        let fivehundred = createIAPButton(ofCount: 5000, forPrice: 20)
 
-        topStack.addArrangedSubview(ten)
-        topStack.addArrangedSubview(twentyfive)
-        topStack.addArrangedSubview(seventyFive)
-        topStack.addArrangedSubview(twohundred)
-        topStack.addArrangedSubview(fivehundred)
+        let oneHundred = createIAPButton(ofCount: 100, forPrice: 1)
+        let twoFifty = createIAPButton(ofCount: 250, forPrice: 2)
+        let sevenFifty = createIAPButton(ofCount: 750, forPrice: 5)
+        let twoThousand = createIAPButton(ofCount: 2000, forPrice: 10)
+        let fiveThousand = createIAPButton(ofCount: 5000, forPrice: 20)
+
+        topStack.addArrangedSubview(oneHundred)
+        topStack.addArrangedSubview(twoFifty)
+        topStack.addArrangedSubview(sevenFifty)
+        topStack.addArrangedSubview(twoThousand)
+        topStack.addArrangedSubview(fiveThousand)
         
-        iapButtonStacks.append(ten)
-        iapButtonStacks.append(twentyfive)
-        iapButtonStacks.append(seventyFive)
-        iapButtonStacks.append(twohundred)
-        iapButtonStacks.append(fivehundred)
+        iapButtonStacks.append(oneHundred)
+        iapButtonStacks.append(twoFifty)
+        iapButtonStacks.append(sevenFifty)
+        iapButtonStacks.append(twoThousand)
+        iapButtonStacks.append(fiveThousand)
         
         let bottomStack = UIStackView()
         bottomStack.axis = .vertical
@@ -390,6 +392,8 @@ class MenuView: UIView {
             // User is attempting to purchase an item
             // Button tag is holding the amount trying to be purchased
             delegate?.iapPurchaseTapped(ofCount: sender.tag)
+        case "cross-mark":
+            delegate?.removeAdsTapped()
         default:
             return
         }

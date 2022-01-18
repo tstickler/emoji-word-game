@@ -12,4 +12,5 @@ protocol MenuDelegate: class {
     func soundInteraction()
     func helpInteraction()
     func iapPurchaseTapped(ofCount: Int)
+    func removeAdsTapped()
 }

@@ -275,6 +275,10 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
     func redeemGemPurchase(gemCount: Int, restored: Bool) {
         // No implementation needed
     }
+
+    func removeAds() {
+        
+    }
     
     func levelPackPurchaseCompleted(restored: Bool, isGemPurchase: Bool) {
         User.shared.unlockedLevelPacks.append(levelPackKey)

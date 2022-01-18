@@ -17,6 +17,7 @@ enum IAP: String {
     case WatermelonPack     = "com.tstick.Spinmoji.WatermelonPack"
     case LemonPack          = "com.tstick.Spinmoji.LemonPack"
     case AvocadoPack        = "com.tstick.Spinmoji.AvocadoPack"
+    case RemoveAds          = "com.tstick.Spinmoji.RemoveAds"
 }
 
 class InAppPurchase: NSObject {
@@ -33,10 +34,15 @@ class InAppPurchase: NSObject {
     
     private func getProducts() {
         // Gets products from itunes connect
-        let products: Set = [IAP.OneHundredGems.rawValue, IAP.TwoFiftyGems.rawValue,
-                             IAP.SevenFiftyGems.rawValue, IAP.TwoThousandGems.rawValue,
-                             IAP.FiveThousandGems.rawValue, IAP.WatermelonPack.rawValue,
-                             IAP.LemonPack.rawValue, IAP.AvocadoPack.rawValue]
+        let products: Set = [IAP.OneHundredGems.rawValue,
+                             IAP.TwoFiftyGems.rawValue,
+                             IAP.SevenFiftyGems.rawValue,
+                             IAP.TwoThousandGems.rawValue,
+                             IAP.FiveThousandGems.rawValue,
+                             IAP.WatermelonPack.rawValue,
+                             IAP.LemonPack.rawValue,
+                             IAP.AvocadoPack.rawValue,
+                             IAP.RemoveAds.rawValue]
         
         let request = SKProductsRequest(productIdentifiers: products)
         request.delegate = self
@@ -93,8 +99,12 @@ class InAppPurchase: NSObject {
             delegate?.redeemGemPurchase(gemCount: 2000, restored: restored)
         case IAP.FiveThousandGems.rawValue:
             delegate?.redeemGemPurchase(gemCount: 5000, restored: restored)
-        case IAP.WatermelonPack.rawValue, IAP.LemonPack.rawValue, IAP.AvocadoPack.rawValue:
+        case IAP.WatermelonPack.rawValue,
+            IAP.LemonPack.rawValue,
+            IAP.AvocadoPack.rawValue:
             delegate?.levelPackPurchaseCompleted(restored: restored, isGemPurchase: false)
+        case IAP.RemoveAds.rawValue:
+            delegate?.removeAds()
         default:
             print("Unknown purchase identifier")
         }
