@@ -345,7 +345,7 @@ class GameViewController: UIViewController {
     }
     
     func animateMenu(isShowing: Bool, animationCompletion: (() -> Void)? = nil) {
-        let xPosOfView: CGFloat = isShowing ? -10 : -210
+        let xPosOfView: CGFloat = isShowing ? -10 : -240
         let dimmerAlpha: CGFloat = isShowing ? 0.65 : 0
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
