@@ -20,6 +20,9 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var returnButton: UIButton!
     
     @IBAction func returnButtonTapped(_ sender: Any) {
+        if let id = User.shared.userId {
+            FirebaseManager.shared.writeViewedHelp(userId: id, viewed: true)
+        }
         navigationController?.popViewController(animated: true)
     }
     

@@ -14,6 +14,7 @@ class MenuView: UIView {
     private var iapButtonStacks = [UIStackView]()
     private var iapButtons = [HighlightedButton]()
     private var shapeIsDrawn = false
+    private var removeAdsStack: UIStackView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,10 +47,14 @@ class MenuView: UIView {
         let homeStack = createMenuButton(buttonTitle: "HOME", image: "house")
         let levelsStack = createMenuButton(buttonTitle: "LEVELS", image: "invader")
         let gemsStack = createMenuButton(buttonTitle: "BUY GEMS", image: "gem")
-        let removeAds = createMenuButton(buttonTitle: "REMOVE ADS", image: "cross-mark")
         topStack.addArrangedSubview(homeStack)
         topStack.addArrangedSubview(levelsStack)
-        topStack.addArrangedSubview(removeAds)
+
+        if let iaps = User.shared.inAppPurchases, !iaps.contains("Remove Ads") {
+            let removeAds = createMenuButton(buttonTitle: "REMOVE ADS", image: "cross-mark")
+            topStack.addArrangedSubview(removeAds)
+            removeAdsStack = removeAds
+        }
         topStack.addArrangedSubview(gemsStack)
 
         let oneHundred = createIAPButton(ofCount: 100, forPrice: 1)
@@ -425,6 +430,10 @@ class MenuView: UIView {
             }
             self.animateIapButtons(withIndex: nextIndex, toAlpha: alpha, stopIndex: stopIndex)
         })
+    }
+
+    func hideRemoveAds() {
+        removeAdsStack?.isHidden = true
     }
 }
 

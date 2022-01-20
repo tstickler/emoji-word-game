@@ -1412,6 +1412,9 @@ extension GameViewController: InAppPurchaseDelegate {
 
     func removeAds() {
         User.shared.inAppPurchases?.append("Remove Ads")
+
+        guard let menu = menu else { return }
+        menu.hideRemoveAds()
     }
 }
 

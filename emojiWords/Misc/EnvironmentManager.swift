@@ -25,7 +25,7 @@ class EnvironmentManager {
     init() {
         switch environment {
         case .dev:
-            defaultGemCount = 1000
+            defaultGemCount = 9000
             interstitialAdUnitId = "ca-app-pub-3940256099942544/5135589807"
             rewardAdUnitId = "ca-app-pub-3940256099942544/1712485313"
         case .prod:
