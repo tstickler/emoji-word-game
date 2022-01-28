@@ -212,7 +212,7 @@ class PopUpLevelsView: UIView {
         addSubview(restorePurchaseButton)
         
         let gemsButton = UIButton(type: .system)
-        gemsButton.setTitle("1000 GEMS", for: .normal)
+        gemsButton.setTitle("\(GameData.shared.packGemPurchase) GEMS", for: .normal)
         if User.shared.gemCount >= 1000 {
             gemsButton.backgroundColor = .white
         } else {

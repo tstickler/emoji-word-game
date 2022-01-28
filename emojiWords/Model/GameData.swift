@@ -10,6 +10,16 @@ import Foundation
 
 class GameData {
     static let shared = GameData()
+
+    // Gem rewards
+    let wordGemReward = 1
+    let levelGemReward = 5
+    let packGemReward = 200
+
+    // Gem purchases
+    let hintGemPurchase = 10
+    let wordGemPurchase = 20
+    let packGemPurchase = 500
     
     // Each key maps to another dictionary where the key is the name of the level pack
     // and the array of strings is an array containing each level string for that pack.

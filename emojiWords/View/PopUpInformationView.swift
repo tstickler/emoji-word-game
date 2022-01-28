@@ -128,7 +128,7 @@ class PopUpInformationView: UIView {
         } else {
             revealButton.backgroundColor = .white
         }
-        revealButton.setTitle("10 GEMS", for: .normal)
+        revealButton.setTitle("\(GameData.shared.hintGemPurchase) GEMS", for: .normal)
         revealButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 22)
         revealButton.setTitleColor(.black, for: .normal)
         revealButton.layer.borderColor = UIColor.black.cgColor
@@ -163,7 +163,7 @@ class PopUpInformationView: UIView {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
 
         let revealWordButton = UIButton(type: .system)
-        revealWordButton.setTitle("REVEAL WORD - 20 GEMS", for: .normal)
+        revealWordButton.setTitle("REVEAL WORD - \(GameData.shared.wordGemPurchase) GEMS", for: .normal)
         revealWordButton.layer.zPosition = 0.99
         revealWordButton.titleLabel?.font = UIFont(name: "VTC-GarageSale", size: 22)
         revealWordButton.setTitleColor(.black, for: .normal)

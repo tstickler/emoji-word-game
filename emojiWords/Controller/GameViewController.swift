@@ -297,8 +297,7 @@ class GameViewController: UIViewController {
         UIView.transition(with: gemCountLabel, duration: 0.4, options: .transitionFlipFromTop, animations: {
             // User is shown a message
             self.gemCountLabel.textColor = color
-        }, completion: {
-            (Void) in
+        }, completion: { _ in
             // Fade out the message
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600), execute: {
                 UIView.transition(with: self.gemCountLabel, duration: 0.4, options: .transitionFlipFromBottom, animations: {
@@ -867,7 +866,7 @@ class GameViewController: UIViewController {
     }
 
     func gameOver() {
-        setGemCount(toCount: User.shared.gemCount + 5)
+        setGemCount(toCount: User.shared.gemCount + GameData.shared.levelGemReward)
         modifyGuessButton(withModification: "disabled")
         AudioPlayer.shared.playSoundEffect(soundEffect: "gameOver", ext: "aif")
         if let popUp = popUp {
@@ -943,6 +942,8 @@ class GameViewController: UIViewController {
     }
     
     func levelPackComplete() {
+        setGemCount(toCount: User.shared.gemCount + GameData.shared.packGemReward)
+
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
             self.levelPackImage.transform = CGAffineTransform(scaleX: 1.0, y: 0.1)
         }, completion: {
@@ -1019,7 +1020,7 @@ extension GameViewController: WordGameDelegate {
             animateWordReveal(atSpot: correctSpot)
             
             if !revealedByHint {
-                setGemCount(toCount: User.shared.gemCount + 1)
+                setGemCount(toCount: User.shared.gemCount + GameData.shared.wordGemReward)
                 let notifier = UINotificationFeedbackGenerator()
                 notifier.notificationOccurred(.success)
                 AudioPlayer.shared.playSoundEffect(soundEffect: "correctAnswer", ext: "mp3")
@@ -1340,7 +1341,7 @@ extension GameViewController: HintPopUpDelegate {
                 hintRevealed.append(popUp.infoForClue)
                 GameData.shared.defaults.set(hintRevealed, forKey: hintKey)
             }
-            setGemCount(toCount: User.shared.gemCount - 10)
+            setGemCount(toCount: User.shared.gemCount - GameData.shared.hintGemPurchase)
             
             UIView.animate(withDuration: 0.6) {
                 popUp.blurView.alpha = 0.0
@@ -1365,7 +1366,7 @@ extension GameViewController: HintPopUpDelegate {
             }
             
             game.fillSingleAnswer(correctSpot: spot)
-            setGemCount(toCount: User.shared.gemCount - 20)
+            setGemCount(toCount: User.shared.gemCount - GameData.shared.wordGemPurchase)
             popUp.closeFrame()
         }
     }

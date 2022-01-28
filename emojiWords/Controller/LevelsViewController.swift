@@ -314,11 +314,11 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
     
     func handleGemsButton() {
         guard let _ = levelPackKey else { return }
-        if User.shared.gemCount < 1000 {
+        if User.shared.gemCount < GameData.shared.packGemPurchase {
             return
         }
         
-        User.shared.gemCount -= 1000
+        User.shared.gemCount -= GameData.shared.packGemPurchase
         
         levelPackPurchaseCompleted(restored: false, isGemPurchase: true)
     }
