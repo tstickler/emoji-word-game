@@ -77,7 +77,9 @@ class PopUpInformationView: UIView {
         let hintLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         hintLabel.font = UIFont(name: "VTC-GarageSale", size: 22)
         hintLabel.text = hintText
-        hintLabel.numberOfLines = 0
+        hintLabel.numberOfLines = 3
+        hintLabel.minimumScaleFactor = 0.5
+        hintLabel.adjustsFontSizeToFitWidth = true
         hintLabel.textAlignment = .center
         hintLabel.layer.zPosition = 0.99
         hintLabel.translatesAutoresizingMaskIntoConstraints = false
