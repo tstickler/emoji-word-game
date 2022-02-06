@@ -1,5 +1,5 @@
 Pods
-/emojiWords/Misc/DevKeys.swift
+/emojiWords/Misc/EnvironmentManager.swift
 *.xcuserstate
 xcschememanagement.plist
 IDEFindNavigatorScopes.plist
