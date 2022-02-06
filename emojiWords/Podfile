@@ -13,5 +13,6 @@ target 'emojiWords' do
     pod 'Firebase/Crashlytics'
     pod 'Firebase/Auth'
     pod 'Google-Mobile-Ads-SDK'
+    pod 'TrueTime'
 
 end

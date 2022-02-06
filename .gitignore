@@ -4,3 +4,7 @@ Pods
 xcschememanagement.plist
 IDEFindNavigatorScopes.plist
 /emojiWords/GoogleService-Info.plist
+xcshareddata
+.DS_Store
+master.json
+levels.json

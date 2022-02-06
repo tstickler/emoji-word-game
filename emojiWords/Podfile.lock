@@ -117,6 +117,7 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - TrueTime (5.0.3)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -125,6 +126,7 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - Firebase/Database
   - Google-Mobile-Ads-SDK
+  - TrueTime
 
 SPEC REPOS:
   trunk:
@@ -145,6 +147,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - TrueTime
 
 SPEC CHECKSUMS:
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
@@ -164,7 +167,8 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  TrueTime: b49551ffafb28a9dee04e51b226f42a416010842
 
-PODFILE CHECKSUM: f4aec516a84f31b964fc3c5f601c2a0cfa74db00
+PODFILE CHECKSUM: fd0775b093a0c221c15a751b136046a7cac2e525
 
 COCOAPODS: 1.11.2

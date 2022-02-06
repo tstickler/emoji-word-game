@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9C2DCA47E297BA5D824798E2 /* Pods_emojiWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DCD0857AA883ACD4FFB23A /* Pods_emojiWords.framework */; };
 		F315ABA92284A51F00C19D94 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F315ABA82284A51F00C19D94 /* AudioPlayer.swift */; };
+		F319AB6327A5C9DB00DE38D5 /* DailyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319AB6227A5C9DB00DE38D5 /* DailyGenerator.swift */; };
+		F319AB6527A5CFB500DE38D5 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319AB6427A5CFB500DE38D5 /* Hasher.swift */; };
+		F319AB6727A5CFC500DE38D5 /* EmojiWordsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319AB6627A5CFC500DE38D5 /* EmojiWordsGenerator.swift */; };
 		F3257C1A2283633E007AEC6C /* LevelPopUpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3257C192283633E007AEC6C /* LevelPopUpDelegate.swift */; };
 		F3257C1C22836C9D007AEC6C /* InAppPurchaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */; };
 		F32782462795EE5000EB0671 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F32782452795EE5000EB0671 /* GoogleService-Info.plist */; };
@@ -55,6 +58,9 @@
 		3E0F4CEA5F620D1DE4A22152 /* Pods-emojiWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emojiWords.release.xcconfig"; path = "Target Support Files/Pods-emojiWords/Pods-emojiWords.release.xcconfig"; sourceTree = "<group>"; };
 		5BAEA32E00DB9AE7C90EF0AB /* Pods-emojiWords.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emojiWords.debug.xcconfig"; path = "Target Support Files/Pods-emojiWords/Pods-emojiWords.debug.xcconfig"; sourceTree = "<group>"; };
 		F315ABA82284A51F00C19D94 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		F319AB6227A5C9DB00DE38D5 /* DailyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGenerator.swift; sourceTree = "<group>"; };
+		F319AB6427A5CFB500DE38D5 /* Hasher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hasher.swift; path = ../../../../Wordmoji/emoji_words_generator/emoji_words_generator/Hasher.swift; sourceTree = "<group>"; };
+		F319AB6627A5CFC500DE38D5 /* EmojiWordsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiWordsGenerator.swift; path = ../../../../Wordmoji/emoji_words_generator/emoji_words_generator/EmojiWordsGenerator.swift; sourceTree = "<group>"; };
 		F3257C192283633E007AEC6C /* LevelPopUpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopUpDelegate.swift; sourceTree = "<group>"; };
 		F3257C1B22836C9D007AEC6C /* InAppPurchaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseDelegate.swift; sourceTree = "<group>"; };
 		F32782452795EE5000EB0671 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -121,6 +127,16 @@
 			path = emojiWords/Pods;
 			sourceTree = "<group>";
 		};
+		F319AB5D27A5C87300DE38D5 /* DailyController */ = {
+			isa = PBXGroup;
+			children = (
+				F319AB6227A5C9DB00DE38D5 /* DailyGenerator.swift */,
+				F319AB6627A5CFC500DE38D5 /* EmojiWordsGenerator.swift */,
+				F319AB6427A5CFB500DE38D5 /* Hasher.swift */,
+			);
+			path = DailyController;
+			sourceTree = "<group>";
+		};
 		F3257C1E22849C3D007AEC6C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +188,7 @@
 		F36A4002224427CC0049DDBD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F319AB5D27A5C87300DE38D5 /* DailyController */,
 				F35663AA2281FF9700FCAF5F /* HomeViewController.swift */,
 				F32C30612258030400B973E0 /* LevelsViewController.swift */,
 				F3939C49224408F1009133BD /* GameViewController.swift */,
@@ -407,6 +424,7 @@
 				F32782482795FF8600EB0671 /* EnvironmentManager.swift in Sources */,
 				F32C30622258030400B973E0 /* LevelsViewController.swift in Sources */,
 				F35663A92280B90E00FCAF5F /* InAppPurchase.swift in Sources */,
+				F319AB6727A5CFC500DE38D5 /* EmojiWordsGenerator.swift in Sources */,
 				F3CD230D2277B8DA003E220E /* MenuDelegate.swift in Sources */,
 				F35663AB2281FF9700FCAF5F /* HomeViewController.swift in Sources */,
 				F38FD3F82278F5A500E43F10 /* MenuButton.swift in Sources */,
@@ -417,6 +435,7 @@
 				F3257C1C22836C9D007AEC6C /* InAppPurchaseDelegate.swift in Sources */,
 				F3939C4A224408F1009133BD /* GameViewController.swift in Sources */,
 				F3732EFC2248A30200E5E309 /* WordGame.swift in Sources */,
+				F319AB6527A5CFB500DE38D5 /* Hasher.swift in Sources */,
 				F3F0D53C226C102F00128092 /* GameData.swift in Sources */,
 				F36A4004224427F80049DDBD /* SegementedCircleView.swift in Sources */,
 				F32C30602256A3D100B973E0 /* User.swift in Sources */,
@@ -426,6 +445,7 @@
 				F327824A27961B3000EB0671 /* FirebaseManager.swift in Sources */,
 				F3BE511B226E3EBD00B95BE8 /* PopUpLevelsView.swift in Sources */,
 				F3939C48224408F1009133BD /* AppDelegate.swift in Sources */,
+				F319AB6327A5C9DB00DE38D5 /* DailyGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +597,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78T5848B44;
 				INFOPLIST_FILE = emojiWords/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,7 +618,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 78T5848B44;
 				INFOPLIST_FILE = emojiWords/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
