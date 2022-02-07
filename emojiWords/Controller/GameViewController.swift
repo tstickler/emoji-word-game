@@ -33,6 +33,8 @@ class GameViewController: UIViewController {
     var returningFromHelp = false
     var returningFromAd = false
     var adWillstartNextGame = false
+    var levelType: LevelType!
+    var bonusGemMultiplier: Int = 1
 
     private var interstitial: GADInterstitialAd?
     private var rewardedAd: GADRewardedAd?
@@ -103,6 +105,10 @@ class GameViewController: UIViewController {
         setUpGuessArea()
         setUpTopBar()
         initAds()
+
+        if levelType == .daily {
+            bonusGemMultiplier = 2
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -859,14 +865,14 @@ class GameViewController: UIViewController {
         gameOverView.layer.zPosition = 1.0
         gameOverView.layer.borderColor = greenColor.cgColor
         gameOverView.layer.borderWidth = 4.0
-        gameOverPackText.text = "\(levelPackName.uppercased()) PACK"
+        gameOverPackText.text = levelType == .pack ? "\(levelPackName.uppercased()) PACK" : "DAILY \(levelNumber)"
         
         gameOverButton.layer.borderColor = UIColor.black.cgColor
         gameOverButton.layer.borderWidth = 2.0
     }
 
     func gameOver() {
-        setGemCount(toCount: User.shared.gemCount + GameData.shared.levelGemReward)
+        setGemCount(toCount: User.shared.gemCount + GameData.shared.levelGemReward * bonusGemMultiplier)
         modifyGuessButton(withModification: "disabled")
         AudioPlayer.shared.playSoundEffect(soundEffect: "gameOver", ext: "aif")
         if let popUp = popUp {
@@ -942,7 +948,9 @@ class GameViewController: UIViewController {
     }
     
     func levelPackComplete() {
-        setGemCount(toCount: User.shared.gemCount + GameData.shared.packGemReward)
+        if levelType == .pack {
+            setGemCount(toCount: User.shared.gemCount + GameData.shared.packGemReward)
+        }
 
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
             self.levelPackImage.transform = CGAffineTransform(scaleX: 1.0, y: 0.1)
@@ -1020,7 +1028,7 @@ extension GameViewController: WordGameDelegate {
             animateWordReveal(atSpot: correctSpot)
             
             if !revealedByHint {
-                setGemCount(toCount: User.shared.gemCount + GameData.shared.wordGemReward)
+                setGemCount(toCount: User.shared.gemCount + GameData.shared.wordGemReward * bonusGemMultiplier)
                 let notifier = UINotificationFeedbackGenerator()
                 notifier.notificationOccurred(.success)
                 AudioPlayer.shared.playSoundEffect(soundEffect: "correctAnswer", ext: "mp3")

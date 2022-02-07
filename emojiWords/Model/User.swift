@@ -61,7 +61,7 @@ class User: NSObject {
         gemCount = GameData.shared.defaults.object(forKey: gemKey) as? Int ?? EnvironmentManager.shared.defaultGemCount
         prefersSoundEffects = GameData.shared.defaults.object(forKey: soundKey) as? Bool ?? true
         completedLevels = GameData.shared.defaults.dictionary(forKey: completedLevelsKey) as? [String: [Int]] ?? [String: [Int]]()
-        unlockedLevelPacks = GameData.shared.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["banana", "pineapple", "strawberry"]
+        unlockedLevelPacks = GameData.shared.defaults.array(forKey: unlockedLevelPacksKey) as? [String] ?? ["daily", "banana", "pineapple", "strawberry"]
         helpSeen = GameData.shared.defaults.object(forKey: helpKey) as? Bool ?? false
         userId = GameData.shared.defaults.object(forKey: uniqueIdKey) as? String
         inAppPurchases = GameData.shared.defaults.object(forKey: iapKey) as? [String] ?? [String]()

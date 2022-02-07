@@ -8,10 +8,16 @@
 
 import UIKit
 
+enum LevelType {
+    case daily
+    case pack
+}
+
 class LevelsViewController: UIViewController {
     private var levelString = ""
     private var levelPackKey: String!
     private var levelIndex: Int!
+    private var levelType: LevelType!
     private var levelPackButton: UIButton!
     private var popUpLevels: PopUpLevelsView?
     
@@ -19,8 +25,10 @@ class LevelsViewController: UIViewController {
     @IBOutlet weak var scroller: UIScrollView!
     @IBOutlet var levelPacksStacks: [UIStackView]!
     @IBOutlet var levelPacksContainerViews: [UIView]!
-    
+
+    private var dailyFetchInFlight = false
     private var animationIsOccuring = false
+
     @IBAction func levelPackSelected(_ sender: UIButton) {
         if animationIsOccuring {
             return
@@ -120,6 +128,37 @@ class LevelsViewController: UIViewController {
         
         levelPackButton = sender
     }
+
+    @IBAction func dailyButtonTapped(_ sender: Any) {
+        guard !dailyFetchInFlight else { return }
+        let generator = DailyGenerator()
+        dailyFetchInFlight = true
+        generator.generate { result in
+            self.dailyFetchInFlight = false
+            switch result {
+            case .success(let levelString):
+                self.setupForDailyLevel(levelString: levelString,
+                                        generatedDate: generator.fetchedDateString!)
+                self.performSegue(withIdentifier: "segueToGameView", sender: nil)
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+
+    func setupForDailyLevel(levelString: String, generatedDate: String) {
+        self.levelString = levelString
+        self.levelPackKey = "DAILY"
+        let stringDate = "2022-02-06"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let baseDate = dateFormatter.date(from: stringDate)!
+        let genDate = dateFormatter.date(from: generatedDate)!
+        let secondsSinceBase = genDate.timeIntervalSince(baseDate)
+        let daysSinceBase = Int(secondsSinceBase / 86400)
+        self.levelIndex = daysSinceBase
+        self.levelType = .daily
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToGameView" {
@@ -127,6 +166,7 @@ class LevelsViewController: UIViewController {
             gameViewController.gameString = levelString
             gameViewController.levelPackName = levelPackKey.capitalized
             gameViewController.levelNumber = levelIndex + 1
+            gameViewController.levelType = levelType
         }
     }
     
@@ -140,7 +180,9 @@ class LevelsViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         // Simulates a pack close after the view has disappeared.
-        levelPackButton.sendActions(for: .touchUpInside)
+        if levelType == .pack {
+            levelPackButton.sendActions(for: .touchUpInside)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -296,6 +338,7 @@ extension LevelsViewController: LevelPopUpDelegate, InAppPurchaseDelegate {
     
     func handleLevelButton(level: Int) {
         levelIndex = level - 1
+        levelType = .pack
         
         if let levels = GameData.shared.levels, let levelPack = levels[levelPackKey] {
             levelString = levelPack[levelIndex]

@@ -15,11 +15,16 @@ class DailyGenerator {
         case unableToGenerateLevel
     }
 
-    func generate(completion: @escaping (Result<String, DailyGeneratorError>) -> Void) {
-        let client = TrueTimeClient.sharedInstance
-        client.start()
+    private let trueTimeClient: TrueTimeClient
+    private(set) var fetchedDateString: String?
 
-        client.fetchIfNeeded(completion: { timeResult in
+    init() {
+        trueTimeClient = TrueTimeClient.sharedInstance
+    }
+
+    func generate(completion: @escaping (Result<String, DailyGeneratorError>) -> Void) {
+
+        trueTimeClient.fetchIfNeeded(completion: { timeResult in
             switch timeResult {
             case .success(let referenceTime):
                 self.generateDailyLevel(date: referenceTime.now()) { levelResult in
@@ -33,6 +38,7 @@ class DailyGenerator {
 
     private func generateDailyLevel(date: Date, completion: (Result<String, DailyGeneratorError>) -> Void) {
         let dateString = getDateString(fromDate: date)
+        fetchedDateString = dateString
         let words = generateDailyWords(fromDateString: dateString)
 
         let generatedLevel = EmojiWordsGenerator.init(wordBank: words,

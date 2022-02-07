@@ -16,6 +16,8 @@ class GameData {
     let levelGemReward = 5
     let packGemReward = 200
 
+    let dailyBonus = 2
+
     // Gem purchases
     let hintGemPurchase = 10
     let wordGemPurchase = 20
